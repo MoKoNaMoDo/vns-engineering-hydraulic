@@ -21,12 +21,12 @@ const industries = [
 ];
 
 const diagramItems = [
-  { name: "Fitting and adapter", image: "/products/fittings.png", angle: -90 },
-  { name: "Hydraulic Hose", image: "/products/hydraulic-hose.png", angle: -30 },
-  { name: "Steam Hose", image: "/products/steam-hose.png", angle: 30 },
-  { name: "PTFE Hose/ Teflon Hose", image: "/products/ptfe-hose.png", angle: 90 },
-  { name: "Metal Hose", image: "/products/metal-hose.png", angle: 150 },
-  { name: "Industrial Hose", image: "/products/industrial-hose.png", angle: 210 },
+  { name: "Fitting and adapter", image: "/products/fittings.png", angle: -90, href: "#" },
+  { name: "Hydraulic Hose", image: "/products/hydraulic-hose.png", angle: -30, href: "/products/hydraulic-hose" },
+  { name: "Steam Hose", image: "/products/steam-hose.png", angle: 30, href: "#" },
+  { name: "PTFE Hose/ Teflon Hose", image: "/products/ptfe-hose.png", angle: 90, href: "/products/ptfe-teflon-hose" },
+  { name: "Metal Hose", image: "/products/metal-hose.png", angle: 150, href: "/products/stainless-steel-flexible-hose" },
+  { name: "Industrial Hose", image: "/products/industrial-hose.png", angle: 210, href: "#" },
 ];
 
 export default function CompanyOverview() {

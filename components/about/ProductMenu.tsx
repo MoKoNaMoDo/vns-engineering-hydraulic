@@ -30,8 +30,13 @@ export default function ProductMenu() {
         {productLinks.map((item, index) => (
           <Link
             key={item}
-            href={item === "Hydraulic Hose" ? "/products/hydraulic-hose" : (index < 8 ? "/products/stainless-304" : "/products")}
-            className={`group relative flex items-center justify-between px-6 py-4 transition-all duration-300 hover:bg-[#af3030]/5 ${
+            href={
+              item === "Hydraulic Hose" ? "/products/hydraulic-hose" : 
+              item === "PTFE Hose / Teflon Hose" ? "/products/ptfe-teflon-hose" :
+              item === "Stainless Steel Flexible Hose" ? "/products/stainless-steel-flexible-hose" :
+              (index < 8 ? "/products/stainless-304" : "/products")
+            }
+            className={`group relative flex items-center justify-between px-6 py-4 transition-all duration-300 hover:bg-[#af0000]/5 ${
               index % 2 === 0 ? "bg-[#fcfafa]" : "bg-white"
             }`}
           >
