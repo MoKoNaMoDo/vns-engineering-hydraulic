@@ -30,7 +30,7 @@ export default function ProductMenu() {
         {productLinks.map((item, index) => (
           <Link
             key={item}
-            href={index < 8 ? "/products/stainless-304" : "/products"}
+            href={item === "Hydraulic Hose" ? "/products/hydraulic-hose" : (index < 8 ? "/products/stainless-304" : "/products")}
             className={`group relative flex items-center justify-between px-6 py-4 transition-all duration-300 hover:bg-[#af3030]/5 ${
               index % 2 === 0 ? "bg-[#fcfafa]" : "bg-white"
             }`}

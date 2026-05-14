@@ -30,14 +30,12 @@ const diagramItems = [
 ];
 
 export default function CompanyOverview() {
-  // รัศมีของ Diagram (ขยายให้กว้างขึ้นเพื่อรองรับวงกลมที่มี Text)
   const [radius, setRadius] = useState(260);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
     const handleResize = () => {
-      // หน้าจอมือถือรัศมี 140px, หน้าจอ Desktop รัศมี 260px
       setRadius(window.innerWidth < 768 ? 140 : 260);
     };
 
@@ -60,7 +58,6 @@ export default function CompanyOverview() {
 
   return (
     <section className="bg-[#dcdcdc] py-16 text-black overflow-hidden font-sans">
-
       <style>{`
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(20px); }
@@ -75,13 +72,24 @@ export default function CompanyOverview() {
           70% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
           100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
+        @keyframes drawLine {
+          to { stroke-dashoffset: 0; }
+        }
+        
         .animate-letter { animation: slideInRight 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         .animate-item { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
         .animate-diagram-item { opacity: 0; animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        
+        .path-draw {
+          stroke-dasharray: 300;
+          stroke-dashoffset: 300;
+        }
+        .group:hover .path-draw {
+          animation: drawLine 0.6s ease-out forwards;
+        }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-4 relative z-10">
-        {/* Header Section */}
         <div className="mb-14 text-center">
           <h2 className="text-[32px] font-black uppercase tracking-tight md:text-[42px]">
             {renderAnimatedLetters("V.N.S ENGINEERING HYDRAULIC CO.,LTD", 0)}
@@ -100,8 +108,6 @@ export default function CompanyOverview() {
         </div>
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-
-          {/* Left Side: Text Lists with Background */}
           <div className="animate-item relative overflow-hidden rounded-xl bg-white/40 p-8 shadow-inner md:p-12" style={{ animationDelay: "1.2s" }}>
             <div className="absolute inset-0 z-0 opacity-20">
               <Image
@@ -140,69 +146,104 @@ export default function CompanyOverview() {
             </div>
           </div>
 
-          {/* Right Side: Circular Service Diagram */}
           <div className="flex items-center justify-center py-10">
-            {/* ขยาย Container ให้ใหญ่ขึ้นเพื่อรองรับวงกลม Text ที่มีขนาดใหญ่ */}
             <div className="relative h-[400px] w-[400px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px]">
 
-              {/* Connecting Lines / Dashed Circle */}
               <div className="animate-item absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-dashed border-[#af0000]/20" style={{ animationDelay: "1.8s" }} />
 
-              {/* Center Circle */}
-              <div className="animate-diagram-item absolute left-1/2 top-1/2 z-30 flex h-28 w-28 items-center justify-center rounded-full bg-[#af0000] text-center shadow-[0_0_30px_rgba(175,0,0,0.4)] md:h-36 md:w-36" style={{ animationDelay: "1.5s" }}>
-                <span className="text-2xl font-black text-white md:text-3xl">Service</span>
+              <div className="animate-diagram-item absolute left-1/2 top-1/2 z-30 flex h-28 w-28 items-center justify-center rounded-full bg-[#af0000] text-center shadow-[0_0_30px_rgba(175,0,0,0.4)] border-4 border-white md:h-36 md:w-36" style={{ animationDelay: "1.5s", transform: "translate(-50%, -50%)" }}>
+                <span className="text-2xl font-black text-white md:text-3xl tracking-wide">Service</span>
               </div>
 
               {isMounted && diagramItems.map((item, idx) => {
                 const x = Math.cos((item.angle * Math.PI) / 180) * radius;
                 const y = Math.sin((item.angle * Math.PI) / 180) * radius;
-
-                // เช็คว่าไอเทมนี้อยู่ซีกซ้าย หรือ ซีกขวา ของวงกลม
                 const isLeftSide = item.angle > 90 && item.angle < 270;
 
                 return (
                   <div
                     key={item.name}
-                    className="animate-diagram-item absolute z-20 flex flex-col items-center justify-center group"
+                    className="animate-diagram-item absolute z-20 flex flex-col items-center justify-center group cursor-pointer"
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
+                      transform: "translate(-50%, -50%)",
                       animationDelay: `${2.0 + (idx * 0.15)}s`,
                     }}
                   >
-                    {/* 1. วงกลมหลัก (เส้นประสีแดง + ข้อความ) */}
-                    <div className="relative flex h-28 w-28 md:h-40 md:w-40 items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000] bg-white p-3 shadow-lg">
-                      <span className="text-center text-[11px] font-black leading-tight text-black underline decoration-2 underline-offset-4 decoration-[#af0000]/60 md:text-[15px]">
+                    <div className="relative flex h-28 w-28 md:h-40 md:w-40 items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000]/40 bg-white p-3 shadow-lg transition-all duration-300 group-hover:border-[#af0000]">
+                      <span className="relative z-10 text-center text-[11px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-black/60 transition-colors duration-300 group-hover:text-[#af0000] md:text-[14px]">
                         {item.name}
                       </span>
+
+                      {/* =========================================
+                          🟢 VERSION 1: ลูกศรวาดวนรอบขอบวงกลม (Active) 🟢
+                          ========================================= */}
+                      <div className="absolute inset-[-15%] z-0 h-[130%] w-[130%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#af0000]">
+                          {isLeftSide ? (
+                            <g>
+                              <path
+                                d="M 50 10 A 40 40 0 0 1 50 90 Q 35 90 20 80"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                className="path-draw"
+                              />
+                              <polyline
+                                points="30,73 20,80 28,88"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="path-draw"
+                              />
+                            </g>
+                          ) : (
+                            <g>
+                              <path
+                                d="M 50 10 A 40 40 0 0 0 50 90 Q 65 90 80 80"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                className="path-draw"
+                              />
+                              <polyline
+                                points="70,73 80,80 72,88"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="path-draw"
+                              />
+                            </g>
+                          )}
+                        </svg>
+                      </div>
+
+                      {/* =========================================
+                          🔴 VERSION 2: ลูกศรสไลด์ลงมาจากตัวหนังสือ (Commented Out) 🔴
+                          หากต้องการใช้งาน ให้ลบ Comment {/ * ... * /} ออก และปิด Version 1 
+                          ========================================= */}
+                      {/* 
+                      <div className="absolute inset-0 z-0 pointer-events-none opacity-0 -translate-y-4 scale-95 origin-top transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100">
+                        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#af0000] drop-shadow-md">
+                          {isLeftSide ? (
+                            <g>
+                              <path d="M 50 15 Q 90 50 25 80" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                              <polyline points="35,70 25,80 35,85" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                            </g>
+                          ) : (
+                            <g>
+                              <path d="M 50 15 Q 10 50 75 80" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                              <polyline points="65,70 75,80 65,85" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                            </g>
+                          )}
+                        </svg>
+                      </div> 
+                      */}
+
                     </div>
 
-                    {/* 2. ลูกศรชี้ (โค้งๆ ตามรูป) */}
                     <div
-                      className={`absolute bottom-3 w-6 h-6 text-[#af0000] md:bottom-6 md:w-8 md:h-8 transition-transform group-hover:scale-110 ${isLeftSide ? "left-6 md:left-8" : "right-6 md:right-8"
+                      className={`absolute z-30 h-12 w-12 overflow-hidden rounded-full border-[2px] border-white bg-zinc-200 shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-16 md:w-16 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
                         }`}
                     >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        {isLeftSide ? (
-                          // ลูกศรโค้งชี้ซ้ายล่าง
-                          <><path d="M18 5 Q 18 15 8 16" /><polyline points="12,12 6,16 12,20" /></>
-                        ) : (
-                          // ลูกศรโค้งชี้ขวาล่าง
-                          <><path d="M6 5 Q 6 15 16 16" /><polyline points="12,12 18,16 12,20" /></>
-                        )}
-                      </svg>
-                    </div>
-
-                    {/* 3. วงกลมรูปภาพเล็กๆ ห้อยติดขอบ */}
-                    <div
-                      className={`absolute -bottom-2 h-14 w-14 overflow-hidden rounded-full border-2 border-[#af0000] bg-zinc-200 shadow-md transition-transform duration-300 group-hover:scale-110 md:-bottom-4 md:h-20 md:w-20 ${isLeftSide ? "-left-2 md:-left-4" : "-right-2 md:-right-4"
-                        }`}
-                    >
-                      {/* ตรงนี้เอารูปจริงมาใส่ใน Next Image ทีหลังได้เลยครับ */}
-                      <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[8px] font-bold text-zinc-400 md:text-[10px]">
-                        IMAGE
+                      <div className="flex h-full w-full items-center justify-center text-[8px] font-bold text-zinc-500 md:text-[10px]">
+                        [IMAGE]
                       </div>
                     </div>
+
                   </div>
                 );
               })}
