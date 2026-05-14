@@ -44,7 +44,7 @@ export default function CompanyOverview() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const renderAnimatedLetters = (text, delayOffset = 0) => {
+  const renderAnimatedLetters = (text: string, delayOffset: number = 0) => {
     return text.split("").map((char, index) => (
       <span
         key={index}
