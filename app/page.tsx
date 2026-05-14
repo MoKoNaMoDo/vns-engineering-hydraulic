@@ -51,23 +51,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute left-0 right-0 top-0 z-20 h-10 bg-[#141111]/86 shadow-[0_10px_28px_rgba(20,8,6,.34)] backdrop-blur-[1px] md:h-[70px]">
-          <div className="mx-auto flex h-full max-w-7xl items-center gap-5 px-4 sm:px-6 lg:px-8">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#8d0d18] bg-[#fffaf5] shadow-xl md:h-32 md:w-32">
-              <div className="text-center font-black leading-none text-[#8d0d18]">
-                <div className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full border-2 border-[#8d0d18] text-[9px] md:h-14 md:w-14 md:border-4 md:text-xs">VNS</div>
-                <div className="text-[5px] text-[#1d1715] md:text-[10px]">บริษัท วี เอ็น เอส</div>
-              </div>
-            </div>
-            <nav className="hidden flex-1 items-center justify-center gap-12 text-[24px] font-black text-white md:flex">
-              <Link href="/" className="underline decoration-white decoration-2 underline-offset-4 drop-shadow">หน้าหลัก</Link>
-              <Link href="/products" className="underline decoration-white decoration-2 underline-offset-4 drop-shadow">สินค้า</Link>
-              <Link href="/products/stainless-304" className="underline decoration-white decoration-2 underline-offset-4 drop-shadow">หัวสายสแตนเลส 304</Link>
-              <Link href="/contact" className="underline decoration-white decoration-2 underline-offset-4 drop-shadow">ติดต่อเรา</Link>
-            </nav>
-          </div>
-        </div>
-
         <div className="relative z-10 mx-auto flex min-h-[245px] max-w-7xl items-center px-5 pb-7 pt-11 sm:px-8 md:min-h-[720px] md:pb-20 md:pt-24 lg:px-10">
           <div className="max-w-[780px] md:ml-16">
             <h1 className="text-[25px] font-black leading-[1.2] tracking-tight text-[#9d0614] drop-shadow-[1px_1px_0_rgba(255,245,236,.45)] sm:text-[60px] md:text-[68px] lg:text-[70px]">
@@ -95,7 +78,7 @@ export default function Home() {
       <section className="bg-[#f7f3ef] px-5 py-12 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[380px_1fr] lg:items-start">
           <div className="overflow-hidden border border-[#d6c8bf] shadow-[0_18px_40px_rgba(60,24,18,.14)]">
-            <h2 className="bg-[#ae3030] px-5 py-4 text-2xl font-black text-white underline decoration-white decoration-2 underline-offset-4">
+            <h2 className="bg-[#ae3030] px-5 py-4 text-2xl font-black text-white underline decoration-white underline-offset-4">
               หัวสายสแตนเลส 304
             </h2>
             <div className="divide-y divide-[#e7d6ca] text-xl md:text-2xl">
@@ -138,4 +121,3 @@ export default function Home() {
     </div>
   );
 }
-
