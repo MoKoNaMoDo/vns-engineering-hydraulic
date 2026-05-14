@@ -16,20 +16,41 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#141111]/86 shadow-[0_10px_28px_rgba(20,8,6,.34)] backdrop-blur-[1px]">
+      <style jsx global>{`
+        @keyframes logoUp {
+          from { transform: translateY(100px); opacity: 0; }
+          to { transform: translateY(24px); opacity: 1; }
+        }
+        @keyframes navItemFade {
+          from { transform: translateY(-10px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        .vns-logo-up {
+          animation: logoUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .vns-nav-item {
+          animation: navItemFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+      `}</style>
+
       <div className="mx-auto flex h-10 max-w-7xl items-center gap-5 px-4 sm:px-6 lg:px-8 md:h-[70px]">
-        <Link href="/" className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#8d0d18] bg-[#fffaf5] shadow-xl md:h-32 md:w-32 translate-y-1 md:translate-y-4">
+        <Link 
+          href="/" 
+          className="vns-logo-up flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#8d0d18] bg-[#fffaf5] shadow-xl md:h-24 md:w-24"
+        >
           <div className="text-center font-black leading-none text-[#8d0d18]">
-            <div className="mx-auto mb-1 grid h-7 w-7 place-items-center rounded-full border-2 border-[#8d0d18] text-[9px] md:h-14 md:w-14 md:border-4 md:text-xs">VNS</div>
-            <div className="text-[5px] text-[#1d1715] md:text-[10px]">บริษัท วี เอ็น เอส</div>
+            <div className="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full border-2 border-[#8d0d18] text-[8px] md:h-10 md:w-10 md:border-[3px] md:text-xs">VNS</div>
+            <div className="text-[5px] text-[#1d1715] md:text-[8px]">บริษัท วี เอ็น เอส</div>
           </div>
         </Link>
         
         <nav className="hidden flex-1 items-center justify-center gap-12 text-[24px] font-black text-white md:flex">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <Link 
               key={link.href} 
               href={link.href} 
-              className="underline decoration-white decoration-2 underline-offset-4 drop-shadow hover:text-[#dfc1ad] transition-colors"
+              className="vns-nav-item opacity-0 underline decoration-white decoration-2 underline-offset-4 drop-shadow hover:text-[#dfc1ad] transition-colors"
+              style={{ animationDelay: `${200 + (index * 100)}ms` }}
             >
               {link.name}
             </Link>

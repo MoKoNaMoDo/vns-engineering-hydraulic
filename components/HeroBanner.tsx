@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const strengths = [
   "สแตนเลส SUS 304,316",
@@ -9,10 +12,36 @@ const strengths = [
 ];
 
 export default function HeroBanner() {
+  const pathname = usePathname();
+
   return (
-    <section className="relative isolate min-h-[245px] overflow-hidden bg-[#dfc1ad] md:min-h-[720px]">
+    <section key={pathname} className="relative isolate min-h-[245px] overflow-hidden bg-[#dfc1ad] md:min-h-[720px]">
+      <style jsx global>{`
+        @keyframes customSlideLeft {
+          from { transform: translateX(-150px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes customSlideUp {
+          from { transform: translateY(100px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes customFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .vns-slide-left {
+          animation: customSlideLeft 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .vns-slide-up {
+          animation: customSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .vns-fade-in {
+          animation: customFadeIn 1.5s ease-out forwards;
+        }
+      `}</style>
+
       <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-[1fr_26vw]">
-        <div className="relative min-h-[245px] md:min-h-[720px]">
+        <div className="vns-fade-in relative min-h-[245px] md:min-h-[720px]">
           <Image
             src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2070&auto=format&fit=crop"
             alt="โรงงานอุตสาหกรรมสำหรับระบบไฮดรอลิค"
@@ -25,7 +54,7 @@ export default function HeroBanner() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_38%,rgba(255,238,214,.46),transparent_34%)]" />
         </div>
 
-        <div className="relative hidden min-h-[720px] border-l border-[#650f12]/30 md:block">
+        <div className="vns-slide-up relative hidden min-h-[720px] border-l border-[#650f12]/30 md:block">
           <Image
             src="/products/sunflex-wsd150.png"
             alt="สายไฮดรอลิคและข้อต่อ"
@@ -40,14 +69,20 @@ export default function HeroBanner() {
 
       <div className="relative z-10 mx-auto flex min-h-[245px] max-w-7xl items-center px-5 pb-7 pt-11 sm:px-8 md:min-h-[720px] md:pb-20 md:pt-24 lg:px-10">
         <div className="max-w-[780px] md:ml-16">
-          <h1 className="text-[25px] font-black leading-[1.2] tracking-tight text-[#9d0614] drop-shadow-[1px_1px_0_rgba(255,245,236,.45)] sm:text-[60px] md:text-[68px] lg:text-[70px]">
+          <h1 className="vns-slide-left text-[25px] font-black leading-[1.2] tracking-tight text-[#9d0614] drop-shadow-[1px_1px_0_rgba(255,245,236,.45)] sm:text-[60px] md:text-[68px] lg:text-[70px]">
             V.N.S ENGINEERING<br />
             HYDRAULIC CO.,LTD
           </h1>
-          <div className="mt-4 space-y-0.5 text-[16px] font-black leading-[1.28] text-white drop-shadow-[2px_2px_2px_rgba(0,0,0,.55)] sm:mt-8 sm:space-y-2 sm:text-[35px] md:text-[36px]">
+          <div className="vns-slide-left opacity-0 mt-4 space-y-0.5 text-[16px] font-black leading-[1.28] text-white drop-shadow-[2px_2px_2px_rgba(0,0,0,.55)] sm:mt-8 sm:space-y-2 sm:text-[35px] md:text-[36px]" style={{ animationDelay: '200ms' }}>
             <p>ผู้ผลิตหัวสายไฮดรอลิค</p>
-            {strengths.map((item) => (
-              <p key={item}>-{item}</p>
+            {strengths.map((item, index) => (
+              <p 
+                key={item}
+                className="vns-slide-left opacity-0"
+                style={{ animationDelay: `${400 + (index * 100)}ms` }}
+              >
+                -{item}
+              </p>
             ))}
           </div>
         </div>

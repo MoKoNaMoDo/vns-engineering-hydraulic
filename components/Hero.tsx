@@ -14,6 +14,7 @@ export default function Hero() {
           fill
           className="object-cover object-center grayscale hover:scale-105 transition-transform duration-10000"
           priority
+          sizes="100vw"
         />
       </div>
 
