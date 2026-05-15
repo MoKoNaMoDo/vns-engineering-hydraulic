@@ -45,7 +45,7 @@ export default function FittingAndAdapter() {
   return (
     <section className="py-12 px-4 bg-transparent">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black mb-16 inline-block border-b-4 border-[#af0000] pb-2 uppercase tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-black text-zinc-900 mb-16 inline-block border-b-4 border-[#af0000] pb-2 uppercase tracking-tight">
           Fitting and Adapter
         </h2>
 
