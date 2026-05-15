@@ -21,8 +21,8 @@ const items = [
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
     label: (
       <div className="flex flex-col items-center">
-        <span className="text-[#0055cc] font-black border-b-[2.5px] border-[#0055cc] leading-none pb-1 mb-1.5">PTFE CONVOLUTED</span>
-        <span className="text-black font-black border-b-[2.5px] border-black leading-none pb-0.5">TEFLON HOSE</span>
+        <span className="text-[#dc2626] font-black leading-none mb-1.5">PTFE CONVOLUTED</span>
+        <span className="text-black font-black leading-none">TEFLON HOSE</span>
       </div>
     ),
     href: "/products/ptfe-teflon-hose#convoluted"
