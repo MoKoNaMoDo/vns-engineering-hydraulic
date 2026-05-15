@@ -1,19 +1,20 @@
-'use client';
+import Link from "next/link";
+import Image from "next/image";
 
 const products = [
-  { name: "หัวสายสแตนเลส 304", image: "" },
-  { name: "HYDRAULIC HOSE", image: "" },
-  { name: "STAINLESS STEEL FLEXIBLE HOSE", image: "" },
-  { name: "PTFE HOSE/TEFLON HOSE", image: "" },
-  { name: "R7-THERMOPLASTIC HOSE", image: "" },
-  { name: "STEAM HOSE", image: "" },
-  { name: "TOYOX", image: "" },
-  { name: "INDUSTRIAL HOSE", image: "" },
-  { name: "TUBE FITTINGS", image: "" },
-  { name: "CAMLOCK COUPLING", image: "" },
-  { name: "QUICK COUPLING", image: "" },
-  { name: "HYDRAULIC BALL VALVE", image: "" },
-  { name: "บริการดัดแป๊ปอุตสาหกรรม", image: "" },
+  { name: "หัวสายสแตนเลส 304", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070", href: "/products/stainless-304" },
+  { name: "HYDRAULIC HOSE", image: "", href: "/products/hydraulic-hose" },
+  { name: "STAINLESS STEEL FLEXIBLE HOSE", image: "", href: "/products/stainless-steel-flexible-hose" },
+  { name: "PTFE HOSE/TEFLON HOSE", image: "", href: "/products/ptfe-teflon-hose" },
+  { name: "R7-THERMOPLASTIC HOSE", image: "/products/product/r7-hose.png", href: "/products/r7-thermoplastic-hose" },
+  { name: "STEAM HOSE", image: "/products/product/steam-hose.png", href: "/products/steam-hose" },
+  { name: "TOYOX", image: "", href: "/products" },
+  { name: "INDUSTRIAL HOSE", image: "", href: "/products" },
+  { name: "TUBE FITTINGS", image: "", href: "/products" },
+  { name: "CAMLOCK COUPLING", image: "", href: "/products" },
+  { name: "QUICK COUPLING", image: "", href: "/products" },
+  { name: "HYDRAULIC BALL VALVE", image: "", href: "/products" },
+  { name: "บริการดัดแป๊ปอุตสาหกรรม", image: "", href: "/products" },
 ];
 
 export default function ProductGrid() {
@@ -75,26 +76,38 @@ export default function ProductGrid() {
             const textDelay = cardDelay + 0.3;
 
             return (
-              <div
+              <Link
                 key={product.name}
-                className="flex w-[160px] flex-col items-center sm:w-[200px] lg:w-[210px]"
+                href={product.href}
+                className="flex w-[160px] flex-col items-center sm:w-[200px] lg:w-[210px] group"
               >
                 {/* 1. Product Image Box (ลอยมาก่อน) */}
                 <div
-                  className="animate-image-box group relative aspect-square w-full overflow-hidden border-[3px] border-dashed border-[#ff0000] bg-white p-2 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-solid hover:border-[#af0000] hover:shadow-2xl cursor-pointer"
+                  className="animate-image-box relative aspect-square w-full overflow-hidden border-[3px] border-dashed border-[#ff0000] bg-white p-2 shadow-md transition-all duration-300 group-hover:-translate-y-2 group-hover:border-solid group-hover:border-[#af0000] group-hover:shadow-2xl cursor-pointer"
                   style={{ animationDelay: `${cardDelay}s` }}
                 >
-                  <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[10px] font-bold text-zinc-400 transition-colors group-hover:bg-zinc-50">
-                    [IMAGE]
-                  </div>
+                  {product.image ? (
+                    <div className="relative h-full w-full overflow-hidden">
+                       <Image 
+                         src={product.image} 
+                         alt={product.name} 
+                         fill 
+                         className="object-cover transition-transform duration-500 group-hover:scale-110"
+                       />
+                    </div>
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[10px] font-bold text-zinc-400 transition-colors group-hover:bg-zinc-50">
+                      [IMAGE]
+                    </div>
+                  )}
                 </div>
 
                 {/* 2. Product Label (ตัวหนังสือลอยตามมาทีละตัว) */}
-                <h3 className="mt-5 w-full text-center text-[13px] font-bold uppercase tracking-normal leading-snug text-[#6b2525] transition-colors duration-300 md:text-[15px]">
+                <h3 className="mt-5 w-full text-center text-[13px] font-bold uppercase tracking-normal leading-snug text-[#6b2525] transition-colors duration-300 md:text-[15px] group-hover:text-[#af0000]">
                   {/* เรียกใช้ฟังก์ชันแยกตัวอักษร และส่งค่า delay เริ่มต้นของข้อความไป */}
                   {renderAnimatedLetters(product.name, textDelay, 0.02)}
                 </h3>
-              </div>
+              </Link>
             );
           })}
         </div>

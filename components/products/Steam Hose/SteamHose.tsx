@@ -1,0 +1,164 @@
+'use client';
+
+import Image from "next/image";
+import { Tag } from "lucide-react";
+
+const tags = [
+  "สายน้ำร้อน", "สายไอน้ำ", "STEAM HOSE", "สายสตีม",
+  "INDUSTRIAL HOSE", "HIGH TEMPERATURE HOSE",
+  "สายทนความร้อน", "สายทนอุณหภูมิสูง"
+];
+
+const FacebookIcon = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+
+export default function SteamHose() {
+  return (
+    <section className="bg-white py-4">
+      <style jsx>{`
+        @keyframes slide-in-from-left {
+          from { transform: translateX(-60px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slide-in-from-right {
+          from { transform: translateX(60px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fade-in-scale {
+          from { transform: scale(0.9); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        .animate-slide-left { animation: slide-in-from-left 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .animate-slide-right { animation: slide-in-from-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .animate-fade-scale { animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      `}</style>
+
+      <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+
+          {/* Left Column: Image and Badges */}
+          <div className="flex flex-col items-center lg:items-start animate-slide-left">
+            <div className="relative w-full max-w-[480px]">
+              {/* Detail Badge */}
+              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
+                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 transition-transform hover:scale-105 cursor-default">
+                  รายละเอียดสินค้า
+                </div>
+              </div>
+
+              {/* Product Image Wrapper */}
+              <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+                <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
+                  <Image
+                    src="/products/product/steam-hose.png"
+                    alt="STEAM HOSE"
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Steam Blue Badge */}
+              <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[160px] text-center transform transition-transform hover:-rotate-1">
+                  ท่อไอน้ำ
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Information */}
+          <div className="flex flex-col animate-slide-right">
+            <h1 className="relative inline-flex flex-col items-center lg:items-center text-4xl font-black text-zinc-900 self-center lg:self-start">
+              <span className="text-center">STEAM HOSE</span>
+              <div className="mt-2 h-1.5 w-40 bg-[#af0000]" />
+            </h1>
+
+            <div className="mt-8 space-y-6">
+              <p className="text-xl font-bold leading-relaxed text-[#1d1715]">
+                STEAM HOSE (สายไอน้ำ) เป็นสายอุตสาหกรรมที่ออกแบบมาสำหรับงานไอน้ำโดยเฉพาะ ซึ่งต้องทนทั้ง ความร้อนสูง + แรงดันสูง + ความชื้น ได้ดี โดยมีคุณสมบัติหลัก ดังนี้
+              </p>
+              
+              <ul className="space-y-3 text-lg font-medium text-zinc-800">
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ทนความร้อนสูง: ใช้งานต่อเนื่อง ~170-210°C (พีคได้มากกว่านิดหน่อย)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ทนแรงดัน: ปกติ 10-20 BAR (BURST ~3-4 เท่า)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>โครงสร้าง 3 ชั้น: ยาง EPDM + เสริมแรงลวด/ผ้าใบ + ยางหุ้มทนสภาพ</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ทนไอน้ำ น้ำร้อน ความชื้น และการเสื่อมจากความร้อน</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ทนสภาพแวดล้อม: โอโซน UV และการเสียดสี</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ยืดหยุ่นดี แต่ต้องไม่งอเกินค่าที่กำหนด</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#af0000]">•</span>
+                  <span>ใช้งานกับระบบ BOILER, อาหาร, เคมี, ล้างไอน้ำ</span>
+                </li>
+                <li className="flex gap-2 font-black text-zinc-900">
+                  <span className="text-[#af0000]">•</span>
+                  <span>เน้นความปลอดภัยสูง ต้องใช้ข้อต่อและสเปคให้ถูกต้อง</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Social icons */}
+            <div className="mt-8 flex gap-4">
+              <a href="#" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                  <FacebookIcon size={24} />
+                </div>
+              </a>
+              <a href="#" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                  <div className="flex flex-col items-center justify-center scale-75">
+                     <span className="text-[10px] font-black leading-none">LINE</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Tags */}
+            <div className="mt-10">
+              <div className="mb-4 flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#af0000]/10 text-[#af0000]">
+                  <Tag size={20} className="rotate-90" />
+                </div>
+                <span className="text-lg font-black text-zinc-800">แท็กที่เกี่ยวข้อง:</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <button
+                    key={tag}
+                    className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-0.5 hover:bg-[#af0000] hover:text-white hover:shadow-md active:translate-y-0"
+                  >
+                    #{tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
