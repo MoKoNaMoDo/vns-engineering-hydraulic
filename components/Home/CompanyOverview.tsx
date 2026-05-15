@@ -96,11 +96,6 @@ export default function CompanyOverview() {
             {renderAnimatedLetters("V.N.S ENGINEERING HYDRAULIC CO.,LTD", 0)}
           </h2>
           <div className="mt-4 flex items-center justify-center gap-2 text-[14px] font-bold md:text-[18px] animate-item" style={{ animationDelay: "1s" }}>
-            <span className="text-[#af0000]">
-              <svg className="h-6 w-6 rotate-[-45deg]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 7v4H5.83l3.58 3.59L8 16l-6-6 6-6 1.41 1.41L5.83 9H21V7z" />
-              </svg>
-            </span>
             <p className="max-w-[800px] leading-tight text-[#4a4a4a]">
               ผู้ผลิตหัวสายไฮดรอลิค, สแตนเลส SUS 304,316, ทองเหลือง BRAS,
               เหล็กเพลาขาว SS400, หัวสายไฮดรอลิคหลากหลายรูปแบบ
