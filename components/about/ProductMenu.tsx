@@ -41,7 +41,11 @@ export default function ProductMenu() {
                         item === "สายอุตสาหกรรม Industrial Hose" ? "/products/industrial-hose" :
                           item === "สาย TOYOX" ? "/products/toyox" :
                             item === "Quick Coupling" ? "/products/quick-coupling" :
-                              (index < 8 ? "/products/stainless-304" : "/products")
+                              item === "Tube Fittings/Instrument Fittings" ? "/products/tube-fittings" :
+                                item === "Hydraulic Ball Valve" ? "/products/hydraulic-ball-valve" :
+                                  item === "Camlock Coupling" ? "/products/camlock-coupling" :
+                                    item === "บริการตัดแป๊ป อุตสาหกรรม ทุกชนิด" ? "/products/industrial-pipe-service" :
+                                      (index < 8 ? "/products/stainless-304" : "/products")
             }
             className={`group relative flex items-center justify-between px-6 py-4 transition-all duration-300 hover:bg-[#af0000]/5 ${index % 2 === 0 ? "bg-[#fcfafa]" : "bg-white"
               }`}
@@ -66,12 +70,6 @@ export default function ProductMenu() {
         ))}
       </nav>
 
-      {/* Footer Decoration */}
-      <div className="bg-zinc-50 px-6 py-4 text-center">
-        <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-          V.N.S. Engineering Product Catalog
-        </p>
-      </div>
     </aside>
   );
 }
