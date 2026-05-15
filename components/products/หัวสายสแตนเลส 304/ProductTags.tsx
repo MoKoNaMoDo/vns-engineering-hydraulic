@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { Tag } from "lucide-react";
 
 interface ProductTagsProps {
@@ -20,12 +21,13 @@ export default function ProductTags({ tags }: ProductTagsProps) {
       {/* Tag Items List */}
       <div className="flex flex-wrap gap-3">
         {tags.map((tag) => (
-          <div
+          <Link
             key={tag}
-            className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-zinc-200 hover:text-zinc-900"
+            href="/products/stainless-304"
+            className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
           >
             #{tag}
-          </div>
+          </Link>
         ))}
       </div>
     </div>

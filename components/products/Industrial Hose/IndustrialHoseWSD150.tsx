@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import Image from "next/image";
 import { Tag } from "lucide-react";
 
@@ -92,9 +93,13 @@ export default function IndustrialHoseWSD150() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <span key={tag} className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 ring-1 ring-black/5">
+                  <Link
+                    key={tag}
+                    href="/products/industrial-hose"
+                    className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
+                  >
                     #{tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>

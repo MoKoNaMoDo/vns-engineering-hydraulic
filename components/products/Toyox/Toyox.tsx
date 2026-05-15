@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import Image from "next/image";
 import { Tag } from "lucide-react";
 
@@ -121,12 +122,13 @@ export default function Toyox() {
 
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                   {tags.slice(1).map((tag) => (
-                    <div
+                    <Link
                       key={tag}
-                      className="rounded-full bg-zinc-100 px-5 py-2 text-[15px] font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white cursor-default"
+                      href="/products/toyox"
+                      className="rounded-full bg-zinc-100 px-5 py-2 text-[15px] font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
                     >
                       {tag}
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

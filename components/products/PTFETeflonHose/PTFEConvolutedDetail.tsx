@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import Image from "next/image";
 
 const tags = [
@@ -130,12 +131,13 @@ export default function PTFEConvolutedDetail() {
 
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <button
+                  <Link
                     key={tag}
+                    href="/products/ptfe-teflon-hose"
                     className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-0.5 hover:bg-[#af0000] hover:text-white hover:shadow-md active:translate-y-0"
                   >
                     #{tag}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
