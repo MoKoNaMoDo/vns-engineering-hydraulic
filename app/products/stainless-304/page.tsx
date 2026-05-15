@@ -1,5 +1,5 @@
-import ProductDetail from "@/components/products/ProductDetail";
-import ProductSpecs from "@/components/products/ProductSpecs";
+import ProductDetail from "@/components/products/หัวสายสแตนเลส 304/ProductDetail";
+import ProductSpecs from "@/components/products/หัวสายสแตนเลส 304/ProductSpecs";
 import ContactSection from "@/components/about/ContactSection";
 import ProductMenu from "@/components/about/ProductMenu";
 

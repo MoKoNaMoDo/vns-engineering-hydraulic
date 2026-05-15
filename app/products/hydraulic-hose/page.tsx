@@ -3,7 +3,7 @@ import HydraulicHoseDetail from "@/components/products/HydraulicHose/HydraulicHo
 import HydraulicHoseDetail2SN from "@/components/products/HydraulicHose/HydraulicHoseDetail2SN";
 import HydraulicHoseDetail4SP from "@/components/products/HydraulicHose/HydraulicHoseDetail4SP";
 import HydraulicHoseDetail4SH from "@/components/products/HydraulicHose/HydraulicHoseDetail4SH";
-import ProductTags from "@/components/products/ProductTags";
+import ProductTags from "@/components/products/หัวสายสแตนเลส 304/ProductTags";
 import ContactSection from "@/components/about/ContactSection";
 
 const hydraulicHoseTags = [
