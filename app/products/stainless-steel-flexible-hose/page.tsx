@@ -24,12 +24,12 @@ export default function StainlessSteelFlexibleHosePage() {
           <div className="flex flex-col gap-8">
             
             {/* 1. Custom Options (Flanges & Fittings) - MOVED TO TOP */}
-            <main className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12">
+            <main id="custom-options" className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12 scroll-mt-24">
               <StainlessSteelFlexibleHoseDetail />
             </main>
 
             {/* 2. General Introduction */}
-            <section className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12 border-t border-zinc-100">
+            <section id="intro" className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12 border-t border-zinc-100 scroll-mt-24">
               <StainlessSteelFlexibleHoseIntro />
             </section>
 
@@ -38,7 +38,7 @@ export default function StainlessSteelFlexibleHosePage() {
       </div>
 
       {/* 3. Technical Spec Table (Separator) */}
-      <div className="mt-12">
+      <div id="specs" className="mt-12 scroll-mt-24">
         <StainlessSteelFlexibleHoseSpecTable />
       </div>
 
