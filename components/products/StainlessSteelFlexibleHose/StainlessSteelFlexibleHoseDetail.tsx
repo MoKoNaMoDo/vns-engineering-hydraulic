@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Tag } from "lucide-react";
 
 const tags = [
   "FLEXIBLE HOSE",
@@ -100,13 +101,9 @@ export default function StainlessSteelFlexibleHoseDetail() {
 
             {/* Tags Section */}
             <div className="mt-10">
-              <div className="mb-4 flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#af0000]/10 text-[#af0000]">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z" />
-                  </svg>
-                </div>
-                <span className="text-lg font-black text-zinc-800">แท็กที่เกี่ยวข้อง:</span>
+              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
+                <Tag size={20} className="text-[#af0000]" />
+                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
               </div>
 
               <div className="flex flex-wrap gap-2">
@@ -114,7 +111,7 @@ export default function StainlessSteelFlexibleHoseDetail() {
                   <Link
                     key={tag}
                     href={tag === "SS304" || tag === "SUS304" || tag === "หัวสายสแตนเลส 304" ? "/products/stainless-304" : "/products/stainless-steel-flexible-hose"}
-                    className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-0.5 hover:bg-[#af0000] hover:text-white hover:shadow-md active:translate-y-0"
+                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
                   >
                     #{tag}
                   </Link>

@@ -11,11 +11,9 @@ export default function ProductTags({ tags }: ProductTagsProps) {
   return (
     <div className="mt-12 border-t border-zinc-100 pt-8">
       {/* Title with Red Icon Box */}
-      <div className="mb-6 flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#fdf2f2] shadow-sm">
-          <Tag className="h-6 w-6 fill-[#af0000] text-[#af0000] -rotate-90" />
-        </div>
-        <h3 className="text-2xl font-black text-zinc-800">แท็กที่เกี่ยวข้อง:</h3>
+      <div className="mb-6 flex items-center gap-2">
+        <Tag size={24} className="text-[#af0000]" />
+        <h3 className="text-2xl font-black text-zinc-800">แท็ก:</h3>
       </div>
 
       {/* Tag Items List */}

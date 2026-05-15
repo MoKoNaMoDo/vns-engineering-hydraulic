@@ -127,9 +127,9 @@ export default function TubeFittings() {
                   <Link
                     key={tag}
                     href={tag.includes("สแตนเลส") || tag.includes("304") ? "/products/stainless-304" : "/products/tube-fittings"}
-                    className="rounded-full bg-zinc-200 px-6 py-2 text-sm font-bold text-zinc-700 shadow-inner ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white hover:shadow-lg active:scale-95"
+                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
                   >
-                    {tag}
+                    #{tag}
                   </Link>
                 ))}
               </div>

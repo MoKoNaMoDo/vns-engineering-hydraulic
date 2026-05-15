@@ -112,12 +112,9 @@ export default function Toyox() {
 
               {/* Tags Section */}
               <div className="pt-6">
-                <div className="mb-4 flex items-center gap-3 justify-center lg:justify-start">
-                  <Tag size={24} className="text-[#af0000]" />
-                  <span className="text-xl font-black text-zinc-800">แท็ก:</span>
-                  <div className="rounded-full bg-zinc-200 px-6 py-2 text-lg font-bold text-zinc-700 shadow-inner">
-                    TOYOX
-                  </div>
+                <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
+                  <Tag size={20} className="text-[#af0000]" />
+                  <span className="text-lg font-black text-zinc-800">แท็ก:</span>
                 </div>
 
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
@@ -125,9 +122,9 @@ export default function Toyox() {
                     <Link
                       key={tag}
                       href="/products/toyox"
-                      className="rounded-full bg-zinc-100 px-5 py-2 text-[15px] font-bold text-zinc-600 shadow-sm ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
+                      className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
                     >
-                      {tag}
+                      #{tag}
                     </Link>
                   ))}
                 </div>

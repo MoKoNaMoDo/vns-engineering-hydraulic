@@ -87,16 +87,16 @@ export default function IndustrialHoseDH300() {
             </div>
 
             <div className="mt-10">
-              <div className="mb-4 flex items-center gap-2">
+              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
                 <Tag size={20} className="text-[#af0000]" />
-                <span className="text-lg font-black text-zinc-800">แท็กที่เกี่ยวข้อง:</span>
+                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {tags.map((tag) => (
                   <Link
                     key={tag}
                     href="/products/industrial-hose"
-                    className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 ring-1 ring-black/5 transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
+                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
                   >
                     #{tag}
                   </Link>

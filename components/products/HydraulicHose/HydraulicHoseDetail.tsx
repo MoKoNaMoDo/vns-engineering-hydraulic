@@ -1,6 +1,12 @@
-'use client';
-
+import { Tag } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
+
+const tags = [
+  "HYDRAULIC HOSE", "สายไฮดรอลิค", "1SN",
+  "SAE 100 R1AT", "DIN EN 853", "สายแรงดันสูง",
+  "สายน้ำมันไฮดรอลิค"
+];
 
 const specData = [
   { dn: 5, inch: "3/16", size: -3, id: 4.8, od: 11.8, opBar: 250, opPsi: 3625, test: 500, burst: 1000, bending: 90, weight: 0.190 },
@@ -78,6 +84,43 @@ export default function HydraulicHoseDetail() {
                 ใช้สำหรับขนส่งน้ำมันไฮดรอลิคชนิดน้ำมันแร่ อิมัลชัน น้ำมัน และน้ำ และสารละลายไกลคอลในน้ำ
               </li>
             </ul>
+
+            {/* Social icons */}
+            <div className="mt-8 flex gap-4">
+              <a href="#" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </a>
+              <a href="#" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                  <div className="flex flex-col items-center justify-center scale-75">
+                    <span className="text-[10px] font-black leading-none">LINE</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Tags section */}
+            <div className="mt-10">
+              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
+                <Tag size={20} className="text-[#af0000]" />
+                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    href="/products/hydraulic-hose"
+                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
