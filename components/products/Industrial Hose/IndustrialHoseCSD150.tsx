@@ -1,0 +1,106 @@
+'use client';
+
+import Image from "next/image";
+import { Tag } from "lucide-react";
+
+const tags = [
+  "SUNFLEX CSD150", "CEMENT HOSE", "ท่อดูดส่งซีเมนต์",
+  "ท่อส่งทราย", "ท่อส่งกรวด", "สายอุตสาหกรรม",
+  "ABRASION RESISTANT HOSE"
+];
+
+const FacebookIcon = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+
+export default function IndustrialHoseCSD150() {
+  return (
+    <section className="bg-white py-12 border-t border-zinc-100">
+      <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div className="flex flex-col items-center lg:items-start">
+            <div className="relative w-full max-w-[480px]">
+              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
+                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5">
+                  รายละเอียดสินค้า
+                </div>
+              </div>
+              <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+                <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
+                  <Image
+                    src="/products/product/industrial-hose-csd150.png"
+                    alt="INDUSTRIAL HOSE CSD150"
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div className="mt-4 flex justify-center">
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center">
+                  สายยางอุตสาหกรรม
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <h1 className="relative inline-flex flex-col items-center lg:items-start text-4xl font-black text-zinc-900">
+              <span>INDUSTRIAL HOSE</span>
+              <div className="mt-2 h-1.5 w-48 bg-[#af0000]" />
+            </h1>
+
+            <div className="mt-8 space-y-6">
+              <h2 className="text-2xl font-black text-[#af0000]">SUNFLEX CSD150</h2>
+              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">
+                ท่อดูด-ส่งซีเมนต์ แรงดันใช้งาน 150 PSI
+              </h3>
+              <p className="text-xl font-medium text-zinc-600 leading-relaxed">
+                ออกแบบมาเพื่อการใช้งานหนักกับวัสดุที่มีความคมและการขัดถูสูง เช่น ซีเมนต์, ทราย, กรวด และวัสดุแห้งอื่นๆ 
+                โครงสร้างชั้นในเป็นยางดำพิเศษทนการสึกหรอ เสริมแรงด้วยใยสังเคราะห์และลวดเกลียว เพื่อทนแรงดูดสุญญากาศได้ดี
+              </p>
+              <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
+                <div className="flex gap-2">
+                  <span className="text-[#af0000] font-black">•</span>
+                  <span className="font-bold text-zinc-800">อุณหภูมิใช้งาน: -40°C ถึง +85°C</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-[#af0000] font-black">•</span>
+                  <span className="font-bold text-zinc-800">ขนาด: 3" ถึง 6" (76-152 มม.)</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-[#af0000] font-black">•</span>
+                  <span className="font-bold text-zinc-800">ความดันแตก (Bursting): 450 PSI</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                <FacebookIcon size={24} />
+              </div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                 <span className="text-[10px] font-black leading-none scale-75">LINE</span>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <div className="mb-4 flex items-center gap-2">
+                <Tag size={20} className="text-[#af0000]" />
+                <span className="text-lg font-black text-zinc-800">แท็กที่เกี่ยวข้อง:</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span key={tag} className="rounded-lg bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-600 ring-1 ring-black/5">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

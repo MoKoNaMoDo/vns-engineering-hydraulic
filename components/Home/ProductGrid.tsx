@@ -9,7 +9,7 @@ const products = [
   { name: "R7-THERMOPLASTIC HOSE", image: "/products/product/r7-hose.png", href: "/products/r7-thermoplastic-hose" },
   { name: "STEAM HOSE", image: "/products/product/steam-hose.png", href: "/products/steam-hose" },
   { name: "TOYOX", image: "", href: "/products" },
-  { name: "INDUSTRIAL HOSE", image: "", href: "/products" },
+  { name: "INDUSTRIAL HOSE", image: "/products/product/industrial-hose.png", href: "/products/industrial-hose" },
   { name: "TUBE FITTINGS", image: "", href: "/products" },
   { name: "CAMLOCK COUPLING", image: "", href: "/products" },
   { name: "QUICK COUPLING", image: "", href: "/products" },
