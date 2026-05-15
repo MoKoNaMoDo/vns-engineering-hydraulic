@@ -21,7 +21,7 @@ export default function PTFETeflonHosePage() {
         <div className="mx-auto mt-4 h-1 w-24 bg-[#af0000]" />
       </div> */}
 
-      <div className="mx-auto max-w-[1400px] px-4 py-12 lg:px-8">
+      <div id="r14" className="mx-auto max-w-[1400px] px-4 py-12 lg:px-8 scroll-mt-24">
         <div className="grid gap-8 md:grid-cols-[350px_1fr]">
           {/* Left Sidebar Menu */}
           <aside className="hidden md:block">
@@ -39,7 +39,7 @@ export default function PTFETeflonHosePage() {
       <PTFETeflonHoseSpecTable />
 
       {/* Second Product Detail (Detail 2: Convoluted PTFE) */}
-      <div className="mx-auto max-w-[1400px] px-4 py-12 lg:px-8">
+      <div id="convoluted" className="mx-auto max-w-[1400px] px-4 py-12 lg:px-8 scroll-mt-24">
         <div className="grid gap-8 md:grid-cols-[350px_1fr]">
           <div className="hidden md:block opacity-0 pointer-events-none">
             <ProductMenu />

@@ -44,10 +44,18 @@ export default function HydraulicHosePage() {
 
         {/* Right Content Area */}
         <main className="flex flex-col gap-12 rounded-2xl bg-white p-2 shadow-xl md:p-6 lg:p-8">
-          <HydraulicHoseDetail />
-          <HydraulicHoseDetail2SN />
-          <HydraulicHoseDetail4SP />
-          <HydraulicHoseDetail4SH />
+          <div id="1sn" className="scroll-mt-24">
+            <HydraulicHoseDetail />
+          </div>
+          <div id="2sn" className="scroll-mt-24">
+            <HydraulicHoseDetail2SN />
+          </div>
+          <div id="4sp" className="scroll-mt-24">
+            <HydraulicHoseDetail4SP />
+          </div>
+          <div id="4sh" className="scroll-mt-24">
+            <HydraulicHoseDetail4SH />
+          </div>
 
           <ProductTags tags={hydraulicHoseTags} />
         </main>

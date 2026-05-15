@@ -20,7 +20,7 @@ export default function IndustrialHosePage() {
   return (
     <div className="min-h-screen bg-[#f7f7f6] text-black overflow-x-hidden">
       {/* --- OSD150 Section (With Sidebar) --- */}
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8">
+      <section id="osd150" className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8 scroll-mt-24">
         <aside className="hidden md:block">
           <div className="sticky top-24">
             <ProductMenu />
@@ -36,7 +36,7 @@ export default function IndustrialHosePage() {
       <IndustrialHoseOSD150Specs />
 
       {/* --- AH300 Section (Spacer aside to maintain alignment) --- */}
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8">
+      <section id="ah300" className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8 scroll-mt-24">
         <aside className="hidden md:block" aria-hidden="true" /> {/* Empty spacer */}
         <main className="flex flex-col h-fit">
           <div className="rounded-3xl bg-white p-2 shadow-2xl md:p-6 lg:p-8">
@@ -47,7 +47,7 @@ export default function IndustrialHosePage() {
       <IndustrialHoseAH300Specs />
 
       {/* --- CSD150 Section --- */}
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8">
+      <section id="csd150" className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8 scroll-mt-24">
         <aside className="hidden md:block" aria-hidden="true" />
         <main className="flex flex-col h-fit">
           <div className="rounded-3xl bg-white p-2 shadow-2xl md:p-6 lg:p-8">
@@ -58,7 +58,7 @@ export default function IndustrialHosePage() {
       <IndustrialHoseCSD150Specs />
 
       {/* --- WSD150 Section --- */}
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8">
+      <section id="wsd150" className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8 scroll-mt-24">
         <aside className="hidden md:block" aria-hidden="true" />
         <main className="flex flex-col h-fit">
           <div className="rounded-3xl bg-white p-2 shadow-2xl md:p-6 lg:p-8">
@@ -69,7 +69,7 @@ export default function IndustrialHosePage() {
       <IndustrialHoseWSD150Specs />
 
       {/* --- DH300 Section --- */}
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8">
+      <section id="dh300" className="mx-auto grid max-w-[1400px] gap-8 px-4 pt-12 pb-6 md:grid-cols-[350px_1fr] lg:px-8 scroll-mt-24">
         <aside className="hidden md:block" aria-hidden="true" />
         <main className="flex flex-col h-fit">
           <div className="rounded-3xl bg-white p-2 shadow-2xl md:p-6 lg:p-8">

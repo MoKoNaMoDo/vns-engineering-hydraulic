@@ -1,31 +1,32 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 
 const items = [
   {
     title: "1SN DIN EN 853 SAE 100 R1AT",
     image: "/products/product/hydraulic-hose.png",
     label: <p>1SN <span className="text-[#af0000]">DIN EN 853</span> SAE 100 R1AT</p>,
-    href: "/products/hydraulic-hose"
+    href: "/products/hydraulic-hose#1sn"
   },
   {
     title: "2SN DIN EN 853 SAE 100 R2AT",
     image: "/products/product/hydraulic-hose.png",
     label: <p>2SN <span className="text-[#af0000]">DIN EN 853</span> SAE 100 R2AT</p>,
-    href: "/products/hydraulic-hose"
+    href: "/products/hydraulic-hose#2sn"
   },
   {
     title: "4SP DIN EN 856",
     image: "/products/product/hydraulic-hose.png",
     label: <p>4SP <span className="text-[#af0000]">DIN EN 856</span></p>,
-    href: "/products/hydraulic-hose"
+    href: "/products/hydraulic-hose#4sp"
   },
   {
     title: "4SH DIN EN 856",
     image: "/products/product/hydraulic-hose.png",
     label: <p>4SH <span className="text-[#af0000]">DIN EN 856</span></p>,
-    href: "/products/hydraulic-hose"
+    href: "/products/hydraulic-hose#4sh"
   },
   {
     title: "R7-TERMOPLASTIC HOSE",
@@ -45,7 +46,11 @@ export default function HydraulicHose() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 justify-items-center">
           {items.map((item, index) => (
-            <div key={index} className="group relative w-full max-w-[480px]">
+            <Link 
+              key={index} 
+              href={item.href}
+              className="group relative w-full max-w-[480px] block transition-transform duration-300 active:scale-[0.98]"
+            >
               {/* Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border-[3px] border-[#6b0000] shadow-[0_15px_40px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] group-hover:border-[#af0000]">
                 <Image
@@ -66,7 +71,7 @@ export default function HydraulicHose() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

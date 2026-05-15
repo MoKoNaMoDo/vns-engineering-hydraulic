@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 
 const items = [
   {
@@ -21,7 +22,11 @@ export default function SteamHose() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
           {items.map((item, index) => (
-            <div key={index} className="group relative w-full max-w-[480px]">
+            <Link 
+              key={index} 
+              href={item.href}
+              className="group relative w-full max-w-[480px] block transition-transform duration-300 active:scale-[0.98]"
+            >
               {/* Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border-[3px] border-[#6b0000] shadow-[0_15px_40px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] group-hover:border-[#af0000]">
                 <Image
@@ -42,7 +47,7 @@ export default function SteamHose() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

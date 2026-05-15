@@ -1,13 +1,14 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 
 const items = [
   {
     title: "หัวสายสแตนเลส 304",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
     label: <p>หัวสายสแตนเลส <span className="text-[#af0000]">304</span></p>,
-    href: "/products/stainless-steel-304"
+    href: "/products/stainless-304"
   },
   {
     title: "TUBE FITTINGS",
@@ -31,13 +32,13 @@ const items = [
     title: "HYDRAULIC BALL VALVE",
     image: "/products/product/hydraulic-ball-valve.png",
     label: <p>HYDRAULIC <span className="text-[#af0000]">BALL VALVE</span></p>,
-    href: "/products/ball-valve"
+    href: "/products/hydraulic-ball-valve"
   },
   {
     title: "บริการดัดแป๊ปอุตสาหกรรม",
     image: "/products/product/pipe-bending-service.png",
     label: <p>บริการ<span className="text-[#af0000]">ดัดแป๊ป</span>อุตสาหกรรม</p>,
-    href: "/products/pipe-service"
+    href: "/products/industrial-pipe-service"
   }
 ];
 
@@ -51,7 +52,11 @@ export default function FittingAndAdapter() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 justify-items-center">
           {items.map((item, index) => (
-            <div key={index} className="group relative w-full max-w-[480px]">
+            <Link 
+              key={index} 
+              href={item.href}
+              className="group relative w-full max-w-[480px] block transition-transform duration-300 active:scale-[0.98]"
+            >
               {/* Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border-[3px] border-[#6b0000] shadow-[0_15px_40px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] group-hover:border-[#af0000]">
                 <Image
@@ -73,7 +78,7 @@ export default function FittingAndAdapter() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
