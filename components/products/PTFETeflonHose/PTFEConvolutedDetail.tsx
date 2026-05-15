@@ -25,11 +25,11 @@ export default function PTFEConvolutedDetail() {
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
               {/* Detail Badge */}
-              <button className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap transition-all hover:scale-110 active:scale-95">
-                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 hover:bg-zinc-50">
+              <div className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap">
+                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 hover:bg-zinc-50 transition-colors cursor-default">
                   รายละเอียดสินค้า
                 </div>
-              </button>
+              </div>
 
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">

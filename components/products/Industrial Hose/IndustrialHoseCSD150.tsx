@@ -40,7 +40,7 @@ export default function IndustrialHoseCSD150() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
+              <div className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
                 <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5">
                   รายละเอียดสินค้า
                 </div>

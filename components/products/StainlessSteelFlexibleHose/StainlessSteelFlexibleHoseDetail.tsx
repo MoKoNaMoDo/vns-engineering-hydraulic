@@ -33,11 +33,11 @@ export default function StainlessSteelFlexibleHoseDetail() {
           {/* Left Column: Image with Badges */}
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
-              {/* Detail Badge - Restored to Center with Hover Effect */}
-              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
-                <button className="rounded-xl bg-white px-8 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 text-black border-2 border-zinc-200 transition-all hover:-translate-y-1 hover:bg-[#af0000] hover:text-white cursor-pointer active:scale-95">
+              {/* Detail Badge - Restored to Center */}
+              <div className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap">
+                <div className="rounded-xl bg-white px-8 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 text-black cursor-default transition-colors hover:bg-zinc-50">
                   รายละเอียดสินค้า
-                </button>
+                </div>
               </div>
 
               {/* Product Image Wrapper */}

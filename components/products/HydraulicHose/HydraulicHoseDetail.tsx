@@ -1,3 +1,4 @@
+'use client';
 import { Tag } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,29 +27,51 @@ export default function HydraulicHoseDetail() {
   return (
     <section className="bg-white py-12 text-black font-sans">
       <div className="mx-auto max-w-[1200px] px-4">
+        <style jsx>{`
+          @keyframes slide-in-from-left {
+            from { transform: translateX(-60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slide-in-from-right {
+            from { transform: translateX(60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes fade-in-scale {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+          }
+          .animate-slide-left { animation: slide-in-from-left 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+          .animate-slide-right { animation: slide-in-from-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+          .animate-fade-scale { animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        `}</style>
         
-        {/* Header Badge */}
-        <div className="mb-8 inline-block rounded-full bg-zinc-100 px-6 py-2 shadow-[4px_4px_10px_rgba(0,0,0,0.1)] border border-zinc-200">
-          <span className="text-xl font-black text-zinc-800">รายละเอียดสินค้า</span>
-        </div>
-
         {/* Top Content: Image and Description */}
         <div className="grid gap-10 lg:grid-cols-2 items-start mb-16">
           
           {/* Left Side: Product Image */}
-          <div className="relative w-full max-w-[480px]">
-            <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
-              <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
-                <Image
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop"
-                  alt="Hydraulic Hose 1SN"
-                  fill
-                  className="object-cover"
-                />
+          <div className="flex flex-col items-center lg:items-start animate-slide-left">
+            <div className="relative w-full max-w-[480px] mx-auto lg:mx-0">
+              {/* Header Badge (Floating) */}
+              <div className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
+                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5">
+                  รายละเอียดสินค้า
+                </div>
+              </div>
+
+              <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
+                <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop"
+                    alt="Hydraulic Hose 1SN"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
+
             {/* Category Tag */}
-            <div className="mt-4 flex justify-center">
+            <div className="mt-4 flex justify-center w-full max-w-[480px]">
               <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
                 สายไฮดรอลิค
               </div>
@@ -56,7 +79,7 @@ export default function HydraulicHoseDetail() {
           </div>
 
           {/* Right Side: Product Description */}
-          <div className="pt-4 lg:pt-0">
+          <div className="pt-4 lg:pt-0 animate-slide-right">
             <h1 className="text-4xl font-black text-zinc-900 mb-2">Hydraulic Hose</h1>
             <h2 className="text-3xl font-black mb-6">
               1SN <span className="text-[#af0000]">DIN EN 853</span> SAE 100 R1AT
