@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Tag } from "lucide-react";
 
 const tags = [
-  "บริการตัดแป๊บอุตสาหกรรม", "บริการตัดแป๊บ", "บริการตัดแป๊บ"
+  "บริการตัดแป๊บอุตสาหกรรม", "บริการตัดแป๊บ"
 ];
 
 const FacebookIcon = ({ size = 24 }: { size?: number }) => (

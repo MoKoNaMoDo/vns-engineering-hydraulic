@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Tag } from "lucide-react";
 
 const tags = [
-  "คัปปลิ้ง", "คัปปลิ้งน้ำมัน", "คัปปลิ้ง", "QUICK COUPLING"
+  "คัปปลิ้ง", "คัปปลิ้งน้ำมัน", "QUICK COUPLING"
 ];
 
 const FacebookIcon = ({ size = 24 }: { size?: number }) => (
