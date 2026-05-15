@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const services = [
   "ผลิตหัวสาย (Hose Fittings) ทุกประเภท ทั้งสแตนเลส เหล็ก และทองเหลือง",
@@ -21,12 +22,12 @@ const industries = [
 ];
 
 const diagramItems = [
-  { name: "Fitting and adapter", image: "/products/fittings.png", angle: -90, href: "#" },
-  { name: "Hydraulic Hose", image: "/products/hydraulic-hose.png", angle: -30, href: "/products/hydraulic-hose" },
-  { name: "Steam Hose", image: "/products/steam-hose.png", angle: 30, href: "#" },
-  { name: "PTFE Hose/ Teflon Hose", image: "/products/ptfe-hose.png", angle: 90, href: "/products/ptfe-teflon-hose" },
-  { name: "Metal Hose", image: "/products/metal-hose.png", angle: 150, href: "/products/stainless-steel-flexible-hose" },
-  { name: "Industrial Hose", image: "/products/industrial-hose.png", angle: 210, href: "#" },
+  { name: "Fitting and adapter", image: "/products/fittings.png", angle: -90, href: "/services/fitting-and-adapter" },
+  { name: "Hydraulic Hose", image: "/products/hydraulic-hose.png", angle: -30, href: "/services/hydraulic-hose" },
+  { name: "Steam Hose", image: "/products/steam-hose.png", angle: 30, href: "/services/steam-hose" },
+  { name: "PTFE Hose/ Teflon Hose", image: "/products/ptfe-hose.png", angle: 90, href: "/services/ptfe-teflon-hose" },
+  { name: "Metal Hose", image: "/products/metal-hose.png", angle: 150, href: "/services/metal-hose" },
+  { name: "Industrial Hose", image: "/products/industrial-hose.png", angle: 210, href: "/services/industrial-hose" },
 ];
 
 export default function CompanyOverview() {
@@ -161,9 +162,10 @@ export default function CompanyOverview() {
                 const isLeftSide = item.angle > 90 && item.angle < 270;
 
                 return (
-                  <div
+                  <Link
+                    href={item.href}
                     key={item.name}
-                    className="animate-diagram-item absolute z-20 flex flex-col items-center justify-center group cursor-pointer"
+                    className="animate-diagram-item absolute z-20 flex flex-col items-center justify-center group cursor-pointer transition-all duration-300 hover:scale-110"
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
@@ -176,9 +178,6 @@ export default function CompanyOverview() {
                         {item.name}
                       </span>
 
-                      {/* =========================================
-                          🟢 VERSION 1: ลูกศรวาดวนรอบขอบวงกลม (Active) 🟢
-                          ========================================= */}
                       <div className="absolute inset-[-15%] z-0 h-[130%] w-[130%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#af0000]">
                           {isLeftSide ? (
@@ -210,29 +209,6 @@ export default function CompanyOverview() {
                           )}
                         </svg>
                       </div>
-
-                      {/* =========================================
-                          🔴 VERSION 2: ลูกศรสไลด์ลงมาจากตัวหนังสือ (Commented Out) 🔴
-                          หากต้องการใช้งาน ให้ลบ Comment {/ * ... * /} ออก และปิด Version 1 
-                          ========================================= */}
-                      {/* 
-                      <div className="absolute inset-0 z-0 pointer-events-none opacity-0 -translate-y-4 scale-95 origin-top transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100">
-                        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#af0000] drop-shadow-md">
-                          {isLeftSide ? (
-                            <g>
-                              <path d="M 50 15 Q 90 50 25 80" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                              <polyline points="35,70 25,80 35,85" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                            </g>
-                          ) : (
-                            <g>
-                              <path d="M 50 15 Q 10 50 75 80" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                              <polyline points="65,70 75,80 65,85" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                            </g>
-                          )}
-                        </svg>
-                      </div> 
-                      */}
-
                     </div>
 
                     <div
@@ -243,8 +219,7 @@ export default function CompanyOverview() {
                         [IMAGE]
                       </div>
                     </div>
-
-                  </div>
+                  </Link>
                 );
               })}
             </div>
