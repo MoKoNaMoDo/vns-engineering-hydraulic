@@ -2,59 +2,150 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const items = [
   {
     title: "PTFE TEFLON HOSE R14",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-    label: <p><span className="text-[#af0000]">PTFE TEFLON</span> HOSE R14</p>,
+    // ป้ายชื่อตามรูป: แดง-ดำ
+    label: (
+      <div className="flex items-center gap-1.5">
+        <span className="text-[#dc2626] font-black">PTFE TEFLON</span>
+        <span className="text-black font-black">HOSE R14</span>
+      </div>
+    ),
     href: "/products/ptfe-teflon-hose#r14"
   },
   {
     title: "PTFE CONVOLUTED TEFLON HOSE",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
-    label: <p><span className="text-[#af0000]">PTFE CONVOLUTED</span> TEFLON HOSE</p>,
+    // ป้ายชื่อตามรูป: น้ำเงิน-ดำ ซ้อน 2 บรรทัดและขีดเส้นใต้
+    label: (
+      <div className="flex flex-col items-center">
+        <span className="text-[#0055cc] font-black border-b-[2.5px] border-[#0055cc] leading-none pb-1 mb-1.5">PTFE CONVOLUTED</span>
+        <span className="text-black font-black border-b-[2.5px] border-black leading-none pb-0.5">TEFLON HOSE</span>
+      </div>
+    ),
     href: "/products/ptfe-teflon-hose#convoluted"
   }
 ];
 
 export default function PTFETeflonHose() {
-  return (
-    <section className="py-12 px-4 bg-transparent">
-      <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black text-zinc-900 mb-16 inline-block border-b-4 border-[#af0000] pb-2 uppercase tracking-tight">
-          PTFE Hose / Teflon Hose
-        </h2>
+  const [isMounted, setIsMounted] = useState(false);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 justify-items-center">
-          {items.map((item, index) => (
-            <Link 
-              key={index} 
-              href={item.href}
-              className="group relative w-full max-w-[480px] block transition-transform duration-300 active:scale-[0.98]"
-            >
-              {/* Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border-[3px] border-[#6b0000] shadow-[0_15px_40px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] group-hover:border-[#af0000]">
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return (
+    <section className="py-16 px-4 bg-gray-50 font-sans overflow-hidden">
+
+      {/* 🔴 CSS Animations */}
+      <style>{`
+        @keyframes floatUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popInArrow {
+          0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+          70% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+          100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        .animate-card-1 { opacity: 0; animation: floatUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; }
+        .animate-card-2 { opacity: 0; animation: floatUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards; }
+        .animate-arrow { opacity: 0; animation: popInArrow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards; }
+      `}</style>
+
+      <div className="max-w-[1000px] mx-auto">
+
+        {/* Header - เลียนแบบในภาพคือข้อความดำ มีเส้นขีดใต้บางๆ */}
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-black text-black tracking-tight inline-block border-b-2 border-black pb-1">
+            PTFE Hose/Teflon Hose
+          </h2>
+        </div>
+
+        {/* 📦 Layout กล่องเยื้องแบบอิสระ (ไม่มีกรอบเทาแล้ว) */}
+        <div className="relative flex flex-col md:flex-row justify-between items-center md:items-start gap-16 md:gap-0 mt-8">
+
+          {/* =========================================
+              ITEM 1: กล่องซ้ายบน
+              ========================================= */}
+          <div className="w-full md:w-[48%] animate-card-1 relative z-20">
+            <Link href={items[0].href} className="group block relative w-full max-w-[400px] mx-auto md:mr-auto md:ml-0">
+
+              {/* กรอบรูปภาพ: ขอบแดงมนๆ */}
+              <div className="relative aspect-[4/3] w-full rounded-2xl border-[1.5px] border-[#dc2626] bg-white shadow-lg transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl overflow-hidden">
                 <Image
-                  src={item.image}
-                  alt={item.title}
+                  src={items[0].image}
+                  alt={items[0].title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(min-width: 768px) 500px, 100vw"
                 />
-                <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.2)]" />
               </div>
 
-              {/* Label Container - Pill Shape */}
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] min-w-[280px] z-10 transition-transform duration-300 group-hover:-translate-y-2">
-                <div className="bg-white border-[2.5px] border-zinc-900 rounded-2xl py-4 px-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] transition-all duration-300 group-hover:shadow-[12px_12px_0px_rgba(175,0,0,1)] group-hover:border-[#af0000]">
-                  <div className="text-lg md:text-xl font-black uppercase tracking-tight text-zinc-900 text-center flex items-center justify-center gap-1">
-                    {item.label}
+              {/* ป้ายชื่อ Label คร่อมขอบล่าง */}
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-max z-30 transition-transform duration-300 group-hover:scale-105">
+                <div className="bg-white rounded-[10px] py-2 px-5 shadow-[0_4px_10px_rgba(0,0,0,0.15)] border border-gray-200">
+                  <div className="text-[12px] md:text-[14px] whitespace-nowrap">
+                    {items[0].label}
                   </div>
                 </div>
               </div>
             </Link>
-          ))}
+          </div>
+
+          {/* =========================================
+              ARROW: ลูกศรหนาสีแดง (เด้งเชื่อม 2 กล่อง)
+              ========================================= */}
+          {isMounted && (
+            <div className="hidden md:flex animate-arrow absolute top-[30%] left-[58%] z-10 w-24 h-28 md:w-28 md:h-32">
+              <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md transform rotate-12">
+                <path
+                  d="M 20 20 Q 55 20 70 50 L 55 55 L 90 80 L 95 40 L 80 45 Q 65 5 15 5 Z"
+                  fill="#dc2626"
+                  stroke="#000000"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          )}
+
+          {/* =========================================
+              ITEM 2: กล่องขวาล่าง + กล่อง 100% Resin
+              ========================================= */}
+          <div className="w-full md:w-[48%] md:mt-[300px] animate-card-2 relative z-20">
+            <div className="relative w-full max-w-[400px] mx-auto md:ml-auto md:mr-0">
+
+              <Link href={items[1].href} className="group block relative w-full">
+                {/* กรอบรูปภาพ */}
+                <div className="relative aspect-[4/3] w-full rounded-2xl border-[1.5px] border-[#dc2626] bg-white shadow-lg transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl overflow-hidden">
+                  <Image
+                    src={items[1].image}
+                    alt={items[1].title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(min-width: 768px) 500px, 100vw"
+                  />
+                </div>
+
+                {/* ป้ายชื่อ Label คร่อมขอบล่าง */}
+                <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 w-max z-30 transition-transform duration-300 group-hover:scale-105">
+                  <div className="bg-white rounded-[10px] py-3 px-6 shadow-[0_4px_10px_rgba(0,0,0,0.15)] border border-gray-200">
+                    <div className="text-[12px] md:text-[14px] whitespace-nowrap">
+                      {items[1].label}
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
