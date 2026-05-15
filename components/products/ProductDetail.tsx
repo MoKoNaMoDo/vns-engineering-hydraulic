@@ -10,8 +10,8 @@ const tags = [
 
 export default function ProductDetail() {
   return (
-    <section className="bg-white py-16">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section className="bg-white py-12">
+      <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
 
           {/* Left Column: Image and Badges */}

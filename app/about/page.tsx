@@ -16,8 +16,10 @@ const services = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#f7f7f6] text-black">
-      <section className="mx-auto grid max-w-[1320px] gap-8 px-4 py-8 md:grid-cols-[374px_1fr] lg:px-8">
-        <ProductMenu />
+      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 py-8 md:grid-cols-[350px_1fr] lg:px-8">
+        <aside className="hidden md:block">
+          <ProductMenu />
+        </aside>
 
         <main className="pt-1">
           <div className="mb-16 inline-block rounded-xl bg-white px-8 py-3 text-4xl font-black text-black shadow-[10px_14px_22px_rgba(0,0,0,.45)] ring-1 ring-black/10">

@@ -30,19 +30,22 @@ export default function HydraulicHoseDetail() {
         <div className="grid gap-10 lg:grid-cols-2 items-start mb-16">
           
           {/* Left Side: Product Image */}
-          <div className="relative group">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-[3px] border-[#af0000] shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-              <Image
-                src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop"
-                alt="Hydraulic Hose 1SN"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="relative w-full max-w-[480px]">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
+              <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
+                <Image
+                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop"
+                  alt="Hydraulic Hose 1SN"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             {/* Category Tag */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6db4] px-10 py-3 text-2xl font-black text-white shadow-xl z-10 transform skew-x-[-10deg]">
-              <span className="inline-block skew-x-[10deg]">สายไฮดรอลิค</span>
+            <div className="mt-4 flex justify-center">
+              <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
+                สายไฮดรอลิค
+              </div>
             </div>
           </div>
 

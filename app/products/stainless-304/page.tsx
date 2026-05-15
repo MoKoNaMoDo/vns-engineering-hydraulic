@@ -5,12 +5,14 @@ import ProductMenu from "@/components/about/ProductMenu";
 
 export default function Stainless304Page() {
   return (
-    <div className="w-full bg-[#f8f3ee] text-[#1d1715]">
+    <div className="min-h-screen w-full bg-[#f7f7f6] text-black overflow-x-hidden">
       {/* Upper Section: Menu + Product Detail */}
-      <section className="bg-[#f7f3ef] px-5 py-12 md:pt-20 md:pb-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[380px_1fr] lg:items-start">
-          <ProductMenu />
-          <main className="overflow-hidden bg-white shadow-lg ring-1 ring-black/5">
+      <section className="mx-auto max-w-[1400px] px-4 py-12 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-[350px_1fr] lg:items-start">
+          <aside className="hidden md:block">
+            <ProductMenu />
+          </aside>
+          <main className="overflow-hidden bg-white shadow-xl ring-1 ring-black/5 rounded-2xl">
             <ProductDetail />
           </main>
         </div>

@@ -3,9 +3,11 @@ import ContactSection from "@/components/about/ContactSection";
 
 export default function ContactPage() {
   return (
-    <div className="w-full bg-[#f8f3ee] text-[#1d1715] pb-10">
-      <section className="mx-auto grid max-w-[1320px] gap-8 px-4 py-12 md:grid-cols-[374px_1fr] lg:px-8">
-        <ProductMenu />
+    <div className="min-h-screen w-full bg-[#f7f7f6] text-black pb-10">
+      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 py-12 md:grid-cols-[350px_1fr] lg:px-8">
+        <aside className="hidden md:block">
+          <ProductMenu />
+        </aside>
 
         <div className="pt-2">
           {/* Title */}

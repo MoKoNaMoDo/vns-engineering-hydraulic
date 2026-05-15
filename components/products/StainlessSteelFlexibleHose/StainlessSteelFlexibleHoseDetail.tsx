@@ -45,15 +45,15 @@ export default function StainlessSteelFlexibleHoseDetail() {
                     src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1968&auto=format&fit=crop"
                     alt="Stainless Steel Flexible Hose with Flanges"
                     fill
-                    className="object-contain p-4"
+                    className="object-cover"
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
                 </div>
               </div>
 
-              {/* Category Badge Below Image - Blue Rectangle */}
-              <div className="mt-0 flex justify-center">
-                <div className="bg-[#3b6db4] px-16 py-4 text-3xl font-black text-white shadow-lg -translate-y-6">
+              {/* Category Badge Below Image */}
+              <div className="mt-4 flex justify-center">
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
                   ท่ออ่อน
                 </div>
               </div>
