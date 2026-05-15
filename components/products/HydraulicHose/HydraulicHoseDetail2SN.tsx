@@ -36,6 +36,7 @@ export default function HydraulicHoseDetail2SN() {
                 src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop"
                 alt="Hydraulic Hose 2SN"
                 fill
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

@@ -55,6 +55,7 @@ export default function Toyox() {
                     src="/products/product/toyox-hoses.png"
                     alt="TOYOX Industrial Hoses"
                     fill
+                    sizes="(max-width: 768px) 100vw, 500px"
                     className="object-cover transition-transform duration-700 hover:scale-110"
                     priority
                   />

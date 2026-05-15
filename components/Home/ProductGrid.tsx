@@ -89,6 +89,7 @@ export default function ProductGrid() {
                          src={product.image} 
                          alt={product.name} 
                          fill 
+                         sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 210px"
                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                        />
                     </div>

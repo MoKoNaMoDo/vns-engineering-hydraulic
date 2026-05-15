@@ -34,6 +34,7 @@ export default function HydraulicHoseDetail4SP() {
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
                 alt="Hydraulic Hose 4SP"
                 fill
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

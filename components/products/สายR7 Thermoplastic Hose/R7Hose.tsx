@@ -57,6 +57,7 @@ export default function R7Hose() {
                     src="/products/product/r7-hose.png"
                     alt="R7-THERMOPLASTIC HOSE"
                     fill
+                    sizes="(max-width: 768px) 100vw, 480px"
                     className="object-cover transition-transform duration-700 hover:scale-110"
                     priority
                   />

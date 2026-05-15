@@ -54,6 +54,7 @@ export default function QuickCoupling() {
                     src="/products/product/quick-couplings-types.png"
                     alt="QUICK COUPLING TYPES"
                     fill
+                    sizes="(max-width: 768px) 100vw, 480px"
                     className="object-cover transition-transform duration-700 hover:scale-110"
                     priority
                   />

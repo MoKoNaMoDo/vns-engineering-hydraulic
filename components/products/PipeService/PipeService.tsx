@@ -54,6 +54,7 @@ export default function PipeService() {
                     src="/products/product/pipe-bending-service.png"
                     alt="INDUSTRIAL PIPE BENDING SERVICE"
                     fill
+                    sizes="(max-width: 768px) 100vw, 480px"
                     className="object-cover transition-transform duration-700 hover:scale-110"
                     priority
                   />
