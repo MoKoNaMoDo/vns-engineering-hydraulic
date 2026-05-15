@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navLinks = [
@@ -36,11 +37,17 @@ export default function Navbar() {
       <div className="mx-auto flex h-10 max-w-7xl items-center gap-5 px-4 sm:px-6 lg:px-8 md:h-[70px]">
         <Link 
           href="/" 
-          className="vns-logo-up flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#8d0d18] bg-[#fffaf5] shadow-xl md:h-24 md:w-24"
+          className="vns-logo-up relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-[#8d0d18] bg-white shadow-xl md:h-24 md:w-24"
         >
-          <div className="text-center font-black leading-none text-[#8d0d18]">
-            <div className="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full border-2 border-[#8d0d18] text-[8px] md:h-10 md:w-10 md:border-[3px] md:text-xs">VNS</div>
-            <div className="text-[5px] text-[#1d1715] md:text-[8px]">บริษัท วี เอ็น เอส</div>
+          <div className="relative h-full w-full">
+            <Image
+              src="/vns-logo copy.png"
+              alt="VNS Logo"
+              fill
+              sizes="(max-width: 768px) 56px, 96px"
+              className="object-contain p-1"
+              priority
+            />
           </div>
         </Link>
         
