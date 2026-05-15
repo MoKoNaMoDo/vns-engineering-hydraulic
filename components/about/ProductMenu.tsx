@@ -39,7 +39,9 @@ export default function ProductMenu() {
                     item === "สายR7 Thermoplastic Hose" ? "/products/r7-thermoplastic-hose" :
                       item === "สายสตีม Steam Hose" ? "/products/steam-hose" :
                         item === "สายอุตสาหกรรม Industrial Hose" ? "/products/industrial-hose" :
-                          (index < 8 ? "/products/stainless-304" : "/products")
+                          item === "สาย TOYOX" ? "/products/toyox" :
+                            item === "Quick Coupling" ? "/products/quick-coupling" :
+                              (index < 8 ? "/products/stainless-304" : "/products")
             }
             className={`group relative flex items-center justify-between px-6 py-4 transition-all duration-300 hover:bg-[#af0000]/5 ${index % 2 === 0 ? "bg-[#fcfafa]" : "bg-white"
               }`}

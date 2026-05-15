@@ -17,12 +17,29 @@ const FacebookIcon = ({ size = 24 }: { size?: number }) => (
 
 export default function IndustrialHoseAH300() {
   return (
-    <section className="bg-white py-12 border-t border-zinc-100">
+    <section className="bg-white py-4 border-t border-zinc-100">
+      <style jsx>{`
+        @keyframes slide-in-from-left {
+          from { transform: translateX(-60px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slide-in-from-right {
+          from { transform: translateX(60px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fade-in-scale {
+          from { transform: scale(0.9); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        .animate-slide-left { animation: slide-in-from-left 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .animate-slide-right { animation: slide-in-from-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .animate-fade-scale { animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      `}</style>
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div className="flex flex-col items-center lg:items-start">
+          <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
+              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
                 <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5">
                   รายละเอียดสินค้า
                 </div>
@@ -37,7 +54,7 @@ export default function IndustrialHoseAH300() {
                   />
                 </div>
               </div>
-              <div className="mt-4 flex justify-center">
+              <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
                 <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center">
                   สายยางอุตสาหกรรม
                 </div>
@@ -45,7 +62,7 @@ export default function IndustrialHoseAH300() {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col animate-slide-right">
             <h1 className="relative inline-flex flex-col items-center lg:items-start text-4xl font-black text-zinc-900">
               <span>INDUSTRIAL HOSE</span>
               <div className="mt-2 h-1.5 w-48 bg-[#af0000]" />

@@ -57,7 +57,7 @@ export default function IndustrialHoseWSD150() {
                 สายดูดและจ่ายน้ำแรงดัน 150 PSI
               </h3>
               <p className="text-xl font-medium text-zinc-600 leading-relaxed">
-                เหมาะสำหรับงานน้ำเสีย, น้ำโสโครก, โคลน และของเหลวทั่วไปที่มีค่า PH 5-8 
+                เหมาะสำหรับงานน้ำเสีย, น้ำโสโครก, โคลน และของเหลวทั่วไปที่มีค่า PH 5-8
                 โครงสร้างแข็งแรงเสริมด้วยเส้นใยสังเคราะห์และลวดเสริมแรง ทนต่อการขัดถูและสภาพอากาศได้ดีเยี่ยม
               </p>
               <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
@@ -81,7 +81,7 @@ export default function IndustrialHoseWSD150() {
                 <FacebookIcon size={24} />
               </div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
-                 <span className="text-[10px] font-black leading-none scale-75">LINE</span>
+                <span className="text-[10px] font-black leading-none scale-75">LINE</span>
               </div>
             </div>
 

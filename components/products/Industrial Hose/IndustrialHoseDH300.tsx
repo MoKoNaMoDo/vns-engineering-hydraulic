@@ -57,7 +57,7 @@ export default function IndustrialHoseDH300() {
                 ท่อดูด-ส่งน้ำมันสำหรับงานหนัก (BUNKERING)
               </h3>
               <p className="text-xl font-medium text-zinc-600 leading-relaxed">
-                ออกแบบมาเพื่อการใช้งานหนักในท่าเรือและบนเรือ สามารถทนแรงดันได้สูงถึง 300 PSI 
+                ออกแบบมาเพื่อการใช้งานหนักในท่าเรือและบนเรือ สามารถทนแรงดันได้สูงถึง 300 PSI
                 และทนความร้อนได้ถึง +100°C โครงสร้างทนต่อการเสียดสี, น้ำมัน, โอโซน และสภาพอากาศได้ดีเยี่ยม
               </p>
               <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
@@ -81,7 +81,7 @@ export default function IndustrialHoseDH300() {
                 <FacebookIcon size={24} />
               </div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
-                 <span className="text-[10px] font-black leading-none scale-75">LINE</span>
+                <span className="text-[10px] font-black leading-none scale-75">LINE</span>
               </div>
             </div>
 
