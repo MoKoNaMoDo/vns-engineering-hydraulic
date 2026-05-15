@@ -174,7 +174,7 @@ export default function CompanyOverview() {
                     }}
                   >
                     <div className="relative flex h-28 w-28 md:h-40 md:w-40 items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000]/40 bg-white p-3 shadow-lg transition-all duration-300 group-hover:border-[#af0000]">
-                      <span className="relative z-10 text-center text-[11px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-black/60 transition-colors duration-300 group-hover:text-[#af0000] md:text-[14px]">
+                      <span className="relative z-10 text-center text-[11px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-[#af0000] transition-colors duration-300 md:text-[14px]">
                         {item.name}
                       </span>
 
