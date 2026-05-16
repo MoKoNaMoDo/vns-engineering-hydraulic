@@ -31,13 +31,13 @@ const diagramItems = [
 ];
 
 export default function CompanyOverview() {
-  const [radius, setRadius] = useState(260);
+  const [radius, setRadius] = useState(210);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
     const handleResize = () => {
-      setRadius(window.innerWidth < 768 ? 140 : 260);
+      setRadius(window.innerWidth < 768 ? 110 : 210);
     };
 
     handleResize();
@@ -173,7 +173,14 @@ export default function CompanyOverview() {
           <div className="flex items-center justify-center py-10">
             <div className="relative h-[400px] w-[400px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px]">
 
-              <div className="animate-item absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-dashed border-[#af0000]/20" style={{ animationDelay: "1.8s" }} />
+              <div
+                className="animate-item absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-dashed border-[#af0000]/20"
+                style={{
+                  animationDelay: "1.8s",
+                  width: radius * 2,
+                  height: radius * 2
+                }}
+              />
 
               <div className="animate-diagram-item absolute left-1/2 top-1/2 z-30 flex h-28 w-28 items-center justify-center rounded-full bg-[#af0000] text-center shadow-[0_0_30px_rgba(175,0,0,0.4)] border-4 border-white md:h-36 md:w-36" style={{ animationDelay: "1.5s", transform: "translate(-50%, -50%)" }}>
                 <span className="text-2xl font-black text-white md:text-3xl tracking-wide">Service</span>
@@ -182,7 +189,7 @@ export default function CompanyOverview() {
               {isMounted && diagramItems.map((item, idx) => {
                 const x = Math.cos((item.angle * Math.PI) / 180) * radius;
                 const y = Math.sin((item.angle * Math.PI) / 180) * radius;
-                const isLeftSide = item.angle > 90 && item.angle < 270;
+                const isLeftSide = item.angle >= 90 && item.angle < 270;
 
                 return (
                   <Link
@@ -248,8 +255,9 @@ export default function CompanyOverview() {
                     </div>
 
                     <div
-                      className={`absolute z-30 h-12 w-12 overflow-hidden rounded-full border-[2px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-16 md:w-16 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
-                        }`}
+                      className={`absolute z-30 h-14 w-14 overflow-hidden rounded-full border-[2.5px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-20 md:w-20 ${
+                        isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
+                      }`}
                     >
                       <div className="relative h-full w-full">
                         <Image
@@ -257,6 +265,7 @@ export default function CompanyOverview() {
                           alt={item.name}
                           fill
                           className="object-cover"
+                          sizes="(max-width: 768px) 56px, 80px"
                         />
                       </div>
                     </div>
