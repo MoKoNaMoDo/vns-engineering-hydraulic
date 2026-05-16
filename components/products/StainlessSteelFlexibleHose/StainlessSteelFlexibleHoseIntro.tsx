@@ -22,7 +22,7 @@ export default function StainlessSteelFlexibleHoseIntro() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop"
+                    src="/products/products/af-single-braid-large.jpg"
                     alt="Stainless Steel Flexible Hose Detail"
                     fill
                     className="object-cover"
@@ -58,7 +58,7 @@ export default function StainlessSteelFlexibleHoseIntro() {
               </div>
 
               <p className="text-xl font-bold leading-relaxed text-black mt-4 text-center lg:text-left">
-                ท่ออ่อน (Flexible Hose) หรือท่อเฟล็กซ์ มีความยืดหยุ่นสูง งอได้ถึง 360° 
+                ท่ออ่อน (Flexible Hose) หรือท่อเฟล็กซ์ มีความยืดหยุ่นสูง งอได้ถึง 360°
                 ผลิตจากวัสดุ เช่น สแตนเลส (SUS304, 316) หรือ PVC เสริมโครงลวดสปริง
               </p>
             </div>

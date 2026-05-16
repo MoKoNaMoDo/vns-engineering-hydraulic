@@ -37,7 +37,7 @@ export default function PTFETeflonHoseDetail() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1968&auto=format&fit=crop"
+                    src="/products/products/42115.jpg"
                     alt="PTFE Teflon Hose R14"
                     fill
                     className="object-cover"
@@ -64,7 +64,7 @@ export default function PTFETeflonHoseDetail() {
 
             <div className="mt-8 space-y-4 text-[19px] font-bold leading-relaxed text-[#1d1715]">
               <h2 className="text-2xl font-black mb-4">PTFE TEFLON HOSE <span className="text-[#af0000]">R14</span></h2>
-              
+
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />

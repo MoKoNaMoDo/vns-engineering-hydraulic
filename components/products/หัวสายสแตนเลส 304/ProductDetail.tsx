@@ -30,7 +30,7 @@ export default function ProductDetail() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
+                    src="/products/products/Picture8.png"
                     alt="หัวสายสแตนเลส 304"
                     fill
                     className="object-cover"

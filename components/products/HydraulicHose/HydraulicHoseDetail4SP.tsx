@@ -37,10 +37,10 @@ export default function HydraulicHoseDetail4SP() {
           .animate-slide-right { animation: slide-in-from-right 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
           .animate-fade-scale { animation: fade-in-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
         `}</style>
-        
+
         {/* Top Content: Image and Description */}
         <div className="grid gap-10 lg:grid-cols-2 items-start mb-16">
-          
+
           {/* Left Side: Product Image */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px] mx-auto lg:mx-0">
@@ -54,7 +54,7 @@ export default function HydraulicHoseDetail4SP() {
               <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
+                    src="/products/products/Hydralic Hose4.png"
                     alt="Hydraulic Hose 4SP"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
@@ -78,7 +78,7 @@ export default function HydraulicHoseDetail4SP() {
             <h2 className="text-3xl font-black mb-6">
               4SP <span className="text-[#af0000]">DIN EN 856</span>
             </h2>
-            
+
             <ul className="space-y-4 text-lg font-bold text-zinc-700">
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
@@ -150,14 +150,14 @@ export default function HydraulicHoseDetail4SP() {
                 <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Dn</th>
                 <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Inch</th>
                 <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Size</th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>i.d.<br/><span className="text-xs font-normal">mm</span></th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Braid Ø<br/><span className="text-xs font-normal">mm</span></th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>o.d.<br/><span className="text-xs font-normal">mm</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>i.d.<br /><span className="text-xs font-normal">mm</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Braid Ø<br /><span className="text-xs font-normal">mm</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>o.d.<br /><span className="text-xs font-normal">mm</span></th>
                 <th className="py-2 px-2 border-r border-white/20 border-b border-white/20" colSpan={2}>Operating pressure</th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Test pressure<br/><span className="text-xs font-normal">bar</span></th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Standard bursting<br/><span className="text-xs font-normal">bar min</span></th>
-                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Min. bending radius<br/><span className="text-xs font-normal">mm</span></th>
-                <th className="py-4 px-2" rowSpan={2}>Weight approx. radius<br/><span className="text-xs font-normal">kg/m</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Test pressure<br /><span className="text-xs font-normal">bar</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Standard bursting<br /><span className="text-xs font-normal">bar min</span></th>
+                <th className="py-4 px-2 border-r border-white/20" rowSpan={2}>Min. bending radius<br /><span className="text-xs font-normal">mm</span></th>
+                <th className="py-4 px-2" rowSpan={2}>Weight approx. radius<br /><span className="text-xs font-normal">kg/m</span></th>
               </tr>
               <tr className="bg-[#af0000] text-white">
                 <th className="py-2 px-2 border-r border-white/20">bar</th>

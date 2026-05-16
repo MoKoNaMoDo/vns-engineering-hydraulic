@@ -44,7 +44,7 @@ export default function StainlessSteelFlexibleHoseDetail() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1968&auto=format&fit=crop"
+                    src="/products/products/Flexble-removebg-preview.png"
                     alt="Stainless Steel Flexible Hose with Flanges"
                     fill
                     className="object-cover"
@@ -71,7 +71,7 @@ export default function StainlessSteelFlexibleHoseDetail() {
 
             <div className="space-y-6 text-base text-black">
               <h2 className="text-2xl font-black text-center mb-4">เลือกหัว-ท้าย ความยาว</h2>
-              
+
               {/* Flange Section */}
               <div className="space-y-1">
                 <p className="font-black text-lg">หัว-ท้าย หน้าแปลน</p>

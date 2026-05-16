@@ -88,9 +88,9 @@ export default function R7Hose() {
                 สายไฮดรอลิคเทอร์โมพลาสติก R7 (SAE 100 R7)
               </p>
               <div className="text-xl font-medium leading-relaxed text-zinc-800">
-                เป็นสายแรงดันปานกลาง (70-210 bar) โครงสร้างประกอบด้วยท่อชั้นในเทอร์โมพลาสติก 
-                เสริมความแข็งแรงด้วยใยสังเคราะห์ถัก และผิวภายนอกทนการเสียดสี (MSHA approved) 
-                เหมาะสำหรับน้ำมันไฮดรอลิค น้ำ และงานทั่วไป มีความยืดหยุ่นสูง น้ำหนักเบา ทนอุณหภูมิ 
+                เป็นสายแรงดันปานกลาง (70-210 bar) โครงสร้างประกอบด้วยท่อชั้นในเทอร์โมพลาสติก
+                เสริมความแข็งแรงด้วยใยสังเคราะห์ถัก และผิวภายนอกทนการเสียดสี (MSHA approved)
+                เหมาะสำหรับน้ำมันไฮดรอลิค น้ำ และงานทั่วไป มีความยืดหยุ่นสูง น้ำหนักเบา ทนอุณหภูมิ
                 (-40°C ถึง +100°C)
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function R7Hose() {
               <a href="#" className="group transition-all hover:scale-110 active:scale-95">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
                   <div className="flex flex-col items-center justify-center scale-75">
-                     <span className="text-[10px] font-black leading-none">LINE</span>
+                    <span className="text-[10px] font-black leading-none">LINE</span>
                   </div>
                 </div>
               </a>

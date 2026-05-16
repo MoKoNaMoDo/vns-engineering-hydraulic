@@ -35,7 +35,7 @@ export default function PTFEConvolutedDetail() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="https://images.unsplash.com/photo-1614934986218-4775b8719246?q=80&w=2070&auto=format&fit=crop"
+                    src="/products/products/42117.jpg"
                     alt="PTFE Convoluted Teflon Hose"
                     fill
                     className="object-cover"
@@ -47,7 +47,7 @@ export default function PTFEConvolutedDetail() {
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
                 <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight">
-                  PTFE<br/>CONVOLUTED
+                  PTFE<br />CONVOLUTED
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function PTFEConvolutedDetail() {
 
             <div className="mt-8 space-y-4 text-[17px] font-bold leading-relaxed text-[#1d1715]">
               <h2 className="text-2xl font-black mb-4">PTFE CONVOLUTED TEFLON HOSE</h2>
-              
+
               <p className="mb-4">
                 <span className="text-[#af0000]">PTFE CONVOLUTED (สายเทปลอนลอน)</span> เป็นสายที่ใช้กันเยอะในงานอุตสาหกรรมระดับสูง เพราะ <span className="font-black text-black">"ยืดหยุ่น + ทนเคมี + ทนความร้อนสูง"</span> เดี๋ยวผมสรุปให้แบบใช้งานจริง
               </p>
