@@ -4,19 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 const products = [
-  { name: "หัวสายสแตนเลส 304", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070", href: "/products/stainless-304" },
-  { name: "HYDRAULIC HOSE", image: "/products/product/hydraulic-hose.png", href: "/products/hydraulic-hose" },
-  { name: "STAINLESS STEEL FLEXIBLE HOSE", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070", href: "/products/stainless-steel-flexible-hose" },
-  { name: "PTFE HOSE/TEFLON HOSE", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070", href: "/products/ptfe-teflon-hose" },
-  { name: "R7-THERMOPLASTIC HOSE", image: "/products/product/r7-hose.png", href: "/products/r7-thermoplastic-hose" },
+  { name: "หัวสายสแตนเลส 304", image: "/products/products/43395.jpg", href: "/products/stainless-304" },
+  { name: "HYDRAULIC HOSE", image: "/products/products/HYDRAULIC HOSE.png", href: "/products/hydraulic-hose" },
+  { name: "STAINLESS STEEL FLEXIBLE HOSE", image: "/products/products/Flexible Hose.png", href: "/products/stainless-steel-flexible-hose" },
+  { name: "PTFE HOSE/TEFLON HOSE", image: "/products/products/PTFE.png", href: "/products/ptfe-teflon-hose" },
+  { name: "R7-THERMOPLASTIC HOSE", image: "/products/products/สายR-7.png", href: "/products/r7-thermoplastic-hose" },
   { name: "STEAM HOSE", image: "/products/product/steam-hose.png", href: "/products/steam-hose" },
   { name: "TOYOX", image: "/products/product/toyox-hoses.png", href: "/products/toyox" },
-  { name: "INDUSTRIAL HOSE", image: "/products/product/industrial-hose.png", href: "/products/industrial-hose" },
-  { name: "TUBE FITTINGS", image: "/products/product/tube-fittings.png", href: "/products/tube-fittings" },
-  { name: "CAMLOCK COUPLING", image: "/products/product/camlock-coupling.png", href: "/products/camlock-coupling" },
-  { name: "QUICK COUPLING", image: "/products/product/quick-couplings-types.png", href: "/products/quick-coupling" },
-  { name: "HYDRAULIC BALL VALVE", image: "/products/product/hydraulic-ball-valve.png", href: "/products/hydraulic-ball-valve" },
-  { name: "บริการตัดแป๊ป อุตสาหกรรม ทุกชนิด", image: "/products/product/pipe-bending-service.png", href: "/products/industrial-pipe-service" },
+  { name: "INDUSTRIAL HOSE", image: "/products/products/Industrial Hose.jpg", href: "/products/industrial-hose" },
+  { name: "TUBE FITTINGS", image: "/products/products/TUBE.png", href: "/products/tube-fittings" },
+  { name: "CAMLOCK COUPLING", image: "/products/products/CAMLOCK COUPLING.png", href: "/products/camlock-coupling" },
+  { name: "QUICK COUPLING", image: "/products/products/Quick.png", href: "/products/quick-coupling" },
+  { name: "HYDRAULIC BALL VALVE", image: "/products/products/Ballvalve1.png", href: "/products/hydraulic-ball-valve" },
+  { name: "บริการตัดแป๊ป อุตสาหกรรม ทุกชนิด", image: "/products/products/ดัดแป๊บ.png", href: "/products/industrial-pipe-service" },
 ];
 
 export default function ProductGrid() {
@@ -85,13 +85,13 @@ export default function ProductGrid() {
                 >
                   {product.image ? (
                     <div className="relative h-full w-full overflow-hidden">
-                       <Image 
-                         src={product.image} 
-                         alt={product.name} 
-                         fill 
-                         sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 210px"
-                         className="object-cover transition-transform duration-500 group-hover:scale-110"
-                       />
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 210px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
                     </div>
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[10px] font-bold text-zinc-400 transition-colors group-hover:bg-zinc-50">
