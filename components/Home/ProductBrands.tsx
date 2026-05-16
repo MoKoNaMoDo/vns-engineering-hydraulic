@@ -12,7 +12,7 @@ const brands = [
 export default function ProductBrands() {
 
   // ฟังก์ชันแยกตัวอักษรให้ค่อยๆ ลอยเข้ามาทีละตัว
-  const renderAnimatedLetters = (text, delayOffset = 0, speed = 0.05) => {
+  const renderAnimatedLetters = (text: string, delayOffset: number = 0, speed: number = 0.05) => {
     return text.split("").map((char, index) => (
       <span
         key={index}

@@ -23,7 +23,7 @@ const products = [
 export default function ProductGrid() {
 
   // ฟังก์ชันแยกตัวอักษรให้ค่อยๆ ลอยขึ้นมาทีละตัว
-  const renderAnimatedLetters = (text, delayOffset = 0, speed = 0.04) => {
+  const renderAnimatedLetters = (text: string, delayOffset: number = 0, speed: number = 0.04) => {
     return text.split("").map((char, index) => (
       <span
         key={index}
