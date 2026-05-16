@@ -50,6 +50,19 @@ export default function HeroBanner() {
         .vns-fade-in {
           animation: customFadeIn 1.5s ease-out forwards;
         }
+        @keyframes customFlickerIn {
+          0% { opacity: 0; }
+          10% { opacity: 0.8; }
+          20% { opacity: 0.2; }
+          30% { opacity: 0.9; }
+          40% { opacity: 0.3; }
+          50% { opacity: 1; }
+          100% { opacity: 1; }
+        }
+        .vns-flicker {
+          opacity: 0;
+          animation: customFlickerIn 0.5s ease-out forwards;
+        }
         @keyframes customLetterIn {
           from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
           to { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -58,6 +71,13 @@ export default function HeroBanner() {
           display: inline-block;
           opacity: 0;
           animation: customLetterIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes customSlideRight {
+          from { transform: translateX(-100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        .vns-slide-right {
+          animation: customSlideRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
       `}</style>
 
@@ -124,9 +144,16 @@ export default function HeroBanner() {
 
       <Link
         href="/about"
-        className="absolute bottom-0 right-[26vw] z-20 hidden bg-[#ff120d] px-16 py-7 text-2xl font-black text-white underline decoration-white underline-offset-4 shadow-2xl transition hover:bg-[#b20b13] md:block"
+        className="absolute bottom-[0px] right-0 z-20 hidden h-[110px] items-center justify-end overflow-hidden pl-40 pr-12 text-[42px] font-black text-white transition hover:brightness-110 md:flex"
       >
-        รายละเอียดบริษัท
+        {/* Red Background sliding in from left - Speed up slightly */}
+        <div
+          className="vns-slide-right absolute inset-0 bg-gradient-to-l from-[#ff120d] via-[#ff120d] to-transparent opacity-0"
+          style={{ animationDelay: '2000ms' }}
+        />
+        <span className="relative z-10 drop-shadow-[3px_3px_2px_rgba(0,0,0,0.6)] underline decoration-white decoration-[3px] underline-offset-[12px]">
+          {renderAnimatedLetters("รายละเอียดบริษัท", 1000)}
+        </span>
       </Link>
       <div className="absolute bottom-0 left-0 right-0 z-10 h-8 bg-[#5b0b08] md:h-0" />
     </section>
