@@ -1,11 +1,12 @@
 'use client';
+import Image from 'next/image';
 
 const brands = [
-  { name: "TOYOX", logo: "" },
-  { name: "SUNFLEX", logo: "" },
-  { name: "PLATINUM", logo: "" },
-  { name: "BRIDGESTONE", logo: "" },
-  { name: "YOKOHAMA", logo: "" },
+  { name: "TOYOX", logo: "/products/logo/Toyox.png" },
+  { name: "SUNFLEX", logo: "/products/logo/SUNFLEX.png" }, // ยังไม่มีไฟล์โลโก้ Sunflex ในโฟลเดอร์
+  { name: "PLATINUM", logo: "/products/logo/PLATINUM.png" },
+  { name: "BRIDGESTONE", logo: "/products/logo/Bridgestone.png" },
+  { name: "YOKOHAMA", logo: "/products/logo/YOKOHOMA.png" },
 ];
 
 export default function ProductBrands() {
@@ -59,7 +60,7 @@ export default function ProductBrands() {
 
       <div className="mx-auto max-w-[1400px] px-4">
         {/* ใช้ justify-between เพื่อให้ Title อยู่ซ้าย และ Logos ไปกองทางขวา (ในจอใหญ่) */}
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between lg:gap-12">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-8 lg:gap-12">
 
           {/* Left Section: แถบสีแดง + ตัวหนังสือ */}
           <div className="flex w-full flex-col items-center gap-6 md:w-auto md:flex-row">
@@ -67,13 +68,13 @@ export default function ProductBrands() {
             <div className="animate-bar h-12 w-[120px] bg-gradient-to-r from-white via-[#ff0000] to-[#af0000] md:h-20 md:w-[150px] lg:w-[200px]" />
 
             {/* Label - เรียกฟังก์ชันตัวหนังสือมาทีละตัว (เริ่มที่ 0.3s) */}
-            <h2 className="shrink-0 text-3xl font-black uppercase tracking-widest text-black md:text-4xl">
+            <h2 className="shrink-0 text-xl font-bold uppercase tracking-widest text-black md:text-2xl">
               {renderAnimatedLetters("Product Brand", 0.3)}
             </h2>
           </div>
 
           {/* Right Section: Brands Grid */}
-          <div className="flex flex-wrap items-center justify-center gap-4 md:flex-nowrap md:justify-end">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:flex-nowrap md:justify-start">
             {brands.map((brand, index) => {
               // คำนวณ Delay ให้โลโก้ค่อยๆ ลอยมาทีละกล่อง (เริ่มหลังจากตัวหนังสือมาครบ)
               const cardDelay = 0.8 + index * 0.15;
@@ -81,13 +82,21 @@ export default function ProductBrands() {
               return (
                 <div
                   key={brand.name}
-                  className="animate-card flex h-28 w-28 shrink-0 items-center justify-center border-[2px] border-[#af0000] bg-white p-2 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl md:h-36 md:w-36 lg:h-40 lg:w-40 cursor-pointer"
+                  className="animate-card flex h-20 w-fit shrink-0 items-center justify-center border-[2px] border-[#af0000] bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl md:h-24 lg:h-28 cursor-pointer overflow-hidden"
                   style={{ animationDelay: `${cardDelay}s` }}
                 >
-                  {/* Image Placeholder */}
-                  <div className="flex h-full w-full items-center justify-center bg-zinc-50 text-center text-[10px] font-bold text-zinc-400 transition-colors hover:bg-zinc-100">
-                    {brand.name} LOGO
-                  </div>
+                  {brand.logo ? (
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="h-full w-auto object-contain transition-transform duration-300"
+                    />
+                  ) : (
+                    /* Image Placeholder */
+                    <div className="flex h-full w-full items-center justify-center bg-zinc-50 text-center text-[10px] font-bold text-zinc-400 transition-colors hover:bg-zinc-100">
+                      {brand.name} LOGO
+                    </div>
+                  )}
                 </div>
               );
             })}
