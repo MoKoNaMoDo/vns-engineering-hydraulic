@@ -8,21 +8,22 @@ const products = [
   { name: "HYDRAULIC HOSE", image: "/products/products/HYDRAULIC HOSE.png", href: "/products/hydraulic-hose" },
   { name: "STAINLESS STEEL FLEXIBLE HOSE", image: "/products/products/Flexible Hose.png", href: "/products/stainless-steel-flexible-hose" },
   { name: "PTFE HOSE/TEFLON HOSE", image: "/products/products/PTFE.png", href: "/products/ptfe-teflon-hose" },
-  { name: "R7-THERMOPLASTIC HOSE", image: "/products/products/สายR-7.png", href: "/products/r7-thermoplastic-hose" },
-  { name: "STEAM HOSE", image: "/products/product/steam-hose.png", href: "/products/steam-hose" },
-  { name: "TOYOX", image: "/products/product/toyox-hoses.png", href: "/products/toyox" },
+  { name: "R7-THERMOPLASTIC HOSE", image: "/products/product/สกรีนช็อต 2026-05-16 223511.png", href: "/products/r7-thermoplastic-hose" },
+  { name: "STEAM HOSE", image: "/products/product/สกรีนช็อต 2026-05-16 223715.png", href: "/products/steam-hose" },
+  { name: "TOYOX", image: "/products/logo/Toyox.png", href: "/products/toyox" },
   { name: "INDUSTRIAL HOSE", image: "/products/products/Industrial Hose.jpg", href: "/products/industrial-hose" },
   { name: "TUBE FITTINGS", image: "/products/products/TUBE.png", href: "/products/tube-fittings" },
   { name: "CAMLOCK COUPLING", image: "/products/products/CAMLOCK COUPLING.png", href: "/products/camlock-coupling" },
   { name: "QUICK COUPLING", image: "/products/products/Quick.png", href: "/products/quick-coupling" },
-  { name: "HYDRAULIC BALL VALVE", image: "/products/products/Ballvalve1.png", href: "/products/hydraulic-ball-valve" },
-  { name: "บริการตัดแป๊ป อุตสาหกรรม ทุกชนิด", image: "/products/products/ดัดแป๊บ.png", href: "/products/industrial-pipe-service" },
+  { name: "HYDRAULIC BALL VALVE", image: "/products/product/hydraulic-ball-valve.png", href: "/products/hydraulic-ball-valve" },
+  // 🔴 ภาพนี้เป็นภาพยาว
+  { name: "บริการตัดแป๊ป อุตสาหกรรม", image: "/products/products/ดัดแป๊บ.png", href: "/products/industrial-pipe-service" },
 ];
 
 export default function ProductGrid() {
 
   // ฟังก์ชันแยกตัวอักษรให้ค่อยๆ ลอยขึ้นมาทีละตัว
-  const renderAnimatedLetters = (text: string, delayOffset = 0, speed = 0.04) => {
+  const renderAnimatedLetters = (text, delayOffset = 0, speed = 0.04) => {
     return text.split("").map((char, index) => (
       <span
         key={index}
@@ -35,7 +36,7 @@ export default function ProductGrid() {
   };
 
   return (
-    <section className="bg-[#dcdcdc] py-16 overflow-hidden font-sans">
+    <section className="bg-[#e5e5e5] py-16 overflow-hidden font-sans">
 
       {/* 🔴 CSS Animation */}
       <style>{`
@@ -59,51 +60,57 @@ export default function ProductGrid() {
 
       <div className="mx-auto max-w-[1200px] px-4">
 
-        {/* Header */}
+        {/* Header - ลอยมาทีละตัว */}
         <div className="mb-14 text-center">
-          <h2 className="inline-block border-b-4 border-black pb-2 text-4xl font-black uppercase tracking-widest text-black">
+          <h2 className="inline-block border-b-[3px] border-black pb-2 text-3xl font-black uppercase tracking-widest text-black md:text-4xl">
             {renderAnimatedLetters("PRODUCTS", 0, 0.05)}
           </h2>
         </div>
 
         {/* Product Grid */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-10">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-12 md:gap-x-6">
           {products.map((product, index) => {
-            const cardDelay = 0.3 + index * 0.1;
+            const cardDelay = 0.2 + index * 0.1;
             const textDelay = cardDelay + 0.3;
+
+            // 🔴 1. ตรวจสอบเงื่อนไข: ถ้าเป็นภาพ "บริการตัดแป๊ป..." (ภาพสุดท้าย) 
+            const isWideImage = product.name === "บริการตัดแป๊ป อุตสาหกรรม";
 
             return (
               <Link
                 key={product.name}
                 href={product.href}
-                className="flex w-[160px] flex-col items-center sm:w-[200px] lg:w-[210px] group"
+                className="flex w-[140px] flex-col items-center sm:w-[180px] lg:w-[210px] group"
               >
-                {/* 1. Product Image Box */}
+                {/* 1. Product Image Box (มีกรอบแดงเส้นประ) */}
                 <div
-                  className="animate-image-box relative aspect-square w-full overflow-hidden border-[3px] border-dashed border-[#ff0000] bg-white p-2 shadow-md transition-all duration-300 group-hover:-translate-y-2 group-hover:border-solid group-hover:border-[#af0000] group-hover:shadow-2xl cursor-pointer"
+                  // 🔴 2. ถ้าเป็นภาพยาว ให้เปลี่ยนพื้นหลังกล่องเป็นสีเทาอ่อนเพื่อให้ดูกลืนไปกับภาพ ไม่โล่งเกินไป
+                  className={`animate-image-box relative aspect-square w-full overflow-hidden border-[1.5px] border-dashed border-[#ff0000] shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:border-solid group-hover:border-[#8b1a1a] group-hover:shadow-xl cursor-pointer ${isWideImage ? 'bg-zinc-100' : 'bg-white'
+                    }`}
                   style={{ animationDelay: `${cardDelay}s` }}
                 >
                   {product.image ? (
-                    <div className="relative h-full w-full overflow-hidden">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 210px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      // 🔴 3. ส่วนสำคัญ: สลับคลาส object-contain / object-cover
+                      // ถ้าเป็นภาพยาว ใช้ object-contain (และใส่ Padding นิดนึงเพื่อความสวยงาม) เพื่อให้ภาพทั้งใบหดตัวมาอยู่ในกล่อง
+                      className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${isWideImage ? 'object-contain p-2' : 'object-cover'
+                        }`}
+                    />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[10px] font-bold text-zinc-400 transition-colors group-hover:bg-zinc-50">
+                    <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-[10px] font-bold text-zinc-400">
                       [IMAGE]
                     </div>
                   )}
                 </div>
 
-                {/* 2. Product Label */}
-                <h3 className="mt-5 w-full text-center text-[13px] font-bold uppercase tracking-normal leading-snug text-[#6b2525] transition-colors duration-300 md:text-[15px] group-hover:text-[#af0000]">
-                  {renderAnimatedLetters(product.name, textDelay, 0.02)}
-                </h3>
+                {/* 2. Product Label (มีขีดเส้นใต้สีแดง) */}
+                <div className="mt-4 w-full flex flex-col items-center justify-center px-1">
+                  <h3 className="text-center text-[12px] font-black uppercase tracking-tight text-[#7a1818] transition-colors duration-300 md:text-[14px] group-hover:text-[#ff0000] leading-snug underline decoration-[2px] underline-offset-[5px] decoration-[#7a1818] group-hover:decoration-[#ff0000]">
+                    {renderAnimatedLetters(product.name, textDelay, 0.02)}
+                  </h3>
+                </div>
               </Link>
             );
           })}
