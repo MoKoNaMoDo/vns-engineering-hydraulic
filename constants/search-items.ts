@@ -1,0 +1,18 @@
+export const searchItems = [
+  { name: "หัวสายสแตนเลส 304", href: "/products/stainless-304", category: "สินค้า" },
+  { name: "HYDRAULIC HOSE", href: "/products/hydraulic-hose", category: "สินค้า" },
+  { name: "STAINLESS STEEL FLEXIBLE HOSE", href: "/products/stainless-steel-flexible-hose", category: "สินค้า" },
+  { name: "PTFE HOSE/TEFLON HOSE", href: "/products/ptfe-teflon-hose", category: "สินค้า" },
+  { name: "R7-THERMOPLASTIC HOSE", href: "/products/r7-thermoplastic-hose", category: "สินค้า" },
+  { name: "STEAM HOSE", href: "/products/steam-hose", category: "สินค้า" },
+  { name: "TOYOX", href: "/products/toyox", category: "สินค้า" },
+  { name: "INDUSTRIAL HOSE", href: "/products/industrial-hose", category: "สินค้า" },
+  { name: "TUBE FITTINGS", href: "/products/tube-fittings", category: "สินค้า" },
+  { name: "CAMLOCK COUPLING", href: "/products/camlock-coupling", category: "สินค้า" },
+  { name: "QUICK COUPLING", href: "/products/quick-coupling", category: "สินค้า" },
+  { name: "HYDRAULIC BALL VALVE", href: "/products/hydraulic-ball-valve", category: "สินค้า" },
+  { name: "บริการตัดแป๊ป อุตสาหกรรม", href: "/products/industrial-pipe-service", category: "บริการ" },
+  { name: "เกี่ยวกับเรา", href: "/about", category: "หน้าเพจ" },
+  { name: "ติดต่อเรา", href: "/contact", category: "หน้าเพจ" },
+  { name: "หน้าหลัก", href: "/", category: "หน้าเพจ" },
+];

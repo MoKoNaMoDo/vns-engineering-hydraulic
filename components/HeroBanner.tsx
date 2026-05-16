@@ -56,7 +56,7 @@ export default function HeroBanner() {
 
         <div className="vns-slide-up relative hidden min-h-[720px] border-l border-[#650f12]/30 md:block">
           <Image
-            src="/products/sunflex-wsd150.png"
+            src="/products/products/S__6217773.jpg"
             alt="สายไฮดรอลิคและข้อต่อ"
             fill
             priority
@@ -76,7 +76,7 @@ export default function HeroBanner() {
           <div className="vns-slide-left opacity-0 mt-4 space-y-0.5 text-[16px] font-black leading-[1.28] text-white drop-shadow-[2px_2px_2px_rgba(0,0,0,.55)] sm:mt-8 sm:space-y-2 sm:text-[35px] md:text-[36px]" style={{ animationDelay: '200ms' }}>
             <p>ผู้ผลิตหัวสายไฮดรอลิค</p>
             {strengths.map((item, index) => (
-              <p 
+              <p
                 key={item}
                 className="vns-slide-left opacity-0"
                 style={{ animationDelay: `${400 + (index * 100)}ms` }}
