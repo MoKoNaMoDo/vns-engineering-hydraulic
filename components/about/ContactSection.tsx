@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MailIcon, PhoneIcon } from "./Icons";
 
 export default function ContactSection() {
@@ -64,15 +65,25 @@ export default function ContactSection() {
             {/* Social Links */}
             <div className="mt-16 pt-10 border-t border-zinc-100 flex flex-wrap items-center gap-8">
               <div className="flex gap-4">
-                <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg shadow-blue-500/20 hover:-translate-y-1 transition-all font-black text-lg">f</a>
-                <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-[11px] text-white shadow-lg shadow-green-500/20 hover:-translate-y-1 transition-all font-black">LINE</a>
+                <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg shadow-blue-500/20 hover:-translate-y-1 transition-all font-black text-lg">f</a>
+                <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-[11px] text-white shadow-lg shadow-green-500/20 hover:-translate-y-1 transition-all font-black">LINE</a>
               </div>
-              <div className="flex items-center gap-4 bg-zinc-50 p-3 pr-6 rounded-2xl border border-zinc-100">
-                <div className="h-12 w-12 bg-white rounded-xl p-1 shadow-sm border border-zinc-200">
-                  <div className="w-full h-full bg-zinc-100 rounded-lg flex items-center justify-center text-[10px] text-zinc-400 font-bold uppercase">QR</div>
+              <a 
+                href="https://line.me/ti/p/~tonmasadora" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-5 bg-zinc-50 p-4 pr-7 rounded-2xl border border-zinc-100 hover:bg-zinc-100 transition-colors group"
+              >
+                <div className="h-16 w-16 bg-white rounded-xl p-1 shadow-sm border border-zinc-200 relative overflow-hidden group-hover:scale-105 transition-transform">
+                  <Image 
+                    src="/products/QR.png" 
+                    alt="LINE QR Code" 
+                    fill
+                    className="object-contain"
+                  />
                 </div>
-                <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider leading-tight">Scan to Add <br />Line</p>
-              </div>
+                <p className="text-sm font-bold text-zinc-500 uppercase tracking-wider leading-tight group-hover:text-[#06c755] transition-colors">Scan to Add <br />Line</p>
+              </a>
             </div>
           </div>
 
