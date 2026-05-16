@@ -22,12 +22,12 @@ const industries = [
 ];
 
 const diagramItems = [
-  { name: "Fitting and adapter", image: "/products/fittings.png", angle: -90, href: "/services/fitting-and-adapter" },
-  { name: "Hydraulic Hose", image: "/products/hydraulic-hose.png", angle: -30, href: "/services/hydraulic-hose" },
-  { name: "Steam Hose", image: "/products/steam-hose.png", angle: 30, href: "/services/steam-hose" },
-  { name: "PTFE Hose/ Teflon Hose", image: "/products/ptfe-hose.png", angle: 90, href: "/services/ptfe-teflon-hose" },
-  { name: "Metal Hose", image: "/products/metal-hose.png", angle: 150, href: "/services/metal-hose" },
-  { name: "Industrial Hose", image: "/products/industrial-hose.png", angle: 210, href: "/services/industrial-hose" },
+  { name: "Fitting and adapter", image: "/products/Overview/ChatGPT Image May 10, 2026, 02_48_05 PM.png", angle: -90, href: "/services/fitting-and-adapter" },
+  { name: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", angle: -30, href: "/services/hydraulic-hose" },
+  { name: "Steam Hose", image: "/products/products/43024.jpg", angle: 30, href: "/services/steam-hose" },
+  { name: "PTFE Hose/ Teflon Hose", image: "/products/products/PTFE.-removebg-preview.png", angle: 90, href: "/services/ptfe-teflon-hose" },
+  { name: "Metal Hose", image: "/products/Overview/Flexible Hose.png", angle: 150, href: "/services/metal-hose" },
+  { name: "Industrial Hose", image: "/products/Overview/ChatGPT_Image_May_10__2026__02_21_51_PM-removebg-preview.png", angle: 210, href: "/services/industrial-hose" },
 ];
 
 export default function CompanyOverview() {
@@ -50,7 +50,7 @@ export default function CompanyOverview() {
       <span
         key={index}
         className="animate-letter inline-block opacity-0"
-        style={{ animationDelay: `${delayOffset + index * 0.03}s` }}
+        style={{ animationDelay: `${delayOffset + index * 0.02}s` }}
       >
         {char === " " ? "\u00A0" : char}
       </span>
@@ -76,10 +76,16 @@ export default function CompanyOverview() {
         @keyframes drawLine {
           to { stroke-dashoffset: 0; }
         }
+        /* อนิเมชันเส้นโค้งของลูกศรแดงในส่วนหัวข้อ */
+        @keyframes arrowCurveDraw {
+          from { stroke-dashoffset: 50; opacity: 0; }
+          to { stroke-dashoffset: 0; opacity: 1; }
+        }
         
         .animate-letter { animation: slideInRight 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         .animate-item { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
         .animate-diagram-item { opacity: 0; animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .animate-header-arrow { animation: arrowCurveDraw 0.6s ease-out 0.8s forwards; opacity: 0; stroke-dasharray: 50; }
         
         .path-draw {
           stroke-dasharray: 300;
@@ -91,18 +97,39 @@ export default function CompanyOverview() {
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-4 relative z-10">
-        <div className="mb-14 text-center">
-          <h2 className="text-[32px] font-black uppercase tracking-tight md:text-[42px]">
+
+        {/* 🔴 ส่วนหัวข้อหลัก (Header Area) แก้ไขระบบโครงสร้างลูกศรให้ได้สัดส่วนสวยงามคงที่ */}
+        <div className="mb-14 flex flex-col items-start max-w-[1050px] mx-auto w-full">
+          {/* ชื่อบริษัทหลัก */}
+          <h2 className="w-full text-left text-[26px] font-black uppercase tracking-tight sm:text-[34px] md:text-[42px] leading-none">
             {renderAnimatedLetters("V.N.S ENGINEERING HYDRAULIC CO.,LTD", 0)}
           </h2>
-          <div className="mt-4 flex items-center justify-center gap-2 text-[14px] font-bold md:text-[18px] animate-item" style={{ animationDelay: "1s" }}>
-            <p className="max-w-[800px] leading-tight text-[#4a4a4a]">
+
+          {/* ส่วนประโยคคำอธิบายเยื้องขวา พร้อมกล่องลูกศรโครงสร้างคงที่ */}
+          <div
+            className="mt-6 relative w-full pl-10 sm:pl-12 md:pl-16 text-left animate-item"
+            style={{ animationDelay: "0.6s" }}
+          >
+            {/* 🔴 ลูกศรแดงดีไซน์ใหม่ด้วย HTML/CSS Border: สัดส่วนสมบูรณ์แบบ ไม่บิดเบี้ยว */}
+            <div
+              className="absolute left-2 top-[-10px] md:left-4 md:top-[-12px] w-5 h-7 sm:w-6 sm:h-8 md:w-7 md:h-9 
+                 border-l-[3px] border-b-[3px] border-[#af0000] rounded-bl-xl
+                 after:content-[''] after:absolute after:bottom-[-6px] after:right-[-6px]
+                 after:w-0 after:h-0 
+                 after:border-t-[5px] after:border-t-transparent 
+                 after:border-b-[5px] after:border-b-transparent 
+                 after:border-l-[8px] after:border-l-[#af0000]"
+            />
+
+            {/* ข้อความบรรยายเยื้องขวา */}
+            <p className="text-[14px] font-bold text-[#4a4a4a] sm:text-[16px] md:text-[19px] leading-relaxed tracking-wide">
               ผู้ผลิตหัวสายไฮดรอลิค, สแตนเลส SUS 304,316, ทองเหลือง BRAS,
               เหล็กเพลาขาว SS400, หัวสายไฮดรอลิคหลากหลายรูปแบบ
             </p>
           </div>
         </div>
 
+        {/* ส่วน Grid แสดงเนื้อหาหลัก ด้านซ้ายบอร์ด/ด้านขวาวงกลม */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div className="animate-item relative overflow-hidden rounded-xl bg-white/40 p-8 shadow-inner md:p-12" style={{ animationDelay: "1.2s" }}>
             <div className="absolute inset-0 z-0 opacity-20">
@@ -142,6 +169,7 @@ export default function CompanyOverview() {
             </div>
           </div>
 
+          {/* แผนผังไดอะแกรมวงกลม */}
           <div className="flex items-center justify-center py-10">
             <div className="relative h-[400px] w-[400px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px]">
 
@@ -168,7 +196,20 @@ export default function CompanyOverview() {
                       animationDelay: `${2.0 + (idx * 0.15)}s`,
                     }}
                   >
-                    <div className="relative flex h-28 w-28 md:h-40 md:w-40 items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000]/40 bg-white p-3 shadow-lg transition-all duration-300 group-hover:border-[#af0000]">
+                    <div className="relative flex h-28 w-28 md:h-40 md:w-40 flex-col items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000]/40 bg-white p-3 shadow-lg transition-all duration-300 group-hover:border-[#af0000]">
+
+                      {/* ไอคอนลูกศรชี้เข้าหาชื่อข้อความตรงคอมโพเนนต์วงกลมวงนอก */}
+                      {/* <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={3}
+                        stroke="currentColor"
+                        className="w-4 h-4 md:w-5 md:h-5 text-zinc-400 opacity-0 -translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-[#af0000] mb-1"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                      </svg> */}
+
                       <span className="relative z-10 text-center text-[11px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-[#af0000] transition-colors duration-300 md:text-[14px]">
                         {item.name}
                       </span>
@@ -207,11 +248,16 @@ export default function CompanyOverview() {
                     </div>
 
                     <div
-                      className={`absolute z-30 h-12 w-12 overflow-hidden rounded-full border-[2px] border-white bg-zinc-200 shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-16 md:w-16 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
+                      className={`absolute z-30 h-12 w-12 overflow-hidden rounded-full border-[2px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-16 md:w-16 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
                         }`}
                     >
-                      <div className="flex h-full w-full items-center justify-center text-[8px] font-bold text-zinc-500 md:text-[10px]">
-                        [IMAGE]
+                      <div className="relative h-full w-full">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     </div>
                   </Link>
