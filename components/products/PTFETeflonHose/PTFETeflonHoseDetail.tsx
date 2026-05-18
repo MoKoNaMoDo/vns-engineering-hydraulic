@@ -11,10 +11,10 @@ const tags = [
   "TEFLON HOSE",
   "สายทนความร้อน",
   "CHEMICAL HOSE",
-  "PLOY HOSE",
+  "POLY HOSE",
   "สาย R14",
   "สายทนเคมี",
-  "HIG TEMPERATURE HOSE"
+  "HIGH TEMPERATURE HOSE"
 ];
 
 export default function PTFETeflonHoseDetail() {

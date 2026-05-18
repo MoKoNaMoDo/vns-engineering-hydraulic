@@ -29,7 +29,7 @@ export default function ProductSpecs() {
           {/* Left Side: Product Cluster Image */}
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
-              src="/products/products/ChatGPT Image May 10, 2026, 03_58_00 PM.png"
+              src="/products/products/ChatGPT Image 18 พ.ค. 2569 20_19_16.png"
               alt="Product Catalog Cluster"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
