@@ -32,6 +32,7 @@ export default function ProductSpecs() {
               src="/products/products/ChatGPT Image May 10, 2026, 03_58_00 PM.png"
               alt="Product Catalog Cluster"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain"
             />
           </div>

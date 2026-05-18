@@ -10,11 +10,7 @@ const tags = [
   "ABRASION RESISTANT HOSE"
 ];
 
-const FacebookIcon = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-  </svg>
-);
+
 
 export default function IndustrialHoseCSD150() {
   return (
@@ -93,12 +89,22 @@ export default function IndustrialHoseCSD150() {
             </div>
 
             <div className="mt-8 flex gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
-                <FacebookIcon size={24} />
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
-                 <span className="text-[10px] font-black leading-none scale-75">LINE</span>
-              </div>
+              <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                  <div className="flex flex-col items-center justify-center scale-75">
+                    <span className="text-[10px] font-black leading-none">LINE</span>
+                    <div className="h-[2px] w-8 bg-white/30 my-[2px]" />
+                    <span className="text-[10px] font-black leading-none">OFFICIAL</span>
+                  </div>
+                </div>
+              </a>
             </div>
 
             <ProductTags tags={tags} categoryHref="/products/industrial-hose" />
