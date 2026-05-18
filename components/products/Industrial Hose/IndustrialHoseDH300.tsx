@@ -39,9 +39,7 @@ export default function IndustrialHoseDH300() {
                 </div>
               </div>
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center">
-                  สายยางอุตสาหกรรม
-                </div>
+                <Link href="/products/industrial-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายยางส่งลมอุตสาหกรรม (DH300)</Link>
               </div>
             </div>
           </div>

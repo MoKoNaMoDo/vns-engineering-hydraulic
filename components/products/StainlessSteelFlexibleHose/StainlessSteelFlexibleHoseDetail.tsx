@@ -55,9 +55,7 @@ export default function StainlessSteelFlexibleHoseDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
-                  ท่ออ่อน
-                </div>
+                <Link href="/products/stainless-steel-flexible-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">ท่ออ่อนสแตนเลส (SS Flexible Hose)</Link>
               </div>
             </div>
           </div>

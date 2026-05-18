@@ -41,9 +41,7 @@ export default function ProductDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
-                  ข้อต่อไฮดรอลิค
-                </div>
+                <Link href="/products/stainless-304" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">หัวสายสแตนเลส 304 (Stainless Steel Fittings)</Link>
               </div>
             </div>
           </div>

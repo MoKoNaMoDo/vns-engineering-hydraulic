@@ -64,9 +64,7 @@ export default function QuickCoupling() {
 
               {/* Category Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transform transition-transform hover:-rotate-1">
-                  ข้อต่อสวมเร็ว
-                </div>
+                <Link href="/products/quick-coupling" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transform transition- transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">ข้อต่อสวมเร็วไฮดรอลิก (Quick Coupling)</Link>
               </div>
             </div>
           </div>

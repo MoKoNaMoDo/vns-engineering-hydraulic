@@ -134,7 +134,7 @@ export default function CompanyOverview() {
           <div className="animate-item relative overflow-hidden rounded-xl bg-white/40 p-8 shadow-inner md:p-12" style={{ animationDelay: "1.2s" }}>
             <div className="absolute inset-0 z-0 opacity-20">
               <Image
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
+                src="/43740.jpg"
                 alt="Background"
                 fill
                 className="object-cover"
@@ -255,9 +255,8 @@ export default function CompanyOverview() {
                     </div>
 
                     <div
-                      className={`absolute z-30 h-14 w-14 overflow-hidden rounded-full border-[2.5px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-20 md:w-20 ${
-                        isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
-                      }`}
+                      className={`absolute z-30 h-14 w-14 overflow-hidden rounded-full border-[2.5px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-20 md:w-20 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
+                        }`}
                     >
                       <div className="relative h-full w-full">
                         <Image

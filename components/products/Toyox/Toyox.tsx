@@ -65,9 +65,7 @@ export default function Toyox() {
 
               {/* TOYOX Blue Label */}
               <div className="mt-6 flex justify-center">
-                <div className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center transform hover:scale-105 transition-all">
-                  TOYOX
-                </div>
+                <Link href="/products/toyox" className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายยางอุตสาหกรรม TOYOX</Link>
               </div>
             </div>
           </div>

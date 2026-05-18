@@ -72,9 +72,7 @@ export default function HydraulicHoseDetail() {
 
             {/* Category Tag */}
             <div className="mt-4 flex justify-center w-full max-w-[480px]">
-              <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg">
-                สายไฮดรอลิค
-              </div>
+              <Link href="/products/hydraulic-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายไฮดรอลิกอุตสาหกรรม (Hydraulic Hose)</Link>
             </div>
           </div>
 

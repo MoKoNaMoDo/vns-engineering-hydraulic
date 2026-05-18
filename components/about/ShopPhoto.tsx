@@ -4,7 +4,7 @@ export default function ShopPhoto({ className }: { className?: string }) {
   return (
     <div className={`relative aspect-[4/3] overflow-hidden border-2 border-[#9b0004] bg-[#f1e7dd] ${className ?? ""}`}>
       <Image
-        src="/products/sunflex-wsd150.png"
+        src="/43740.jpg"
         alt="ภาพตัวอย่างหน้าร้านและสินค้า V.N.S Engineering Hydraulic"
         fill
         className="object-cover"

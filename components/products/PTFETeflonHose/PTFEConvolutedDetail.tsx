@@ -46,9 +46,7 @@ export default function PTFEConvolutedDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight">
-                  PTFE<br />CONVOLUTED
-                </div>
+                <Link href="/products/ptfe-teflon-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายเทฟล่อนลอน (PTFE Convoluted)</Link>
               </div>
             </div>
           </div>
