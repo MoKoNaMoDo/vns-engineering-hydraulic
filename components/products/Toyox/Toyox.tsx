@@ -39,11 +39,24 @@ export default function Toyox() {
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[500px]">
               {/* Product Badge */}
-              <div className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
-                <div className="rounded-xl bg-white px-8 py-3 text-2xl font-black shadow-[0_10px_25px_rgba(0,0,0,0.2)] ring-1 ring-black/5 transition-transform hover:scale-105 cursor-default text-zinc-900">
+              <button 
+                onClick={() => {
+                  window.scrollBy({ top: 500, behavior: "smooth" });
+                }}
+                className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
+              >
+                <div className="flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-2xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
                   รายละเอียดสินค้า
+                  <svg 
+                    className="w-5 h-5 text-[#af0000] animate-bounce" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </div>
-              </div>
+              </button>
 
               {/* Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_30px_60px_rgba(0,0,0,0.15)]">

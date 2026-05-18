@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
@@ -20,9 +22,23 @@ export default function ProductDetail() {
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
               {/* Detail Badge */}
-              <button className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap transition-all hover:scale-110 active:scale-95">
-                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 hover:bg-zinc-50">
+              <button 
+                onClick={() => {
+                  const specsEl = document.getElementById("specs");
+                  if (specsEl) specsEl.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
+              >
+                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
                   รายละเอียดสินค้า
+                  <svg 
+                    className="w-5 h-5 text-[#af0000] animate-bounce" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </div>
               </button>
 
