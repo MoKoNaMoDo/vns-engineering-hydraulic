@@ -15,7 +15,12 @@ export default function HeroBanner() {
   const pathname = usePathname();
 
   const renderAnimatedLetters = (text: string, baseDelay: number) => {
-    return text.split("").map((char, index) => (
+    // ใช้ Intl.Segmenter ป้องกันสระภาษาไทยและวรรณยุกต์แยกออกจากพยัญชนะ
+    const characters = typeof Intl !== "undefined" && Intl.Segmenter
+      ? Array.from(new Intl.Segmenter("th", { granularity: "grapheme" }).segment(text)).map(s => s.segment)
+      : text.split("");
+
+    return characters.map((char, index) => (
       <span
         key={`${char}-${index}`}
         className="vns-letter"

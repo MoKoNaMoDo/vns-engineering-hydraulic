@@ -46,7 +46,12 @@ export default function CompanyOverview() {
   }, []);
 
   const renderAnimatedLetters = (text: string, delayOffset: number = 0) => {
-    return text.split("").map((char, index) => (
+    // ใช้ Intl.Segmenter ป้องกันสระภาษาไทยและวรรณยุกต์แยกออกจากพยัญชนะ
+    const characters = typeof Intl !== "undefined" && Intl.Segmenter
+      ? Array.from(new Intl.Segmenter("th", { granularity: "grapheme" }).segment(text)).map(s => s.segment)
+      : text.split("");
+
+    return characters.map((char, index) => (
       <span
         key={index}
         className="animate-letter inline-block opacity-0"
@@ -169,9 +174,55 @@ export default function CompanyOverview() {
             </div>
           </div>
 
-          {/* แผนผังไดอะแกรมวงกลม */}
-          <div className="flex items-center justify-center py-10">
-            <div className="relative h-[400px] w-[400px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px]">
+          {/* 📱 แผนผังบริการสำหรับอุปกรณ์มือถือ (< 768px) */}
+          <div className="block md:hidden py-6">
+            <div className="grid grid-cols-2 gap-4">
+              {diagramItems.map((item, idx) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="animate-item flex flex-col items-center justify-between rounded-2xl bg-white/70 backdrop-blur-md p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 transition-all duration-300 active:scale-95 group hover:border-[#af0000]"
+                  style={{ animationDelay: `${0.2 + (idx * 0.1)}s` }}
+                >
+                  {/* กรอบรูปทรงกลมหรูหราพร้อมเส้นประสีแดง */}
+                  <div className="relative flex h-20 w-20 flex-col items-center justify-center rounded-full border-[1.5px] border-dashed border-[#af0000]/40 bg-white p-1.5 shadow-md transition-all duration-300 group-hover:border-[#af0000]">
+                    <div className="relative h-full w-full overflow-hidden rounded-full">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        sizes="80px"
+                      />
+                    </div>
+                  </div>
+
+                  {/* ชื่อบริการ */}
+                  <span className="mt-3 text-center text-[12px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-transparent transition-colors duration-300 group-hover:decoration-[#af0000]">
+                    {item.name}
+                  </span>
+
+                  {/* ปุ่มลูกศรชี้เข้า */}
+                  <div className="mt-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#af0000]/10 text-[#af0000] transition-colors duration-300 group-hover:bg-[#af0000] group-hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={3}
+                      stroke="currentColor"
+                      className="w-3 h-3"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* 💻 แผนผังไดอะแกรมวงกลม สำหรับแท็บเล็ตและเดสก์ท็อป (>= 768px) */}
+          <div className="hidden md:flex items-center justify-center py-10">
+            <div className="relative h-[550px] w-[550px] md:h-[700px] md:w-[700px]">
 
               <div
                 className="animate-item absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-dashed border-[#af0000]/20"
