@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Tag } from "lucide-react";
+import ProductTags from "@/components/products/ProductTags";
 
 const tags = [
   "บริการตัดแป๊บอุตสาหกรรม", "บริการตัดแป๊บ"
@@ -134,24 +134,7 @@ export default function PipeService() {
             </div>
 
             {/* Tags */}
-            <div className="mt-10">
-              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
-                <Tag size={20} className="text-[#af0000]" />
-                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                {tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href="/products/industrial-pipe-service"
-                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
-                  >
-                    #{tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <ProductTags tags={tags} categoryHref="/products/industrial-pipe-service" />
           </div>
 
         </div>
