@@ -36,7 +36,7 @@ export default function IndustrialHoseAH300() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              <button 
+              {/* <button 
                 onClick={() => {
                   window.scrollBy({ top: 500, behavior: "smooth" });
                 }}
@@ -53,7 +53,7 @@ export default function IndustrialHoseAH300() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-              </button>
+              </button> */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image

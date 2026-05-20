@@ -33,11 +33,11 @@ export default function Camlock() {
 
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          
+
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              <button 
+              {/* <button 
                 onClick={() => {
                   window.scrollBy({ top: 500, behavior: "smooth" });
                 }}
@@ -54,7 +54,7 @@ export default function Camlock() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-              </button>
+              </button> */}
 
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
@@ -86,7 +86,7 @@ export default function Camlock() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-black text-[#af0000] text-center lg:text-left">ข้อต่อแคมล็อค (Camlock Coupling)</h3>
                 <p className="text-lg font-medium leading-relaxed text-center lg:text-left">
-                  หรือที่เรียกว่า "ข้อต่อเร็วแบบคันโยก" เป็นระบบข้อต่อที่ออกแบบมาเพื่อการเชื่อมต่อที่รวดเร็วและปลอดภัย 
+                  หรือที่เรียกว่า "ข้อต่อเร็วแบบคันโยก" เป็นระบบข้อต่อที่ออกแบบมาเพื่อการเชื่อมต่อที่รวดเร็วและปลอดภัย
                   ไม่ต้องใช้เครื่องมือพิเศษ นิยมใช้ในอุตสาหกรรมการลำเลียงของไหลทุกประเภท
                 </p>
               </div>

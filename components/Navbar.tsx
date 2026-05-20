@@ -63,12 +63,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header 
-      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${
-        isScrolled 
-          ? "bg-[#141111]/95 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md" 
+    <header
+      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${isScrolled
+          ? "bg-[#141111]/95 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[#8d0d18] to-transparent opacity-50" />
@@ -115,8 +114,8 @@ export default function Navbar() {
 
       <div className="mx-auto flex h-10 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8 md:h-[70px]">
         {/* Logo Section */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="vns-logo-up group relative z-50 flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-[#8d0d18] bg-white shadow-xl transition-all duration-500 hover:scale-110 md:h-24 md:w-24"
         >
           <div className="relative h-full w-full">
@@ -130,17 +129,17 @@ export default function Navbar() {
             />
           </div>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden flex-1 items-center justify-center gap-6 text-[18px] font-black text-white md:flex lg:gap-10 lg:text-[22px] whitespace-nowrap shrink-0">
           {navLinks.map((link, index) => {
             const isActive = pathname === link.href;
             return (
-              <Link 
-                key={link.href} 
-                href={link.href} 
+              <Link
+                key={link.href}
+                href={link.href}
                 className={`vns-nav-link px-2 uppercase tracking-tight ${isActive ? 'active text-[#dfc1ad]' : ''}`}
-                style={{ 
+                style={{
                   animation: `navStagger 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
                   opacity: 0
                 }}
@@ -190,9 +189,8 @@ export default function Navbar() {
                 setIsOpen(!isOpen);
                 if (isSearchOpen) setIsSearchOpen(false);
               }}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all border ${
-                isOpen ? 'bg-[#8d0d18] text-white border-[#8d0d18]' : 'bg-white/5 text-white border-white/10'
-              }`}
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all border ${isOpen ? 'bg-[#8d0d18] text-white border-[#8d0d18]' : 'bg-white/5 text-white border-white/10'
+                }`}
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -202,14 +200,14 @@ export default function Navbar() {
 
       {/* Global Desktop & Mobile Spotlight Search Modal */}
       {isSearchOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-[200] flex items-start justify-center bg-[#0a0a0a]/80 p-4 pt-[12vh] md:pt-[15vh] backdrop-blur-md"
           onClick={() => {
             setIsSearchOpen(false);
             setSearchQuery("");
           }}
         >
-          <div 
+          <div
             className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#141111]/98 p-5 md:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-3xl"
             onClick={(e) => e.stopPropagation()}
             style={{ animation: 'slideInUp 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}
@@ -225,7 +223,7 @@ export default function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
               />
-              <button 
+              <button
                 onClick={() => {
                   setIsSearchOpen(false);
                   setSearchQuery("");
@@ -300,16 +298,15 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <nav className="fixed inset-x-0 top-[72px] bottom-0 z-[90] flex flex-col bg-[#141111]/98 p-6 backdrop-blur-xl md:hidden"
-             style={{ animation: 'slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}>
+          style={{ animation: 'slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}>
           <div className="flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${
-                  pathname === link.href ? 'border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]' : ''
-                }`}
-                style={{ 
+                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${pathname === link.href ? 'border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]' : ''
+                  }`}
+                style={{
                   animation: `navStagger 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
                   opacity: 0
                 }}
@@ -320,7 +317,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          
+
           <div className="mt-auto pb-10 text-center">
             <div className="mb-4 flex justify-center gap-4">
               {/* Social icons placeholder if needed */}

@@ -52,7 +52,7 @@ export default function HydraulicHoseDetail() {
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px] mx-auto lg:mx-0">
               {/* Header Badge (Floating) */}
-              <button 
+              {/* <button 
                 onClick={() => {
                   window.scrollBy({ top: 500, behavior: "smooth" });
                 }}
@@ -69,7 +69,7 @@ export default function HydraulicHoseDetail() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-              </button>
+              </button> */}
 
               <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)] bg-white">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">

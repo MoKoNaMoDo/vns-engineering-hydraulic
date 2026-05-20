@@ -33,12 +33,12 @@ export default function BallValve() {
 
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          
+
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
               {/* Detail Badge */}
-              <button 
+              {/* <button 
                 onClick={() => {
                   window.scrollBy({ top: 500, behavior: "smooth" });
                 }}
@@ -55,7 +55,7 @@ export default function BallValve() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-              </button>
+              </button> */}
 
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
@@ -89,7 +89,7 @@ export default function BallValve() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-black text-[#af0000] text-center lg:text-left">HYDRAULIC BALL VALVE (1/8" - 2")</h3>
                 <p className="text-lg font-medium leading-relaxed text-center lg:text-left">
-                  HYDRAULIC BALL VALVE (วาล์วบอลระบบไฮดรอลิก) เป็นอุปกรณ์เปิด-ปิดการไหลของของไหล 
+                  HYDRAULIC BALL VALVE (วาล์วบอลระบบไฮดรอลิก) เป็นอุปกรณ์เปิด-ปิดการไหลของของไหล
                   (ส่วนมากคือน้ำมันไฮดรอลิก) ที่ทนแรงดันสูง ใช้งานง่ายและซีลแน่น จึงถูกใช้ในหลายอุตสาหกรรมหลัก ดังนี้
                 </p>
               </div>

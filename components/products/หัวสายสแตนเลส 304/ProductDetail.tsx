@@ -22,11 +22,10 @@ export default function ProductDetail() {
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
               {/* Detail Badge */}
-              <button 
-                onClick={() => {
-                  const specsEl = document.getElementById("specs");
-                  if (specsEl) specsEl.scrollIntoView({ behavior: "smooth" });
-                }}
+              <a 
+                href="/PDF/Hydraulic_20hose_20fitting_20specification.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
@@ -40,7 +39,7 @@ export default function ProductDetail() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-              </button>
+              </a>
 
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
