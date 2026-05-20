@@ -4,15 +4,52 @@ import PTFEConvolutedDetail from "@/components/products/PTFETeflonHose/PTFEConvo
 import PTFETeflonHoseSpecTable from "@/components/products/PTFETeflonHose/PTFETeflonHoseSpecTable";
 import PTFEConvolutedSpecTable from "@/components/products/PTFETeflonHose/PTFEConvolutedSpecTable";
 import ContactSection from "@/components/about/ContactSection";
+import ViewCounter from "@/components/ViewCounter";
 
 export const metadata = {
-  title: "PTFE Teflon Hose R14 - V.N.S Engineering Hydraulic",
-  description: "รายละเอียดสินค้า สายเทปลอน PTFE Teflon Hose R14 ทนเคมีและทนความร้อนสูง",
+  title: "สายเทฟลอนถักสแตนเลส PTFE Teflon Hose R14 | V.N.S Engineering",
+  description: "จำหน่ายสายเทฟลอน (PTFE Teflon Hose) ชนิดผิวเรียบและลอน (Convoluted) ถักสแตนเลส ทนสารเคมี ทนความร้อนสูง มาตรฐานคุณภาพโรงงานอุตสาหกรรม",
+  keywords: [
+    "สายเทฟลอน",
+    "สาย PTFE",
+    "PTFE Teflon Hose",
+    "สายเทฟลอนถักสแตนเลส",
+    "สายทนสารเคมี",
+    "สายทนความร้อนสูง",
+    "PTFE Convoluted Hose",
+    "Teflon Hose R14",
+    "สายไฮดรอลิคเทฟลอน",
+    "V.N.S Engineering"
+  ]
 };
 
 export default function PTFETeflonHosePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "สายเทฟลอน PTFE Teflon Hose R14",
+    "image": "https://vns-engineering.com/products/products/PTFE.png",
+    "description": "สายเทฟลอน (PTFE Teflon Hose) ชนิดเรียบและชนิดลอน (Convoluted) ถักสแตนเลส ทนเคมีและทนความร้อนสูง",
+    "brand": {
+      "@type": "Brand",
+      "name": "V.N.S Engineering"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "THB",
+      "lowPrice": "0",
+      "priceValidUntil": "2027-12-31",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#f7f7f6] text-black overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Header */}
       {/* <div className="bg-zinc-900 py-12 text-center text-white">
         <h1 className="text-3xl font-black uppercase tracking-[0.2em] md:text-4xl">
@@ -30,6 +67,9 @@ export default function PTFETeflonHosePage() {
 
           {/* Right Content Area (Detail 1: Standard PTFE) */}
           <main className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12">
+            <div className="flex justify-end mb-4">
+              <ViewCounter slug="ptfe-teflon-hose" mode="increment" />
+            </div>
             <PTFETeflonHoseDetail />
           </main>
         </div>
