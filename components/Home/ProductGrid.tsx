@@ -22,9 +22,13 @@ const products = [
 
 export default function ProductGrid() {
 
-  // ฟังก์ชันแยกตัวอักษรให้ค่อยๆ ลอยขึ้นมาทีละตัว
+  // ฟังก์ชันแยกตัวอักษรให้ค่อยๆ ลอยขึ้นมาทีละตัว โดยรองรับสระภาษาไทยและวรรณยุกต์
   const renderAnimatedLetters = (text: string, delayOffset: number = 0, speed: number = 0.04) => {
-    return text.split("").map((char, index) => (
+    const characters = typeof Intl !== "undefined" && Intl.Segmenter
+      ? Array.from(new Intl.Segmenter("th", { granularity: "grapheme" }).segment(text)).map(s => s.segment)
+      : text.split("");
+
+    return characters.map((char, index) => (
       <span
         key={index}
         className="animate-letter inline-block opacity-0"

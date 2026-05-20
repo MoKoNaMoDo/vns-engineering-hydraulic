@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { Search, X, ChevronRight, Menu } from "lucide-react";
 import { searchItems } from "@/constants/search-items";
 import { usePathname } from "next/navigation";
+import ViewCounter from "./ViewCounter";
 
 const navLinks = [
   { name: "หน้าหลัก", href: "/" },
@@ -40,31 +41,33 @@ export default function Navbar() {
       return;
     }
 
-    const filtered = searchItems.filter((item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const query = searchQuery.toLowerCase().trim();
+    const filtered = searchItems.filter((item) => {
+      const nameMatch = item.name.toLowerCase().includes(query);
+      const keywordMatch = item.keywords?.some((kw) => kw.toLowerCase().includes(query)) || false;
+      return nameMatch || keywordMatch;
+    });
     setSearchResults(filtered);
   }, [searchQuery]);
 
-  // Close search when clicking outside
+  // Listen for escape key press to close search modal
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
         setIsSearchOpen(false);
         setSearchQuery("");
       }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
-    <header 
-      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${
-        isScrolled 
-          ? "bg-[#141111]/95 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md" 
+    <header
+      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${isScrolled
+          ? "bg-[#141111]/95 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[#8d0d18] to-transparent opacity-50" />
@@ -111,8 +114,8 @@ export default function Navbar() {
 
       <div className="mx-auto flex h-10 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8 md:h-[70px]">
         {/* Logo Section */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="vns-logo-up group relative z-50 flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-[#8d0d18] bg-white shadow-xl transition-all duration-500 hover:scale-110 md:h-24 md:w-24"
         >
           <div className="relative h-full w-full">
@@ -126,17 +129,17 @@ export default function Navbar() {
             />
           </div>
         </Link>
-        
+
         {/* Desktop Navigation */}
-        <nav className="hidden flex-1 items-center justify-center gap-6 text-[18px] font-black text-white md:flex lg:gap-10 lg:text-[22px]">
+        <nav className="hidden flex-1 items-center justify-center gap-6 text-[18px] font-black text-white md:flex lg:gap-10 lg:text-[22px] whitespace-nowrap shrink-0">
           {navLinks.map((link, index) => {
             const isActive = pathname === link.href;
             return (
-              <Link 
-                key={link.href} 
-                href={link.href} 
+              <Link
+                key={link.href}
+                href={link.href}
                 className={`vns-nav-link px-2 uppercase tracking-tight ${isActive ? 'active text-[#dfc1ad]' : ''}`}
-                style={{ 
+                style={{
                   animation: `navStagger 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
                   opacity: 0
                 }}
@@ -148,49 +151,96 @@ export default function Navbar() {
         </nav>
 
         {/* Search & Actions */}
-        <div className="flex items-center gap-4">
-          {/* Search Desktop */}
-          <div className="relative hidden items-center md:flex" ref={searchRef}>
-            <div 
-              className={`flex items-center overflow-hidden rounded-full border transition-all duration-500 ${
-                isSearchOpen 
-                  ? "w-72 border-[#8d0d18] bg-[#1a1717] shadow-[0_0_15px_rgba(141,13,24,0.3)]" 
-                  : "w-11 border-white/10 bg-white/5 hover:bg-white/10"
-              }`}
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Search Button (Desktop) */}
+          <div className="hidden md:flex">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/50 hover:text-[#dfc1ad] active:scale-95 shadow-sm cursor-pointer"
+              title="ค้นหาสินค้า"
             >
-              <button
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="flex h-10 w-11 shrink-0 items-center justify-center text-white transition-colors hover:text-[#dfc1ad]"
-              >
-                <Search className={`h-5 w-5 transition-transform duration-300 ${isSearchOpen ? 'scale-90' : ''}`} />
-              </button>
+              <Search className="h-4.5 w-4.5" />
+            </button>
+          </div>
+
+          {/* Global View Counter */}
+          <div className="shrink-0 scale-90 sm:scale-100">
+            <ViewCounter
+              slug="vns-global"
+              mode="increment"
+              className="!bg-[#1a1717] !border-white/10 !text-white hover:!border-[#8d0d18]/40 transition-colors cursor-default"
+              iconSize={13}
+            />
+          </div>
+
+          {/* Mobile Actions */}
+          <div className="flex items-center gap-1.5 md:hidden">
+            <button
+              onClick={() => {
+                setIsSearchOpen(true);
+                if (isOpen) setIsOpen(false);
+              }}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white active:scale-95"
+            >
+              <Search className="h-4.5 w-4.5" />
+            </button>
+            <button
+              onClick={() => {
+                setIsOpen(!isOpen);
+                if (isSearchOpen) setIsSearchOpen(false);
+              }}
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all border ${isOpen ? 'bg-[#8d0d18] text-white border-[#8d0d18]' : 'bg-white/5 text-white border-white/10'
+                }`}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Global Desktop & Mobile Spotlight Search Modal */}
+      {isSearchOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex items-start justify-center bg-[#0a0a0a]/80 p-4 pt-[12vh] md:pt-[15vh] backdrop-blur-md"
+          onClick={() => {
+            setIsSearchOpen(false);
+            setSearchQuery("");
+          }}
+        >
+          <div
+            className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#141111]/98 p-5 md:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-3xl"
+            onClick={(e) => e.stopPropagation()}
+            style={{ animation: 'slideInUp 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}
+          >
+            {/* Search Input Area */}
+            <div className="relative flex items-center rounded-2xl border border-[#8d0d18]/30 bg-white/5 p-2 focus-within:border-[#8d0d18] focus-within:bg-[#1a1717] focus-within:shadow-[0_0_15px_rgba(141,13,24,0.2)] transition-all">
+              <Search className="ml-2.5 h-4.5 w-4.5 text-[#8d0d18] shrink-0" />
               <input
                 type="text"
-                placeholder="ค้นหาที่คุณต้องการ..."
-                className={`h-10 w-full bg-transparent px-2 text-sm text-white placeholder-white/30 outline-none transition-all duration-300 ${
-                  isSearchOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4 pointer-events-none"
-                }`}
+                placeholder="พิมพ์สิ่งที่ต้องการค้นหา (เช่น สายไฮดรอลิค, สแตนเลส)..."
+                className="ml-3 h-10 w-full bg-transparent pr-3 text-base text-white placeholder-white/30 outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchOpen(true)}
+                autoFocus
               />
-              {isSearchOpen && searchQuery && (
-                <button 
-                  onClick={() => setSearchQuery("")}
-                  className="mr-2 p-1 text-white/30 transition-colors hover:text-white"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  setIsSearchOpen(false);
+                  setSearchQuery("");
+                }}
+                className="mr-1 rounded-xl bg-white/5 p-2 text-white/40 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
             </div>
 
-            {/* Results Dropdown */}
-            {isSearchOpen && searchQuery && (
-              <div className="absolute right-0 top-full mt-4 w-[400px] overflow-hidden rounded-2xl border border-[#8d0d18]/20 bg-[#141111]/98 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-2xl"
-                   style={{ animation: 'slideInUp 0.3s ease-out forwards' }}>
-                <div className="max-h-[60vh] overflow-y-auto p-3">
+            {/* Results / Suggestions Area */}
+            <div className="mt-5 max-h-[50vh] overflow-y-auto pr-1">
+              {searchQuery ? (
+                <div>
                   {searchResults.length > 0 ? (
                     <div className="grid gap-2">
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-[#8d0d18] px-1">ผลการค้นหา ({searchResults.length})</p>
                       {searchResults.map((item, idx) => (
                         <Link
                           key={idx}
@@ -199,111 +249,48 @@ export default function Navbar() {
                             setIsSearchOpen(false);
                             setSearchQuery("");
                           }}
-                          className="group flex items-center justify-between rounded-xl border border-transparent p-3 transition-all hover:border-[#8d0d18]/30 hover:bg-[#8d0d18]/10"
+                          className="group flex items-center justify-between rounded-xl bg-white/5 border border-transparent p-3.5 transition-all hover:border-[#8d0d18]/20 hover:bg-[#8d0d18]/10"
                         >
                           <div className="flex flex-col">
-                            <span className="text-sm font-bold text-white group-hover:text-[#dfc1ad]">
+                            <span className="text-sm font-bold text-white group-hover:text-[#dfc1ad] transition-colors">
                               {item.name}
                             </span>
-                            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#8d0d18]">
+                            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/40 mt-1">
                               {item.category}
                             </span>
                           </div>
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 opacity-0 transition-all group-hover:opacity-100">
-                            <ChevronRight className="h-4 w-4 text-[#dfc1ad]" />
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 transition-all group-hover:bg-[#8d0d18] group-hover:text-white">
+                            <ChevronRight className="h-4 w-4 text-[#dfc1ad] group-hover:text-white" />
                           </div>
                         </Link>
                       ))}
                     </div>
                   ) : (
                     <div className="py-12 text-center">
-                      <div className="mb-2 flex justify-center text-white/10">
-                        <Search className="h-12 w-12" />
-                      </div>
-                      <p className="text-sm text-white/40">ไม่พบสิ่งที่ต้องการค้นหาสำหรับ "{searchQuery}"</p>
+                      <Search className="mx-auto h-10 w-10 text-white/10 mb-2.5" />
+                      <p className="text-sm text-white/40">ไม่พบข้อมูลที่เกี่ยวข้องกับ "{searchQuery}"</p>
                     </div>
                   )}
                 </div>
-                <div className="border-t border-white/5 bg-[#0a0a0a] p-3 text-center">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
-                    V.N.S. Engineering Quality Service
-                  </span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Actions */}
-          <div className="flex items-center gap-1 md:hidden">
-            <button
-              onClick={() => {
-                setIsSearchOpen(!isSearchOpen);
-                if (isOpen) setIsOpen(false);
-              }}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${
-                isSearchOpen ? 'bg-[#8d0d18] text-white' : 'bg-white/5 text-white'
-              }`}
-            >
-              {isSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
-            </button>
-            <button
-              onClick={() => {
-                setIsOpen(!isOpen);
-                if (isSearchOpen) setIsSearchOpen(false);
-              }}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${
-                isOpen ? 'bg-[#8d0d18] text-white' : 'bg-white/5 text-white'
-              }`}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Search Overlay */}
-      {isSearchOpen && (
-        <div className="absolute left-0 top-full w-full border-t border-white/5 bg-[#141111] px-4 py-6 shadow-2xl md:hidden"
-             style={{ animation: 'slideInUp 0.3s ease-out forwards' }}>
-          <div className="relative mb-6 flex items-center rounded-2xl border border-white/10 bg-white/5 p-2 focus-within:border-[#8d0d18]/50">
-            <Search className="ml-3 h-5 w-5 text-[#8d0d18]" />
-            <input
-              type="text"
-              placeholder="ค้นหาสินค้าหรือบริการที่คุณต้องการ..."
-              className="ml-3 h-12 w-full bg-transparent text-lg text-white outline-none placeholder:text-white/20"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              autoFocus
-            />
-          </div>
-          <div className="max-h-[70vh] overflow-y-auto pb-4">
-            {searchQuery && (
-              <div className="grid gap-3">
-                {searchResults.length > 0 ? (
-                  searchResults.map((item, idx) => (
-                    <Link
-                      key={idx}
-                      href={item.href}
-                      onClick={() => {
-                        setIsSearchOpen(false);
-                        setSearchQuery("");
-                      }}
-                      className="flex items-center justify-between rounded-2xl bg-white/5 p-5 active:bg-white/10"
-                    >
-                      <div className="flex flex-col">
-                        <span className="text-base font-bold text-white">{item.name}</span>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#8d0d18]">{item.category}</span>
-                      </div>
-                      <ChevronRight className="h-5 w-5 text-white/20" />
-                    </Link>
-                  ))
-                ) : (
-                  <div className="py-20 text-center text-white/30">
-                    <p>ไม่พบข้อมูลที่เกี่ยวข้อง</p>
+              ) : (
+                <div className="grid gap-4 py-2">
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-white/40 px-1 mb-2.5">คำค้นหายอดนิยม</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["สายไฮดรอลิค", "สายเทฟลอน", "สแตนเลส 304", "Toyox", "Steam Hose", "R14"].map((tag) => (
+                        <button
+                          key={tag}
+                          onClick={() => setSearchQuery(tag)}
+                          className="rounded-full bg-white/5 border border-white/5 px-3.5 py-1.5 text-xs text-white/70 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/40 hover:text-white transition-all duration-300 cursor-pointer"
+                        >
+                          #{tag}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                )}
-              </div>
-            )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -311,16 +298,15 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <nav className="fixed inset-x-0 top-[72px] bottom-0 z-[90] flex flex-col bg-[#141111]/98 p-6 backdrop-blur-xl md:hidden"
-             style={{ animation: 'slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}>
+          style={{ animation: 'slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}>
           <div className="flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${
-                  pathname === link.href ? 'border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]' : ''
-                }`}
-                style={{ 
+                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${pathname === link.href ? 'border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]' : ''
+                  }`}
+                style={{
                   animation: `navStagger 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
                   opacity: 0
                 }}
@@ -331,7 +317,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          
+
           <div className="mt-auto pb-10 text-center">
             <div className="mb-4 flex justify-center gap-4">
               {/* Social icons placeholder if needed */}

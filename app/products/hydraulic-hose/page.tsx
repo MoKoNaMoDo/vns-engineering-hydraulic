@@ -21,13 +21,52 @@ const hydraulicHoseTags = [
 ];
 
 export const metadata = {
-  title: "Hydraulic Hose Catalog - V.N.S Engineering Hydraulic",
-  description: "รายละเอียดสินค้า สายไฮดรอลิค 1SN, 2SN, 4SP และ 4SH DIN EN 853/856 พร้อมตารางสเป็คทางเทคนิคครบวงจร",
+  title: "สายไฮดรอลิคแรงดันสูง (Hydraulic Hose) มาตรฐาน DIN | V.N.S Engineering",
+  description: "จำหน่ายสายไฮดรอลิคคุณภาพสูง 1SN, 2SN, 4SP, 4SH มาตรฐาน DIN EN 853/856 ทนแรงดันสูง บริการประกอบหัวสายตามสั่ง ส่งตรงทั่วประเทศไทย",
+  keywords: [
+    "HYDRAULIC HOSE",
+    "สายไฮดรอลิคแรงดันสูง",
+    "สายไฮดรอลิค 1/4",
+    "สายไฮดรอลิค 1/2",
+    "สายไฮดรอลิค 3/8",
+    "สายไฮดรอลิค 1 นิ้ว",
+    "สายไฮดรอลิคใกล้ฉัน",
+    "ประกอบสายไฮดรอลิค",
+    "4SP DIN EN 856",
+    "4SH DIN EN 856",
+    "3,000PSI",
+    "4,000PSI",
+    "V.N.S Engineering Hydraulic"
+  ],
 };
 
 export default function HydraulicHosePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "สายไฮดรอลิคแรงดันสูง (Hydraulic Hose) V.N.S Engineering",
+    "image": "https://vns-engineering.com/products/products/HYDRAULIC%20HOSE.png",
+    "description": "จำหน่ายและประกอบสายไฮดรอลิคแรงดันสูง 1SN, 2SN, 4SP, 4SH มาตรฐาน DIN EN 853/856 คุณภาพสูง ทนแรงดันสูง 3000-4000 PSI",
+    "brand": {
+      "@type": "Brand",
+      "name": "V.N.S Engineering"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "THB",
+      "lowPrice": "0",
+      "priceValidUntil": "2027-12-31",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#f7f7f6] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Header */}
       {/* <div className="bg-zinc-900 py-12 text-center text-white">
         <h1 className="text-3xl font-black uppercase tracking-[0.2em] md:text-4xl">

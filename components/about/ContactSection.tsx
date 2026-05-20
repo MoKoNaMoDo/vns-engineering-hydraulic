@@ -65,20 +65,35 @@ export default function ContactSection() {
             {/* Social Links */}
             <div className="mt-16 pt-10 border-t border-zinc-100 flex flex-wrap items-center gap-8">
               <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg shadow-blue-500/20 hover:-translate-y-1 transition-all font-black text-lg">f</a>
-                <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-[11px] text-white shadow-lg shadow-green-500/20 hover:-translate-y-1 transition-all font-black">LINE</a>
+                <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </div>
+                </a>
+                <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                    <div className="flex flex-col items-center justify-center scale-75">
+                      <span className="text-[10px] font-black leading-none">LINE</span>
+                      <div className="h-[2px] w-8 bg-white/30 my-[2px]" />
+                      <span className="text-[10px] font-black leading-none">OFFICIAL</span>
+                    </div>
+                  </div>
+                </a>
               </div>
-              <a 
-                href="https://line.me/ti/p/~tonmasadora" 
-                target="_blank" 
+              <a
+                href="https://line.me/ti/p/~tonmasadora"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-5 bg-zinc-50 p-4 pr-7 rounded-2xl border border-zinc-100 hover:bg-zinc-100 transition-colors group"
               >
                 <div className="h-16 w-16 bg-white rounded-xl p-1 shadow-sm border border-zinc-200 relative overflow-hidden group-hover:scale-105 transition-transform">
-                  <Image 
-                    src="/products/QR.png" 
-                    alt="LINE QR Code" 
+                  <Image
+                    src="/products/QR.png"
+                    alt="LINE QR Code"
                     fill
+                    sizes="64px"
                     className="object-contain"
                   />
                 </div>

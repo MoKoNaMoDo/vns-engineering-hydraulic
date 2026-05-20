@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Tag } from "lucide-react";
+import ProductTags from "@/components/products/ProductTags";
 
 const tags = [
   "CONVOLUTED HOSE",
@@ -25,11 +25,24 @@ export default function PTFEConvolutedDetail() {
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
               {/* Detail Badge */}
-              <div className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap">
-                <div className="rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-black/5 hover:bg-zinc-50 transition-colors cursor-default">
+              {/* <button 
+                onClick={() => {
+                  window.scrollBy({ top: 500, behavior: "smooth" });
+                }}
+                className="absolute -top-6 inset-x-0 flex justify-center z-10 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
+              >
+                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
                   รายละเอียดสินค้า
+                  <svg 
+                    className="w-5 h-5 text-[#af0000] animate-bounce" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </div>
-              </div>
+              </button> */}
 
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
@@ -46,9 +59,7 @@ export default function PTFEConvolutedDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight">
-                  PTFE<br />CONVOLUTED
-                </div>
+                <Link href="/products/ptfe-teflon-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายเทฟล่อนลอน (PTFE Convoluted)</Link>
               </div>
             </div>
           </div>
@@ -109,35 +120,26 @@ export default function PTFEConvolutedDetail() {
 
             {/* Social Icons */}
             <div className="mt-8 flex gap-4">
-              <a href="#" className="transition-transform hover:scale-110">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-2xl text-white shadow-lg">f</div>
+              <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
               </a>
-              <a href="#" className="transition-transform hover:scale-110">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] p-2 shadow-lg">
-                  <div className="text-[10px] font-black text-white">LINE</div>
+              <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
+                  <div className="flex flex-col items-center justify-center scale-75">
+                    <span className="text-[10px] font-black leading-none">LINE</span>
+                    <div className="h-[2px] w-8 bg-white/30 my-[2px]" />
+                    <span className="text-[10px] font-black leading-none">OFFICIAL</span>
+                  </div>
                 </div>
               </a>
             </div>
 
             {/* Tags Section */}
-            <div className="mt-10">
-              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
-                <Tag size={20} className="text-[#af0000]" />
-                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href="/products/ptfe-teflon-hose"
-                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
-                  >
-                    #{tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <ProductTags tags={tags} categoryHref="/products/ptfe-teflon-hose" />
           </div>
 
         </div>
