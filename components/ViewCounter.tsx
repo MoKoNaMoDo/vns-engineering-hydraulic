@@ -21,7 +21,10 @@ export default function ViewCounter({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!slug) return;
+    if (!slug) {
+      setLoading(false);
+      return;
+    }
 
     const handleViews = async () => {
       try {

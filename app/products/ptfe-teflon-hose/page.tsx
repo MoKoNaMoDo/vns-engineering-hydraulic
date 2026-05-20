@@ -4,7 +4,6 @@ import PTFEConvolutedDetail from "@/components/products/PTFETeflonHose/PTFEConvo
 import PTFETeflonHoseSpecTable from "@/components/products/PTFETeflonHose/PTFETeflonHoseSpecTable";
 import PTFEConvolutedSpecTable from "@/components/products/PTFETeflonHose/PTFEConvolutedSpecTable";
 import ContactSection from "@/components/about/ContactSection";
-import ViewCounter from "@/components/ViewCounter";
 
 export const metadata = {
   title: "สายเทฟลอนถักสแตนเลส PTFE Teflon Hose R14 | V.N.S Engineering",
@@ -67,9 +66,6 @@ export default function PTFETeflonHosePage() {
 
           {/* Right Content Area (Detail 1: Standard PTFE) */}
           <main className="rounded-2xl bg-white p-4 shadow-xl md:p-8 lg:p-12">
-            <div className="flex justify-end mb-4">
-              <ViewCounter slug="ptfe-teflon-hose" mode="increment" />
-            </div>
             <PTFETeflonHoseDetail />
           </main>
         </div>

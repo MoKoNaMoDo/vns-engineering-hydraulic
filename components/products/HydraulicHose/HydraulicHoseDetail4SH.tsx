@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Tag } from "lucide-react";
+import ProductTags from "@/components/products/ProductTags";
 
 const specData = [
   { dn: 19, inch: "3/4", size: -12, id: 19.0, braid: 28.4, od: 32.2, opBar: 420, opPsi: 6090, test: 840, burst: 1680, bending: 280, weight: 1.530 },
@@ -128,24 +129,8 @@ export default function HydraulicHoseDetail4SH() {
               </a>
             </div>
 
-            {/* Tags section */}
-            <div className="mt-10">
-              <div className="mb-4 flex items-center gap-2 justify-center lg:justify-start">
-                <Tag size={20} className="text-[#af0000]" />
-                <span className="text-lg font-black text-zinc-800">แท็ก:</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["HYDRAULIC HOSE", "สายไฮดรอลิค", "4SH", "DIN EN 856", "สายแรงดันสูงพิเศษ", "สายน้ำมันไฮดรอลิค"].map((tag) => (
-                  <Link
-                    key={tag}
-                    href="/products/hydraulic-hose"
-                    className="rounded-lg border border-zinc-200 bg-[#f4f4f4] px-4 py-2 text-[15px] font-bold text-[#455a64] transition-all hover:bg-[#af0000] hover:text-white hover:shadow-md active:scale-95"
-                  >
-                    #{tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            {/* Tags Section */}
+            <ProductTags tags={["HYDRAULIC HOSE", "สายไฮดรอลิค", "4SH", "DIN EN 856", "สายแรงดันสูงพิเศษ", "สายน้ำมันไฮดรอลิค"]} categoryHref="/products/hydraulic-hose" />
           </div>
         </div>
 

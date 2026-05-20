@@ -5,7 +5,6 @@ import HydraulicHoseDetail4SP from "@/components/products/HydraulicHose/Hydrauli
 import HydraulicHoseDetail4SH from "@/components/products/HydraulicHose/HydraulicHoseDetail4SH";
 import ProductTags from "@/components/products/หัวสายสแตนเลส 304/ProductTags";
 import ContactSection from "@/components/about/ContactSection";
-import ViewCounter from "@/components/ViewCounter";
 
 const hydraulicHoseTags = [
   "HYDRAULIC HOSE",
@@ -84,9 +83,6 @@ export default function HydraulicHosePage() {
 
         {/* Right Content Area */}
         <main className="flex flex-col gap-12 rounded-2xl bg-white p-2 shadow-xl md:p-6 lg:p-8">
-          <div className="flex justify-end px-2 sm:px-4">
-            <ViewCounter slug="hydraulic-hose" mode="increment" />
-          </div>
           <div id="1sn" className="scroll-mt-24">
             <HydraulicHoseDetail />
           </div>
