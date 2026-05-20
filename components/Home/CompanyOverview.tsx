@@ -22,27 +22,19 @@ const industries = [
 ];
 
 const diagramItems = [
-  { name: "Fitting and adapter", image: "/products/Overview/ChatGPT Image May 10, 2026, 02_48_05 PM.png", angle: -90, href: "/services/fitting-and-adapter" },
-  { name: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", angle: -30, href: "/services/hydraulic-hose" },
-  { name: "Steam Hose", image: "/products/products/43024.jpg", angle: 30, href: "/services/steam-hose" },
-  { name: "PTFE Hose/ Teflon Hose", image: "/products/products/PTFE.-removebg-preview.png", angle: 90, href: "/services/ptfe-teflon-hose" },
-  { name: "Metal Hose", image: "/products/Overview/Flexible Hose.png", angle: 150, href: "/services/metal-hose" },
-  { name: "Industrial Hose", image: "/products/Overview/ChatGPT_Image_May_10__2026__02_21_51_PM-removebg-preview.png", angle: 210, href: "/services/industrial-hose" },
+  { name: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", x: 0, y: -176, href: "/services/hydraulic-hose" },
+  { name: "Fitting and adapter", image: "/products/Overview/ChatGPT Image May 10, 2026, 02_48_05 PM.png", x: 152, y: -88, href: "/services/fitting-and-adapter" },
+  { name: "Steam Hose", image: "/products/products/43024.jpg", x: 152, y: 88, href: "/services/steam-hose" },
+  { name: "PTFE Hose/ Teflon Hose", image: "/products/products/PTFE.-removebg-preview.png", x: 0, y: 176, href: "/services/ptfe-teflon-hose" },
+  { name: "Metal Hose", image: "/products/Overview/Flexible Hose.png", x: -152, y: 88, href: "/services/metal-hose" },
+  { name: "Industrial Hose", image: "/products/Overview/ChatGPT_Image_May_10__2026__02_21_51_PM-removebg-preview.png", x: -152, y: -88, href: "/services/industrial-hose" },
 ];
 
 export default function CompanyOverview() {
-  const [radius, setRadius] = useState(210);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-    const handleResize = () => {
-      setRadius(window.innerWidth < 768 ? 110 : 210);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const renderAnimatedLetters = (text: string, delayOffset: number = 0) => {
@@ -92,12 +84,8 @@ export default function CompanyOverview() {
         .animate-diagram-item { opacity: 0; animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         .animate-header-arrow { animation: arrowCurveDraw 0.6s ease-out 0.8s forwards; opacity: 0; stroke-dasharray: 50; }
         
-        .path-draw {
-          stroke-dasharray: 300;
-          stroke-dashoffset: 300;
-        }
-        .group:hover .path-draw {
-          animation: drawLine 0.6s ease-out forwards;
+        .clip-hex {
+          clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
         }
       `}</style>
 
@@ -176,150 +164,129 @@ export default function CompanyOverview() {
 
           {/* 📱 แผนผังบริการสำหรับอุปกรณ์มือถือ (< 768px) */}
           <div className="block md:hidden py-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 px-4 justify-items-center">
               {diagramItems.map((item, idx) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="animate-item flex flex-col items-center justify-between rounded-2xl bg-white/70 backdrop-blur-md p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 transition-all duration-300 active:scale-95 group hover:border-[#af0000]"
+                  className="animate-item relative w-[150px] h-[130px] bg-gradient-to-br from-white via-[#d1d5db] to-[#9ca3af] active:from-red-400 active:to-[#af0000] clip-hex shadow-md transition-all duration-300 active:scale-95 group p-[2px]"
                   style={{ animationDelay: `${0.2 + (idx * 0.1)}s` }}
                 >
-                  {/* กรอบรูปทรงกลมหรูหราพร้อมเส้นประสีแดง */}
-                  <div className="relative flex h-20 w-20 flex-col items-center justify-center rounded-full border-[1.5px] border-dashed border-[#af0000]/40 bg-white p-1.5 shadow-md transition-all duration-300 group-hover:border-[#af0000]">
-                    <div className="relative h-full w-full overflow-hidden rounded-full">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="80px"
-                      />
+                  <div className="absolute inset-[2px] bg-gradient-to-b from-[#f9fafb] to-[#f3f4f6] clip-hex h-[calc(100%-4px)] w-[calc(100%-4px)]">
+                    {/* Bevel highlight */}
+                    <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent z-10" />
+
+                    {/* Circular Dome Plate with 3D tactile effect */}
+                    <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] rounded-full bg-white z-0 shadow-[0_3px_8px_rgba(0,0,0,0.03),_inset_0_1.5px_3px_rgba(255,255,255,0.9)] border border-white/60" />
+
+                    {/* Content Stack - perfectly centered inside the 3D circle to prevent diagonal clipping overflow */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-3">
+                      <span className="text-center text-[10px] font-black leading-tight text-zinc-900 max-w-[90px] mb-1">
+                        {item.name}
+                      </span>
+                      <div className="relative w-14 h-8">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
+                          sizes="60px"
+                        />
+                      </div>
                     </div>
-                  </div>
-
-                  {/* ชื่อบริการ */}
-                  <span className="mt-3 text-center text-[12px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-transparent transition-colors duration-300 group-hover:decoration-[#af0000]">
-                    {item.name}
-                  </span>
-
-                  {/* ปุ่มลูกศรชี้เข้า */}
-                  <div className="mt-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#af0000]/10 text-[#af0000] transition-colors duration-300 group-hover:bg-[#af0000] group-hover:text-white">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={3}
-                      stroke="currentColor"
-                      className="w-3 h-3"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* 💻 แผนผังไดอะแกรมวงกลม สำหรับแท็บเล็ตและเดสก์ท็อป (>= 768px) */}
+          {/* 💻 แผนผังไดอะแกรมรังผึ้ง สำหรับแท็บเล็ตและเดสก์ท็อป (>= 768px) */}
           <div className="hidden md:flex items-center justify-center py-10">
-            <div className="relative h-[550px] w-[550px] md:h-[700px] md:w-[700px]">
+            <div className="relative h-[500px] w-[500px] md:h-[600px] md:w-[600px] scale-90 lg:scale-100 transition-transform duration-300">
 
+              {/* 🌟 Golden Ambient Glow behind Center Hexagon */}
               <div
-                className="animate-item absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-dashed border-[#af0000]/20"
-                style={{
-                  animationDelay: "1.8s",
-                  width: radius * 2,
-                  height: radius * 2
-                }}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] bg-gradient-to-r from-[#ffd500] to-[#f59e0b] rounded-full blur-3xl opacity-20 animate-pulse z-10"
+                style={{ pointerEvents: "none" }}
               />
 
-              <div className="animate-diagram-item absolute left-1/2 top-1/2 z-30 flex h-28 w-28 items-center justify-center rounded-full bg-[#af0000] text-center shadow-[0_0_30px_rgba(175,0,0,0.4)] border-4 border-white md:h-36 md:w-36" style={{ animationDelay: "1.5s", transform: "translate(-50%, -50%)" }}>
-                <span className="text-2xl font-black text-white md:text-3xl tracking-wide">Service</span>
+              {/* Central Hexagon */}
+              <div
+                className="animate-diagram-item absolute left-1/2 top-1/2 z-30 w-[150px] h-[130px] md:w-[190px] md:h-[165px] transition-all duration-500 ease-out hover:scale-105"
+                style={{
+                  animationDelay: "1.5s",
+                  transform: "translate(-50%, -50%)"
+                }}
+              >
+                {/* 3D Gold Hexagon with Bevel Border */}
+                <div className="relative w-full h-full bg-gradient-to-br from-[#fef08a] via-[#f59e0b] to-[#b45309] clip-hex p-[2px] shadow-[0_12px_35px_rgba(234,179,8,0.3)]">
+                  <div className="absolute inset-[2px] bg-gradient-to-br from-[#ffd500] via-[#fbbf24] to-[#d97706] clip-hex flex flex-col items-center justify-center h-[calc(100%-4px)] w-[calc(100%-4px)]">
+
+                    {/* Glossy top reflection highlight */}
+                    <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent z-10" />
+
+                    {/* Circular Dome Plate behind Center Text */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[125px] md:h-[125px] rounded-full bg-gradient-to-b from-[#d97706]/15 to-[#fbbf24]/5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-yellow-300/20 z-0" />
+
+                    <span className="relative z-10 text-2xl font-black text-black md:text-3.5xl tracking-wide uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+                      Service
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {isMounted && diagramItems.map((item, idx) => {
-                const x = Math.cos((item.angle * Math.PI) / 180) * radius;
-                const y = Math.sin((item.angle * Math.PI) / 180) * radius;
-                const isLeftSide = item.angle >= 90 && item.angle < 270;
-
                 return (
-                  <Link
-                    href={item.href}
+                  <div
                     key={item.name}
-                    className="animate-diagram-item absolute z-20 flex flex-col items-center justify-center group cursor-pointer transition-all duration-300 hover:scale-110"
+                    className="animate-diagram-item absolute z-20"
                     style={{
-                      left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
+                      left: `calc(50% + ${item.x}px)`,
+                      top: `calc(50% + ${item.y}px)`,
                       transform: "translate(-50%, -50%)",
-                      animationDelay: `${2.0 + (idx * 0.15)}s`,
+                      animationDelay: `${1.7 + (idx * 0.1)}s`,
                     }}
                   >
-                    <div className="relative flex h-28 w-28 md:h-40 md:w-40 flex-col items-center justify-center rounded-full border-[2px] border-dashed border-[#af0000]/40 bg-white p-3 shadow-lg transition-all duration-300 group-hover:border-[#af0000]">
-
-                      {/* ไอคอนลูกศรชี้เข้าหาชื่อข้อความตรงคอมโพเนนต์วงกลมวงนอก */}
-                      {/* <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={3}
-                        stroke="currentColor"
-                        className="w-4 h-4 md:w-5 md:h-5 text-zinc-400 opacity-0 -translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-[#af0000] mb-1"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-                      </svg> */}
-
-                      <span className="relative z-10 text-center text-[11px] font-black leading-tight text-black underline decoration-[1.5px] underline-offset-2 decoration-[#af0000] transition-colors duration-300 md:text-[14px]">
-                        {item.name}
-                      </span>
-
-                      <div className="absolute inset-[-15%] z-0 h-[130%] w-[130%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#af0000]">
-                          {isLeftSide ? (
-                            <g>
-                              <path
-                                d="M 50 10 A 40 40 0 0 1 50 90 Q 35 90 20 80"
-                                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                className="path-draw"
-                              />
-                              <polyline
-                                points="30,73 20,80 28,88"
-                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                className="path-draw"
-                              />
-                            </g>
-                          ) : (
-                            <g>
-                              <path
-                                d="M 50 10 A 40 40 0 0 0 50 90 Q 65 90 80 80"
-                                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                className="path-draw"
-                              />
-                              <polyline
-                                points="70,73 80,80 72,88"
-                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                className="path-draw"
-                              />
-                            </g>
-                          )}
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div
-                      className={`absolute z-30 h-14 w-14 overflow-hidden rounded-full border-[2.5px] border-white bg-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:border-[#af0000] md:h-20 md:w-20 ${isLeftSide ? "-bottom-3 -left-3 md:-bottom-4 md:-left-4" : "-bottom-3 -right-3 md:-bottom-4 md:-right-4"
-                        }`}
+                    <Link
+                      href={item.href}
+                      className="block relative w-[150px] h-[130px] md:w-[190px] md:h-[165px] transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-108 group cursor-pointer"
                     >
-                      <div className="relative h-full w-full">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 56px, 80px"
-                        />
+                      {/* Hexagon Wrapper with light gray 3D border that changes to VNS red on hover */}
+                      <div className="relative w-full h-full bg-gradient-to-br from-white via-[#d1d5db] to-[#9ca3af] group-hover:from-red-400 group-hover:via-[#af0000] group-hover:to-[#7a0000] clip-hex p-[2px] transition-all duration-500 ease-out shadow-[0_8px_25px_rgba(0,0,0,0.04)] group-hover:shadow-[0_20px_45px_rgba(175,0,0,0.2)]">
+
+                        {/* Inner Card - Soft white-to-light-gray background */}
+                        <div className="absolute inset-[2px] bg-gradient-to-b from-[#f9fafb] to-[#f3f4f6] clip-hex h-[calc(100%-4px)] w-[calc(100%-4px)] transition-all duration-500 ease-out">
+
+                          {/* Subtle Inner 3D Highlight Line (like a glossy reflection edge) */}
+                          <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent z-10" />
+
+                          {/* 3D Circular Background Plate (Soft Pure White Dome Circle matching the mockup) with bevel highlight */}
+                          <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110px] h-[110px] md:w-[135px] md:h-[135px] rounded-full bg-white z-0 transition-transform duration-500 group-hover:scale-105 shadow-[0_4px_12px_rgba(0,0,0,0.03),_inset_0_2px_4px_rgba(255,255,255,0.9)] border border-white/60 group-hover:shadow-[0_8px_20px_rgba(175,0,0,0.08)]" />
+
+                          {/* Content Stack - perfectly centered inside the 3D circle to prevent diagonal clipping overflow */}
+                          <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
+
+                            {/* Product Title */}
+                            <span className="text-center text-[10px] font-black leading-tight text-zinc-900 transition-colors duration-500 md:text-[13px] max-w-[95px] md:max-w-[125px] group-hover:text-black mb-1 md:mb-2">
+                              {item.name}
+                            </span>
+
+                            {/* Product Image - scales and lifts slightly on hover */}
+                            <div className="relative w-16 h-10 md:w-24 md:h-14 transition-all duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-0.5">
+                              <Image
+                                src={item.image}
+                                alt={item.name}
+                                fill
+                                className="object-contain drop-shadow-[0_2px_5px_rgba(0,0,0,0.04)] group-hover:drop-shadow-[0_8px_16px_rgba(0,0,0,0.08)]"
+                                sizes="100px"
+                              />
+                            </div>
+
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
