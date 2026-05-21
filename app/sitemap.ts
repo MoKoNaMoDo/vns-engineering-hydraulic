@@ -31,7 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
+    lastModified: route === '' || route === '/about' || route === '/contact'
+      ? '2026-05-21'
+      : route.startsWith('/products/')
+        ? '2026-05-15'
+        : '2026-04-15',
     changeFrequency: 'weekly',
     priority: route === '' ? 1.0 : route.startsWith('/products/') || route.startsWith('/services/') ? 0.8 : 0.6,
   }));

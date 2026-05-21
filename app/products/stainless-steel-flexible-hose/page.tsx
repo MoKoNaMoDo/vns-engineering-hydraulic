@@ -7,6 +7,24 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Stainless Steel Flexible Hose - V.N.S Engineering Hydraulic",
   description: "รายละเอียดสินค้า ท่ออ่อนสแตนเลส Stainless Steel Flexible Hose ทนความร้อนสูง -200°C ถึง 400°C",
+  keywords: [
+    "FLEXIBLE HOSE",
+    "ท่ออ่อนสแตนเลส",
+    "สายเฟล็กซ์",
+    "สายทนเคมี",
+    "สายทนความร้อน",
+    "SS304",
+    "SS316L",
+    "SS321",
+    "METAL HOSE",
+    "STAINLESS HOSE",
+    "STAINLESS STEEL FITTING",
+    "SS FLANGE",
+    "HIGH TEMPERATURE HOSE",
+    "เชื่อมสายสแตนเลส",
+    "ประกอบสายสแตนเลส",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function StainlessSteelFlexibleHosePage() {

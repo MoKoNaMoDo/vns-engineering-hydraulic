@@ -3,6 +3,26 @@ import ProductSpecs from "@/components/products/หัวสายสแตน�
 import ContactSection from "@/components/about/ContactSection";
 import ProductMenu from "@/components/about/ProductMenu";
 
+export const metadata = {
+  title: "หัวสายสแตนเลส 304/316 (Stainless Steel Fitting) - V.N.S Engineering Hydraulic",
+  description: "จำหน่ายหัวสายสแตนเลส 304 และ 316 ครบทุกแบบ JIC, NPT, BSPT, FITTING ใช้กับงานไฮดรอลิคและงานอุตสาหกรรม คุณภาพสูง พร้อมส่ง",
+  keywords: [
+    "หัวสายสแตนเลส304",
+    "หัวสายสแตนเลส316",
+    "SUS304",
+    "SUS316",
+    "JIC MALE",
+    "NPT MALE",
+    "BSPT MALE",
+    "FITTING",
+    "หัวพ่นสี",
+    "หัวสายงานพิเศษ",
+    "หัวสายไฮดรอลิค",
+    "ข้อต่อสแตนเลส",
+    "V.N.S Engineering",
+  ],
+};
+
 export default function Stainless304Page() {
   return (
     <div className="min-h-screen w-full bg-[#f7f7f6] text-black overflow-x-hidden">

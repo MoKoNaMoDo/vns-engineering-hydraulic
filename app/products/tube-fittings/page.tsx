@@ -6,6 +6,19 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Tube Fittings / Instrument Fittings - V.N.S Engineering Hydraulic",
   description: "จำหน่ายข้อต่อท่อ (Tube Fittings) และข้อต่อเครื่องมือวัด (Instrument Fittings) คุณภาพสูง สำหรับระบบน้ำมัน ก๊าซ และปิโตรเคมี",
+  keywords: [
+    "ข้อต่อสแตนเลส",
+    "ฟิตติ้งสแตนเลส",
+    "FITTING",
+    "ข้อต่อตาไก่",
+    "BITE TYPE FITTINGS",
+    "JISB2351",
+    "Tube Fittings",
+    "Instrument Fittings",
+    "ข้อต่อท่อสแตนเลส",
+    "ข้อต่อปิโตรเคมี",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function TubeFittingsPage() {

@@ -49,15 +49,14 @@ export default function ViewCounter({
 
           if (error) {
             console.error("Error incrementing page view:", error);
-            // Fetch fallback
-            fetchViews();
+            await fetchViews();
           } else {
             setViews(data);
             setLoading(false);
           }
         } else {
           // Read-only mode
-          fetchViews();
+          await fetchViews();
         }
       } catch (err) {
         console.error("Unexpected error in ViewCounter:", err);

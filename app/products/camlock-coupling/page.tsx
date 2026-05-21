@@ -6,6 +6,18 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Camlock Coupling ข้อต่อแคมล็อค - V.N.S Engineering Hydraulic",
   description: "จำหน่ายข้อต่อแคมล็อค (Camlock Coupling) หลากหลายวัสดุ ทั้งสแตนเลส อลูมิเนียม ทองเหลือง และพีพี สำหรับงานลำเลียงของไหลอุตสาหกรรม",
+  keywords: [
+    "CAMLOCK",
+    "KAMLOK",
+    "ข้อต่อแคมล็อค",
+    "STAINLESS CAMLOCK",
+    "ALUMINIUM CAMLOCK",
+    "ข้อต่อสวมเร็ว",
+    "แคมล็อคทองเหลือง",
+    "แคมล็อค PP",
+    "Camlock Coupling",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function CamlockPage() {

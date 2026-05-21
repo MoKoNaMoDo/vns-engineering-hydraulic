@@ -6,6 +6,15 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "บริการตัดแป๊บอุตสาหกรรม - V.N.S Engineering Hydraulic",
   description: "บริการตัดแป๊บ ดัดท่อไฮดรอลิค และออกแบบงานตัดแปลงท่ออุตสาหกรรมทุกชนิด โดยทีมงานช่างผู้เชี่ยวชาญ รับทั้งงานด่วนและงานจำนวนมาก",
+  keywords: [
+    "บริการตัดแป๊บอุตสาหกรรม",
+    "บริการตัดแป๊บ",
+    "ดัดท่อไฮดรอลิค",
+    "ตัดท่ออุตสาหกรรม",
+    "ดัดแป๊บ",
+    "งานท่ออุตสาหกรรม",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function IndustrialPipeServicePage() {

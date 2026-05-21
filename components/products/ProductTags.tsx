@@ -12,7 +12,7 @@ interface ProductTagsProps {
 
 export default function ProductTags({ tags, categoryHref }: ProductTagsProps) {
   const pathname = usePathname();
-  const slug = pathname ? pathname.split("/").pop() || "" : "";
+  const slug = pathname ? pathname.split("/").filter(Boolean).pop() || "" : "";
 
   // Smart href resolver to mirror original logic on all pages
   const getHref = (tag: string) => {

@@ -6,6 +6,18 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Steam Hose (สายสตีม) - V.N.S Engineering Hydraulic",
   description: "STEAM HOSE (สายไอน้ำ) ทนความร้อนสูง 170-210°C ทนแรงดัน 10-20 BAR เหมาะสำหรับระบบ Boiler งานอาหาร และเคมี",
+  keywords: [
+    "สายน้ำร้อน",
+    "สายไอน้ำ",
+    "STEAM HOSE",
+    "สายสตีม",
+    "สายทนความร้อน",
+    "สายทนอุณหภูมิสูง",
+    "HIGH TEMPERATURE HOSE",
+    "สาย Boiler",
+    "INDUSTRIAL HOSE",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function SteamHosePage() {

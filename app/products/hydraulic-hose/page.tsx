@@ -50,14 +50,6 @@ export default function HydraulicHosePage() {
     "brand": {
       "@type": "Brand",
       "name": "V.N.S Engineering"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "THB",
-      "lowPrice": "0",
-      "priceValidUntil": "2027-12-31",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
     }
   };
 

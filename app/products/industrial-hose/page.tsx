@@ -14,6 +14,31 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Industrial Hose (สายยางอุตสาหกรรม) - V.N.S Engineering Hydraulic",
   description: "SUNFLEX Industrial Hose Collection: OSD150, AH300, CSD150, WSD150, DH300. High-quality industrial hoses for oil, air, water, cement, and bunkering applications.",
+  keywords: [
+    "INDUSTRIAL HOSE",
+    "สายยางอุตสาหกรรม",
+    "SUNFLEX OSD150",
+    "ท่อดูดส่งน้ำมัน",
+    "OIL SUCTION HOSE",
+    "ท่อทนน้ำมัน",
+    "SUNFLEX AH300",
+    "AIR HOSE",
+    "WATER HOSE",
+    "ท่อลม",
+    "ท่อน้ำ",
+    "SUNFLEX CSD150",
+    "CEMENT HOSE",
+    "ท่อดูดส่งซีเมนต์",
+    "ท่อส่งทราย",
+    "SUNFLEX WSD150",
+    "ท่อดูดน้ำ",
+    "ท่อส่งน้ำเสีย",
+    "SUNFLEX DH300",
+    "BUNKERING HOSE",
+    "ท่อเรือ",
+    "HEAVY DUTY HOSE",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function IndustrialHosePage() {
