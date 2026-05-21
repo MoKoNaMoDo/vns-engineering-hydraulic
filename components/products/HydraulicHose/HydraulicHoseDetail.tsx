@@ -91,7 +91,7 @@ export default function HydraulicHoseDetail() {
 
           {/* Right Side: Product Description */}
           <div className="pt-4 lg:pt-0 animate-slide-right">
-            <h1 className="text-4xl font-black text-zinc-900 mb-2">Hydraulic Hose</h1>
+            <h1 className="text-3xl font-black text-black mb-2">Hydraulic Hose</h1>
             <h2 className="text-3xl font-black mb-6">
               1SN <span className="text-[#af0000]">DIN EN 853</span> SAE 100 R1AT
             </h2>

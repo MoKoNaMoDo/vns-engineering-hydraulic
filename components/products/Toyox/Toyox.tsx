@@ -14,7 +14,7 @@ const tags = [
 
 export default function Toyox() {
   return (
-    <section className="bg-white py-4">
+    <section className="bg-white py-12 font-sans">
       <style jsx>{`
         @keyframes slide-in-from-left {
           from { transform: translateX(-60px); opacity: 0; }
@@ -82,8 +82,8 @@ export default function Toyox() {
           {/* Right Column: Information */}
           <div className="flex flex-col animate-slide-right">
             <div className="relative inline-flex flex-col items-center lg:items-start self-center lg:self-start">
-              <h1 className="text-5xl font-black tracking-tighter text-zinc-900">TOYOX</h1>
-              <div className="mt-2 h-1.5 w-32 bg-[#af0000]" />
+              <h1 className="text-3xl font-black text-black">TOYOX</h1>
+              <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </div>
 
             <div className="mt-10 space-y-8">

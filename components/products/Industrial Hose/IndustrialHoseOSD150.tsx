@@ -14,7 +14,7 @@ const tags = [
 
 export default function IndustrialHoseOSD150() {
   return (
-    <section className="bg-white py-4">
+    <section className="bg-white py-12 font-sans">
       <style jsx>{`
         @keyframes slide-in-from-left {
           from { transform: translateX(-60px); opacity: 0; }
@@ -81,9 +81,9 @@ export default function IndustrialHoseOSD150() {
 
           {/* Right Column: Information */}
           <div className="flex flex-col animate-slide-right">
-            <h1 className="relative inline-flex flex-col items-center lg:items-center text-4xl font-black text-zinc-900 self-center lg:self-start">
+            <h1 className="relative inline-flex flex-col items-center lg:items-center text-3xl font-black text-black self-center lg:self-start">
               <span className="text-center">INDUSTRIAL HOSE</span>
-              <div className="mt-2 h-1.5 w-48 bg-[#af0000]" />
+              <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </h1>
 
             <div className="mt-8 space-y-6 text-center lg:text-left">
