@@ -83,7 +83,12 @@ export default function CompanyOverview() {
         .animate-item { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
         .animate-diagram-item { opacity: 0; animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         .animate-header-arrow { animation: arrowCurveDraw 0.6s ease-out 0.8s forwards; opacity: 0; stroke-dasharray: 50; }
-        
+        @keyframes goldPulse {
+          0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.65; transform: translate(-50%, -50%) scale(1.2); }
+        }
+        .animate-gold-pulse { animation: goldPulse 3s ease-in-out infinite; }
+
         .clip-hex {
           clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
         }
@@ -169,15 +174,15 @@ export default function CompanyOverview() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="animate-item relative w-[150px] h-[130px] bg-gradient-to-br from-white via-[#d1d5db] to-[#9ca3af] active:from-red-400 active:to-[#af0000] clip-hex shadow-md transition-all duration-300 active:scale-95 group p-[2px]"
+                  className="animate-item relative w-[150px] h-[130px] bg-gradient-to-br from-[#c0c0c0] via-[#6b7280] to-[#374151] active:from-[#ff5555] active:via-[#cc0000] active:to-[#6b0000] clip-hex shadow-[0_10px_28px_rgba(0,0,0,0.2),_0_4px_0_rgba(0,0,0,0.12)] transition-all duration-300 active:scale-95 group p-[3px]"
                   style={{ animationDelay: `${0.2 + (idx * 0.1)}s` }}
                 >
-                  <div className="absolute inset-[2px] bg-gradient-to-b from-[#f9fafb] to-[#f3f4f6] clip-hex h-[calc(100%-4px)] w-[calc(100%-4px)]">
+                  <div className="absolute inset-[3px] bg-gradient-to-b from-[#f1f5f9] to-[#dde3ed] clip-hex h-[calc(100%-6px)] w-[calc(100%-6px)]">
                     {/* Bevel highlight */}
-                    <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent z-10" />
+                    <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
 
                     {/* Circular Dome Plate with 3D tactile effect */}
-                    <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] rounded-full bg-white z-0 shadow-[0_3px_8px_rgba(0,0,0,0.03),_inset_0_1.5px_3px_rgba(255,255,255,0.9)] border border-white/60" />
+                    <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] rounded-full bg-gradient-to-b from-white to-[#f0f2f5] z-0 shadow-[0_4px_14px_rgba(0,0,0,0.1),_inset_0_2px_4px_rgba(255,255,255,1),_inset_0_-1px_3px_rgba(0,0,0,0.06)] border border-white/90" />
 
                     {/* Content Stack - perfectly centered inside the 3D circle to prevent diagonal clipping overflow */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-3">
@@ -189,7 +194,7 @@ export default function CompanyOverview() {
                           src={item.image}
                           alt={item.name}
                           fill
-                          className="object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
+                          className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                           sizes="60px"
                         />
                       </div>
@@ -206,27 +211,27 @@ export default function CompanyOverview() {
 
               {/* 🌟 Golden Ambient Glow behind Center Hexagon */}
               <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] bg-gradient-to-r from-[#ffd500] to-[#f59e0b] rounded-full blur-3xl opacity-20 animate-pulse z-10"
-                style={{ pointerEvents: "none" }}
+                className="animate-gold-pulse absolute left-1/2 top-1/2 w-[320px] h-[320px] bg-gradient-to-r from-[#ffd500] via-[#f59e0b] to-[#f97316] rounded-full blur-3xl z-10"
+                style={{ pointerEvents: "none", transform: "translate(-50%, -50%)" }}
               />
 
               {/* Central Hexagon */}
               <div
-                className="animate-diagram-item absolute left-1/2 top-1/2 z-30 w-[150px] h-[130px] md:w-[190px] md:h-[165px] transition-all duration-500 ease-out hover:scale-105"
+                className="animate-diagram-item absolute left-1/2 top-1/2 z-30 w-[150px] h-[130px] md:w-[190px] md:h-[165px] transition-all duration-500 ease-out hover:scale-110"
                 style={{
                   animationDelay: "1.5s",
                   transform: "translate(-50%, -50%)"
                 }}
               >
                 {/* 3D Gold Hexagon with Bevel Border */}
-                <div className="relative w-full h-full bg-gradient-to-br from-[#fef08a] via-[#f59e0b] to-[#b45309] clip-hex p-[2px] shadow-[0_12px_35px_rgba(234,179,8,0.3)]">
-                  <div className="absolute inset-[2px] bg-gradient-to-br from-[#ffd500] via-[#fbbf24] to-[#d97706] clip-hex flex flex-col items-center justify-center h-[calc(100%-4px)] w-[calc(100%-4px)]">
+                <div className="relative w-full h-full bg-gradient-to-br from-[#ffd700] via-[#f59e0b] to-[#78350f] clip-hex p-[3px] shadow-[0_20px_70px_rgba(234,179,8,0.65),_0_0_50px_rgba(251,191,36,0.4),_0_5px_0_rgba(120,53,15,0.5)]">
+                  <div className="absolute inset-[3px] bg-gradient-to-br from-[#fef3c7] via-[#fbbf24] to-[#b45309] clip-hex flex flex-col items-center justify-center h-[calc(100%-6px)] w-[calc(100%-6px)]">
 
                     {/* Glossy top reflection highlight */}
                     <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent z-10" />
 
                     {/* Circular Dome Plate behind Center Text */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[125px] md:h-[125px] rounded-full bg-gradient-to-b from-[#d97706]/15 to-[#fbbf24]/5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-yellow-300/20 z-0" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[125px] md:h-[125px] rounded-full bg-gradient-to-b from-[#fbbf24]/30 to-[#92400e]/30 shadow-[inset_0_3px_8px_rgba(0,0,0,0.2),_inset_0_-2px_4px_rgba(255,255,255,0.08)] border border-yellow-200/30 z-0" />
 
                     <span className="relative z-10 text-2xl font-black text-black md:text-3.5xl tracking-wide uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
                       Service
@@ -252,16 +257,16 @@ export default function CompanyOverview() {
                       className="block relative w-[150px] h-[130px] md:w-[190px] md:h-[165px] transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-108 group cursor-pointer"
                     >
                       {/* Hexagon Wrapper with light gray 3D border that changes to VNS red on hover */}
-                      <div className="relative w-full h-full bg-gradient-to-br from-white via-[#d1d5db] to-[#9ca3af] group-hover:from-red-400 group-hover:via-[#af0000] group-hover:to-[#7a0000] clip-hex p-[2px] transition-all duration-500 ease-out shadow-[0_8px_25px_rgba(0,0,0,0.04)] group-hover:shadow-[0_20px_45px_rgba(175,0,0,0.2)]">
+                      <div className="relative w-full h-full bg-gradient-to-br from-[#c0c0c0] via-[#6b7280] to-[#374151] group-hover:from-[#ff5555] group-hover:via-[#cc0000] group-hover:to-[#6b0000] clip-hex p-[3px] transition-all duration-500 ease-out shadow-[0_14px_45px_rgba(0,0,0,0.22),_0_5px_0_rgba(0,0,0,0.14)] group-hover:shadow-[0_28px_75px_rgba(175,0,0,0.55),_0_0_45px_rgba(175,0,0,0.28),_0_5px_0_rgba(100,0,0,0.35)]">
 
                         {/* Inner Card - Soft white-to-light-gray background */}
-                        <div className="absolute inset-[2px] bg-gradient-to-b from-[#f9fafb] to-[#f3f4f6] clip-hex h-[calc(100%-4px)] w-[calc(100%-4px)] transition-all duration-500 ease-out">
+                        <div className="absolute inset-[3px] bg-gradient-to-b from-[#f1f5f9] to-[#dde3ed] group-hover:from-[#fff5f5] group-hover:to-[#ffe4e4] clip-hex h-[calc(100%-6px)] w-[calc(100%-6px)] transition-all duration-500 ease-out">
 
                           {/* Subtle Inner 3D Highlight Line (like a glossy reflection edge) */}
                           <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent z-10" />
 
                           {/* 3D Circular Background Plate (Soft Pure White Dome Circle matching the mockup) with bevel highlight */}
-                          <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110px] h-[110px] md:w-[135px] md:h-[135px] rounded-full bg-white z-0 transition-transform duration-500 group-hover:scale-105 shadow-[0_4px_12px_rgba(0,0,0,0.03),_inset_0_2px_4px_rgba(255,255,255,0.9)] border border-white/60 group-hover:shadow-[0_8px_20px_rgba(175,0,0,0.08)]" />
+                          <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110px] h-[110px] md:w-[135px] md:h-[135px] rounded-full bg-gradient-to-b from-white to-[#f0f2f5] z-0 transition-all duration-500 group-hover:scale-105 shadow-[0_4px_16px_rgba(0,0,0,0.1),_inset_0_2px_5px_rgba(255,255,255,1),_inset_0_-1px_3px_rgba(0,0,0,0.06)] border border-white/90 group-hover:shadow-[0_6px_22px_rgba(175,0,0,0.1),_inset_0_2px_5px_rgba(255,255,255,1),_inset_0_-1px_3px_rgba(0,0,0,0.06)]" />
 
                           {/* Content Stack - perfectly centered inside the 3D circle to prevent diagonal clipping overflow */}
                           <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
@@ -277,7 +282,7 @@ export default function CompanyOverview() {
                                 src={item.image}
                                 alt={item.name}
                                 fill
-                                className="object-contain drop-shadow-[0_2px_5px_rgba(0,0,0,0.04)] group-hover:drop-shadow-[0_8px_16px_rgba(0,0,0,0.08)]"
+                                className="object-contain drop-shadow-[0_3px_8px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_8px_20px_rgba(0,0,0,0.28)]"
                                 sizes="100px"
                               />
                             </div>
