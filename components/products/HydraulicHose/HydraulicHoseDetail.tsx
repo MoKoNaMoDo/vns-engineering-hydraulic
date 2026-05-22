@@ -77,6 +77,7 @@ export default function HydraulicHoseDetail() {
                     src="/products/products/Hydralic Hose1.png"
                     alt="Hydraulic Hose 1SN"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 480px"
                     className="object-contain"
                   />
                 </div>
