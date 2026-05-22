@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
@@ -43,6 +45,9 @@ const items = [
 ];
 
 export default function FittingAndAdapter() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
+
   return (
     <section className="py-12 px-4 bg-transparent">
       <div className="max-w-[1200px] mx-auto">
@@ -80,6 +85,10 @@ export default function FittingAndAdapter() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>

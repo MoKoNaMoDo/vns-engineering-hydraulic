@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+// Module-level lock: ป้องกัน race condition เมื่อหลาย ViewCounter mount พร้อมกันบนหน้าเดียวกัน
+const pendingIncrements = new Set<string>();
+
 interface ViewCounterProps {
   slug: string;
   mode?: "increment" | "display";
@@ -28,38 +31,55 @@ export default function ViewCounter({
 
     const handleViews = async () => {
       try {
-        // If the Supabase URL or Key is missing, don't execute and fallback to a default
         if (!supabase) {
-          // Generates a consistent dummy view number based on the slug string hash
           let hash = 0;
           for (let i = 0; i < slug.length; i++) {
             hash = slug.charCodeAt(i) + ((hash << 5) - hash);
           }
-          const dummyViews = Math.abs(hash % 400) + 120; // 120 to 520
+          const dummyViews = Math.abs(hash % 400) + 120;
           setViews(dummyViews);
           setLoading(false);
           return;
         }
 
         if (mode === "increment") {
-          // Call the stored RPC function to securely increment the view count
+          // ✅ deduplication: ตรวจสอบ sessionStorage ก่อน increment
+          const sessionKey = `viewed_${slug}`;
+          const alreadyViewed = sessionStorage.getItem(sessionKey);
+
+          if (alreadyViewed) {
+            // เคยนับแล้วใน session นี้ — แค่ดึงค่าล่าสุด
+            await fetchViews();
+            return;
+          }
+
+          // ✅ ป้องกัน race condition: ถ้ามี instance อื่นกำลัง increment slug เดียวกันอยู่ → แค่ดึงค่า
+          if (pendingIncrements.has(slug)) {
+            await fetchViews();
+            return;
+          }
+          pendingIncrements.add(slug);
+
           const { data, error } = await supabase.rpc("increment_page_view", {
             page_slug: slug,
           });
+
+          pendingIncrements.delete(slug);
 
           if (error) {
             console.error("Error incrementing page view:", error);
             await fetchViews();
           } else {
+            sessionStorage.setItem(sessionKey, "1");
             setViews(data);
             setLoading(false);
           }
         } else {
-          // Read-only mode
           await fetchViews();
         }
       } catch (err) {
         console.error("Unexpected error in ViewCounter:", err);
+        pendingIncrements.delete(slug);
         setLoading(false);
       }
     };
@@ -74,7 +94,6 @@ export default function ViewCounter({
           .single();
 
         if (error) {
-          // If the entry doesn't exist yet, it's 0 views
           if (error.code === "PGRST116") {
             setViews(0);
           } else {

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
@@ -30,6 +32,8 @@ const items = [
 ];
 
 export default function PTFETeflonHose() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -160,6 +164,10 @@ export default function PTFETeflonHose() {
             </div>
           </div>
 
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>
