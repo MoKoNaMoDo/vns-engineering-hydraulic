@@ -62,7 +62,7 @@ export default function Toyox() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_30px_60px_rgba(0,0,0,0.15)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="/products/product/toyox-hoses.png"
+                    src="/products/product/toyox2z-z566056134181.jpg"
                     alt="TOYOX Industrial Hoses"
                     fill
                     sizes="(max-width: 768px) 100vw, 500px"

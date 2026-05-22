@@ -10,7 +10,7 @@ const products = [
   { name: "PTFE HOSE/TEFLON HOSE", image: "/products/products/PTFE.png", href: "/products/ptfe-teflon-hose" },
   { name: "R7-THERMOPLASTIC HOSE", image: "/products/product/สกรีนช็อต 2026-05-16 223511.png", href: "/products/r7-thermoplastic-hose" },
   { name: "STEAM HOSE", image: "/products/product/สกรีนช็อต 2026-05-16 223715.png", href: "/products/steam-hose" },
-  { name: "TOYOX", image: "/products/logo/Toyox.png", href: "/products/toyox" },
+  { name: "TOYOX", image: "/products/product/toyox2z-z566056134181.jpg", href: "/products/toyox" },
   { name: "INDUSTRIAL HOSE", image: "/products/products/Industrial Hose.jpg", href: "/products/industrial-hose" },
   { name: "TUBE FITTINGS", image: "/products/products/TUBE.png", href: "/products/tube-fittings" },
   { name: "CAMLOCK COUPLING", image: "/products/products/CAMLOCK COUPLING.png", href: "/products/camlock-coupling" },

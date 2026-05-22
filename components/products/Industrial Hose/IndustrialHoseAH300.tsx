@@ -57,7 +57,7 @@ export default function IndustrialHoseAH300() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="/products/product/industrial-hose-ah300.png"
+                    src="/products/products/Picture2.png"
                     alt="INDUSTRIAL HOSE AH300"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-110"
