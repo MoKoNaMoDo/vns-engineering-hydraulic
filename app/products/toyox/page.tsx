@@ -5,6 +5,20 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "สาย TOYOX - V.N.S Engineering Hydraulic",
   description: "ท่ออ่อนเสริมโครงสร้าง วัสดุหลัก PVC เสริมแรง ลวดสปริง ทนอุณหภูมิ -5 ถึง 60C สายลม สายน้ำมัน สารเคมี สายอเนกประสงค์คุณภาพสูงจาก TOYOX",
+  keywords: [
+    "TOYOX",
+    "โตโยกซ์",
+    "สายยางอุตสาหกรรม",
+    "สายดูด ส่งอาหาร",
+    "สายดูดความร้อน",
+    "ท่อยางอเนกประสงค์",
+    "ท่อดูดทนเคมี",
+    "สายยางอเนกประสงค์",
+    "สายพ่นสี",
+    "สายยางซิลิโคนทนความร้อน",
+    "สายลำเลียงเม็ดพลาสติก",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function ToyoxPage() {

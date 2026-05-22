@@ -3,11 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
     title: "PTFE TEFLON HOSE R14",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/products/PTFE.png",
     label: (
       <div className="flex items-center gap-1.5">
         <span className="text-[#dc2626] font-black">PTFE TEFLON</span>
@@ -18,7 +20,7 @@ const items = [
   },
   {
     title: "PTFE CONVOLUTED TEFLON HOSE",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/products/PTFE.-removebg-preview.png",
     label: (
       <div className="flex flex-col items-center">
         <span className="text-[#dc2626] font-black leading-none mb-1.5">PTFE CONVOLUTED</span>
@@ -30,6 +32,8 @@ const items = [
 ];
 
 export default function PTFETeflonHose() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -160,6 +164,10 @@ export default function PTFETeflonHose() {
             </div>
           </div>
 
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>

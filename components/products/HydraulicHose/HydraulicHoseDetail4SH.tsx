@@ -68,7 +68,7 @@ export default function HydraulicHoseDetail4SH() {
                     alt="Hydraulic Hose 4SH"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function HydraulicHoseDetail4SH() {
 
           {/* Right Side: Product Description */}
           <div className="pt-4 lg:pt-0 animate-slide-right">
-            <h1 className="text-4xl font-black text-zinc-900 mb-2">Hydraulic Hose</h1>
+            <h1 className="text-3xl font-black text-black mb-2">Hydraulic Hose</h1>
             <h2 className="text-3xl font-black mb-6">
               4SH <span className="text-[#af0000]">DIN EN 856</span>
             </h2>

@@ -29,8 +29,7 @@ export default function CompanyStrengths() {
             ))}
           </div>
           <div className="relative pl-2">
-            <div className="mb-3 hidden h-20 w-28 rotate-[22deg] rounded-[50%] border-b-[10px] border-[#c40008] md:block" />
-            <h2 className="font-black">กลุ่มอุตสาหกรรมที่ให้บริการ</h2>
+<h2 className="font-black">กลุ่มอุตสาหกรรมที่ให้บริการ</h2>
             {industries.map((item) => (
               <p key={item}>•{item}</p>
             ))}

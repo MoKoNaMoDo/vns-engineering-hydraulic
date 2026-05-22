@@ -17,7 +17,7 @@ const tags = [
 
 export default function PTFEConvolutedDetail() {
   return (
-    <section className="bg-white py-4 font-sans">
+    <section className="bg-white py-12 font-sans">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
 
@@ -66,12 +66,12 @@ export default function PTFEConvolutedDetail() {
 
           {/* Right Column: Information and Tags */}
           <div className="flex flex-col">
-            <h1 className="relative inline-flex flex-col items-center lg:items-center text-4xl font-black text-zinc-900 self-center lg:self-start">
-              <span className="text-center uppercase text-[30px] lg:text-4xl">PTFE HOSE / TEFLON HOSE</span>
-              <div className="mt-2 h-1.5 w-48 bg-[#af0000]" />
+            <h1 className="relative inline-flex flex-col items-center lg:items-center text-3xl font-black text-black self-center lg:self-start">
+              <span className="text-center uppercase">PTFE HOSE / TEFLON HOSE</span>
+              <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </h1>
 
-            <div className="mt-8 space-y-4 text-[17px] font-bold leading-relaxed text-[#1d1715]">
+            <div className="mt-8 space-y-4 text-base font-bold leading-relaxed text-[#1d1715]">
               <h2 className="text-2xl font-black mb-4">PTFE CONVOLUTED TEFLON HOSE</h2>
 
               <p className="mb-4">

@@ -6,6 +6,16 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Quick Coupling ข้อต่อสวมเร็ว - V.N.S Engineering Hydraulic",
   description: "จำหน่ายข้อต่อสวมเร็ว (Quick Coupling) หลากหลายวัสดุ ทั้งสแตนเลส ทองเหลือง เหล็ก และอลูมิเนียม สำหรับงานอุตสาหกรรมทุกประเภท",
+  keywords: [
+    "คัปปลิ้ง",
+    "คัปปลิ้งน้ำมัน",
+    "QUICK COUPLING",
+    "ข้อต่อสวมเร็ว",
+    "ควิกคัปปลิ้ง",
+    "Quick Disconnect",
+    "คัปปลิ้งไฮดรอลิค",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function QuickCouplingPage() {

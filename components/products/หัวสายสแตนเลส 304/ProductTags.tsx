@@ -11,7 +11,7 @@ interface ProductTagsProps {
 
 export default function ProductTags({ tags }: ProductTagsProps) {
   const pathname = usePathname();
-  const slug = pathname ? pathname.split("/").pop() || "" : "";
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
 
   return (
     <div className="mt-12 border-t border-zinc-100 pt-8">

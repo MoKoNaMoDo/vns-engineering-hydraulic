@@ -6,6 +6,19 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "R7 Thermoplastic Hose - V.N.S Engineering Hydraulic",
   description: "สายไฮดรอลิคเทอร์โมพลาสติก R7 (SAE 100 R7) เป็นสายแรงดันปานกลาง (70-210 bar) โครงสร้างประกอบด้วยท่อชั้นในเทอร์โมพลาสติก",
+  keywords: [
+    "PVC HOSE",
+    "สาย R7",
+    "สายคู่ R7",
+    "สายเทอร์โม",
+    "THERMOPLASTIC HOSE",
+    "สายไฮดรอลิค",
+    "ท่อไฮดรอลิค",
+    "ท่อยาง",
+    "TWIN HOSE",
+    "SAE 100 R7",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function R7HosePage() {

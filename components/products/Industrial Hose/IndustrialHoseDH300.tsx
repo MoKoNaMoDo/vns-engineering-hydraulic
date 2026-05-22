@@ -14,7 +14,7 @@ const tags = [
 
 export default function IndustrialHoseDH300() {
   return (
-    <section className="bg-white py-12 border-t border-zinc-100">
+    <section className="bg-white py-12 font-sans border-t border-zinc-100">
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="flex flex-col items-center lg:items-start">
@@ -40,10 +40,10 @@ export default function IndustrialHoseDH300() {
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
-                    src="/products/product/industrial-hose-dh300.png"
+                    src="/products/products/Picture5.png"
                     alt="INDUSTRIAL HOSE DH300"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-contain transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -54,9 +54,9 @@ export default function IndustrialHoseDH300() {
           </div>
 
           <div className="flex flex-col">
-            <h1 className="relative inline-flex flex-col items-center lg:items-start text-4xl font-black text-zinc-900">
+            <h1 className="relative inline-flex flex-col items-center lg:items-start text-3xl font-black text-black">
               <span>INDUSTRIAL HOSE</span>
-              <div className="mt-2 h-1.5 w-48 bg-[#af0000]" />
+              <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </h1>
 
             <div className="mt-8 space-y-6">

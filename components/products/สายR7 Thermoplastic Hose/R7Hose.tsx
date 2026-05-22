@@ -83,9 +83,9 @@ export default function R7Hose() {
           {/* Right Column: Information and Tags */}
           <div className="flex flex-col animate-slide-right">
             {/* Title with Red Underline */}
-            <h1 className="relative inline-flex flex-col items-center lg:items-center text-4xl font-black text-zinc-900 self-center lg:self-start">
+            <h1 className="relative inline-flex flex-col items-center lg:items-center text-3xl font-black text-black self-center lg:self-start">
               <span className="text-center">R7-THERMOPLASTIC HOSE</span>
-              <div className="mt-2 h-1.5 w-40 bg-[#af0000]" />
+              <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </h1>
 
             {/* Description Section */}

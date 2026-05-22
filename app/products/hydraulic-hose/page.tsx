@@ -3,7 +3,7 @@ import HydraulicHoseDetail from "@/components/products/HydraulicHose/HydraulicHo
 import HydraulicHoseDetail2SN from "@/components/products/HydraulicHose/HydraulicHoseDetail2SN";
 import HydraulicHoseDetail4SP from "@/components/products/HydraulicHose/HydraulicHoseDetail4SP";
 import HydraulicHoseDetail4SH from "@/components/products/HydraulicHose/HydraulicHoseDetail4SH";
-import ProductTags from "@/components/products/หัวสายสแตนเลส 304/ProductTags";
+import ProductTags from "@/components/products/ProductTags";
 import ContactSection from "@/components/about/ContactSection";
 
 const hydraulicHoseTags = [
@@ -50,14 +50,6 @@ export default function HydraulicHosePage() {
     "brand": {
       "@type": "Brand",
       "name": "V.N.S Engineering"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "THB",
-      "lowPrice": "0",
-      "priceValidUntil": "2027-12-31",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
     }
   };
 
@@ -96,7 +88,7 @@ export default function HydraulicHosePage() {
             <HydraulicHoseDetail4SH />
           </div>
 
-          <ProductTags tags={hydraulicHoseTags} />
+          <ProductTags tags={hydraulicHoseTags} categoryHref="/products/hydraulic-hose" />
         </main>
       </section>
 

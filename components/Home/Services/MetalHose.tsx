@@ -2,17 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
     title: "STAINLESS STEEL FLEXIBLE HOSE",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/Overview/Flexible Hose.png",
     label: <p>STAINLESS STEEL <span className="text-[#af0000]">FLEXIBLE</span> HOSE</p>,
     href: "/products/stainless-steel-flexible-hose"
   }
 ];
 
 export default function MetalHose() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
+
   return (
     <section className="py-12 px-4 bg-transparent">
       <div className="max-w-[1200px] mx-auto">
@@ -49,6 +54,10 @@ export default function MetalHose() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>

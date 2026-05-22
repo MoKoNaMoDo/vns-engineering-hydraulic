@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
     title: "หัวสายสแตนเลส 304",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/products/43395.jpg",
     label: <p>หัวสายสแตนเลส <span className="text-[#af0000]">304</span></p>,
     href: "/products/stainless-304"
   },
@@ -43,6 +45,9 @@ const items = [
 ];
 
 export default function FittingAndAdapter() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
+
   return (
     <section className="py-12 px-4 bg-transparent">
       <div className="max-w-[1200px] mx-auto">
@@ -80,6 +85,10 @@ export default function FittingAndAdapter() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>

@@ -6,6 +6,17 @@ import ContactSection from "@/components/about/ContactSection";
 export const metadata = {
   title: "Hydraulic Ball Valve วาล์วบอลไฮดรอลิก - V.N.S Engineering Hydraulic",
   description: "จำหน่ายวาล์วบอลไฮดรอลิก (Hydraulic Ball Valve) แรงดันสูง หลากหลายวัสดุ ทั้ง Carbon Steel, Stainless Steel และ Brass สำหรับงานอุตสาหกรรม",
+  keywords: [
+    "BALL VALVE",
+    "BALL VALVE STAINLESS STEEL",
+    "บอลวาล์ว",
+    "บอลวาล์วไฮดรอลิค",
+    "วาล์วบอลสแตนเลส",
+    "วาล์วบอล Carbon Steel",
+    "วาล์วบอล Brass",
+    "วาล์วอุตสาหกรรม",
+    "V.N.S Engineering",
+  ],
 };
 
 export default function BallValvePage() {

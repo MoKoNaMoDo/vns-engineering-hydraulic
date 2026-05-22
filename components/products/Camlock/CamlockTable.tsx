@@ -39,7 +39,7 @@ export default function CamlockTable() {
         <div className="absolute inset-0 bg-zinc-900/90 z-10" />
         <div 
           className="absolute inset-0 bg-cover bg-fixed bg-center opacity-40" 
-          style={{ backgroundImage: "url('/products/bg/industrial-bg.jpg')" }}
+          style={{ backgroundImage: "url('/products/products/Industrial Hose.jpg')" }}
         />
       </div>
       

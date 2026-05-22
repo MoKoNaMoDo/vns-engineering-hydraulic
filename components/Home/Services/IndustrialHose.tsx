@@ -2,47 +2,52 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ViewCounter from "@/components/ViewCounter";
 
 const items = [
   {
     title: "TOYOX",
-    image: "/products/product/toyox-hoses.png",
+    image: "/products/product/toyox2z-z566056134181.jpg",
     label: <p><span className="text-[#af0000]">TOYOX</span></p>,
     href: "/products/toyox"
   },
   {
     title: "SUNFLEX OSD150",
-    image: "/products/product/industrial-hose.png",
+    image: "/products/products/Picture1.png",
     label: <p>SUNFLEX <span className="text-[#af0000]">OSD150</span></p>,
     href: "/products/industrial-hose#osd150"
   },
   {
     title: "SUNFLEX AH300",
-    image: "/products/product/industrial-hose-ah300.png",
+    image: "/products/products/Picture2.png",
     label: <p>SUNFLEX <span className="text-[#af0000]">AH300</span></p>,
     href: "/products/industrial-hose#ah300"
   },
   {
     title: "SUNFLEX CSD150",
-    image: "/products/product/industrial-hose-csd150.png",
+    image: "/products/products/Picture3.png",
     label: <p>SUNFLEX <span className="text-[#af0000]">CSD150</span></p>,
     href: "/products/industrial-hose#csd150"
   },
   {
     title: "SUNFLEX WSD150",
-    image: "/products/product/industrial-hose-wsd150.png",
+    image: "/products/products/Picture4.png",
     label: <p>SUNFLEX <span className="text-[#af0000]">WSD150</span></p>,
     href: "/products/industrial-hose#wsd150"
   },
   {
     title: "SUNFLEX DH300",
-    image: "/products/product/industrial-hose-dh300.png",
+    image: "/products/products/Picture5.png",
     label: <p>SUNFLEX <span className="text-[#af0000]">DH300</span></p>,
     href: "/products/industrial-hose#dh300"
   }
 ];
 
 export default function IndustrialHose() {
+  const pathname = usePathname();
+  const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
+
   return (
     <section className="py-12 px-4 bg-transparent">
       <div className="max-w-[1200px] mx-auto">
@@ -79,6 +84,10 @@ export default function IndustrialHose() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-end">
+          <ViewCounter slug={slug} mode="increment" iconSize={14} />
         </div>
       </div>
     </section>
