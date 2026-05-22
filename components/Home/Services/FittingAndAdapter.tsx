@@ -6,7 +6,7 @@ import Link from "next/link";
 const items = [
   {
     title: "หัวสายสแตนเลส 304",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/products/43395.jpg",
     label: <p>หัวสายสแตนเลส <span className="text-[#af0000]">304</span></p>,
     href: "/products/stainless-304"
   },

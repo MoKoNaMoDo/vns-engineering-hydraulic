@@ -6,7 +6,7 @@ import Link from "next/link";
 const items = [
   {
     title: "STAINLESS STEEL FLEXIBLE HOSE",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/products/Overview/Flexible Hose.png",
     label: <p>STAINLESS STEEL <span className="text-[#af0000]">FLEXIBLE</span> HOSE</p>,
     href: "/products/stainless-steel-flexible-hose"
   }

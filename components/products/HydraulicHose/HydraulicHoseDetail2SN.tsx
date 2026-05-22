@@ -74,7 +74,7 @@ export default function HydraulicHoseDetail2SN() {
                     alt="Hydraulic Hose 2SN"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>

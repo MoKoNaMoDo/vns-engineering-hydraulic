@@ -23,8 +23,8 @@ const industries = [
 
 const diagramItems = [
   { name: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", x: 0, y: -176, href: "/services/hydraulic-hose" },
-  { name: "Fitting and adapter", image: "/products/Overview/ChatGPT Image May 10, 2026, 02_48_05 PM.png", x: 152, y: -88, href: "/services/fitting-and-adapter" },
-  { name: "Steam Hose", image: "/products/products/43024.jpg", x: 152, y: 88, href: "/services/steam-hose" },
+  { name: "Fitting and adapter", image: "/products/products/ChatGPT Image May 10, 2026, 02_48_05 PM.png", x: 152, y: -88, href: "/services/fitting-and-adapter" },
+  { name: "Steam Hose", image: "/products/products/43024.png", x: 152, y: 88, href: "/services/steam-hose" },
   { name: "PTFE Hose/ Teflon Hose", image: "/products/products/PTFE.-removebg-preview.png", x: 0, y: 176, href: "/services/ptfe-teflon-hose" },
   { name: "Metal Hose", image: "/products/Overview/Flexible Hose.png", x: -152, y: 88, href: "/services/metal-hose" },
   { name: "Industrial Hose", image: "/products/Overview/ChatGPT_Image_May_10__2026__02_21_51_PM-removebg-preview.png", x: -152, y: -88, href: "/services/industrial-hose" },

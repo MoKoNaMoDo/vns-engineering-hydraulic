@@ -72,7 +72,7 @@ export default function HydraulicHoseDetail4SP() {
                     alt="Hydraulic Hose 4SP"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>

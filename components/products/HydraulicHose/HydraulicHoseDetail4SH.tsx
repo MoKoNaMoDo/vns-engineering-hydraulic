@@ -68,7 +68,7 @@ export default function HydraulicHoseDetail4SH() {
                     alt="Hydraulic Hose 4SH"
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
