@@ -3,72 +3,131 @@ import ContactSection from "@/components/about/ContactSection";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen w-full bg-[#f7f7f6] text-black pb-10">
-      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 py-12 md:grid-cols-[350px_1fr] lg:px-8">
+    <div className="min-h-screen w-full bg-[#fcfcfb] text-slate-800 pb-16">
+      <section className="mx-auto grid max-w-[1400px] gap-8 px-4 py-12 md:grid-cols-[300px_1fr] lg:px-8">
+        {/* Sidebar Menu */}
         <aside className="hidden md:block">
-          <ProductMenu />
+          <div className="sticky top-6">
+            <ProductMenu />
+          </div>
         </aside>
 
+        {/* Main Content */}
         <div className="pt-2">
-          {/* Title */}
-          <div className="mb-10">
-            <h1 className="inline-block border-b-[3px] border-[#b23131] pb-1 text-4xl font-black tracking-tight text-black">
+          {/* Main Title */}
+          <div className="mb-12 border-b border-slate-200 pb-4">
+            <h1 className="relative inline-block text-3xl font-extrabold tracking-tight text-slate-900 after:absolute after:bottom-[-17px] after:left-0 after:h-[3px] after:w-full after:bg-[#b23131]">
               รายละเอียดการติดต่อ
             </h1>
           </div>
 
-          {/* CONTACT US header */}
-          <div className="text-center mb-8">
-            <h2 className="text-[26px] font-black tracking-widest text-[#e61e1e]">
-              CONTACT <span className="text-black">US</span>
-            </h2>
-          </div>
+          {/* CONTACT US Section */}
+          <div className="mx-auto max-w-[1000px]">
+            <div className="text-center mb-10">
+              <h2 className="mt-3 text-3xl font-black tracking-wider text-slate-900">
+                CONTACT <span className="text-[#e61e1e]">US</span>
+              </h2>
+            </div>
 
-          {/* 3-column Box */}
-          <div className="mx-auto max-w-[900px] border-[4px] border-black bg-white py-16 px-4">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:divide-x-[3px] md:divide-black">
+            {/* Layout Wrapper */}
+            <div className="space-y-6">
               
-              {/* Address */}
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="mb-6 flex h-[100px] w-[100px] items-center justify-center text-[#c31a1a]">
-                  <svg className="h-[80px] w-[80px]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
+              {/* Top Row: 3 Columns (Address, Phone, Email) */}
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                
+                {/* Address Card */}
+                <div className="group flex flex-col items-center text-center bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 text-[#c31a1a] transition-colors duration-300 group-hover:bg-[#c31a1a] group-hover:text-white">
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900">Address</h3>
+                  <p className="text-[15px] font-medium leading-relaxed text-slate-500">
+                    6,122/124 Sukhumvit Road,<br />
+                    Bang Mueang Subdistrict,<br />
+                    Mueang District, Samut Prakan<br />
+                    Province 10270
+                  </p>
                 </div>
-                <h3 className="mb-4 text-[26px] font-black text-[#581515]">Address</h3>
-                <p className="text-[17px] font-semibold leading-[1.6] text-[#5a4843]">
-                  6,122/124 Sukhumvit<br />
-                  Road, Bang Mueang<br />
-                  Subdistrict, Mueang<br />
-                  District, Samut Prakan<br />
-                  Province 10270
-                </p>
+
+                {/* Phone Card */}
+                <div className="group flex flex-col items-center text-center bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 text-[#c31a1a] transition-colors duration-300 group-hover:bg-[#c31a1a] group-hover:text-white">
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900">Phone</h3>
+                  <p className="text-[16px] font-semibold text-slate-600 hover:text-[#c31a1a] transition-colors">
+                    <a href="tel:027598229">02-759 8229</a>
+                  </p>
+                </div>
+
+                {/* Email Card */}
+                <div className="group flex flex-col items-center text-center bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-50 text-[#c31a1a] transition-colors duration-300 group-hover:bg-[#c31a1a] group-hover:text-white">
+                    <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900">Email</h3>
+                  <p className="text-[14px] font-semibold text-slate-600 break-all hover:text-[#c31a1a] transition-colors">
+                    <a href="mailto:vnsengineering777@gmail.com">vnsengineering777@gmail.com</a>
+                  </p>
+                </div>
+
               </div>
 
-              {/* Phone */}
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="mb-6 flex h-[100px] w-[100px] items-center justify-center rounded-full border-[4px] border-[#c31a1a] bg-white text-[#c31a1a]">
-                  <svg className="h-12 w-12" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.03 21c.75 0 .97-.65.97-1.19v-3.44c0-.54-.45-.99-.99-.99z"/>
-                  </svg>
+              {/* Bottom Row: 2 Columns Centered (Line, Facebook) */}
+              <div className="flex flex-col md:flex-row justify-center gap-6">
+                
+                {/* Line Card */}
+                <div className="group flex flex-col items-center text-center bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 w-full md:w-[calc(33.333%-12px)]">
+                  <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:scale-110 active:scale-95 mb-6">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#06c755] text-white shadow-md">
+                      <div className="flex flex-col items-center justify-center scale-[0.85]">
+                        <span className="text-[10px] font-black leading-none">LINE</span>
+                        <div className="h-[2px] w-8 bg-white/30 my-[2px]" />
+                        <span className="text-[10px] font-black leading-none">OFFICIAL</span>
+                      </div>
+                    </div>
+                  </a>
+                  <h3 className="mb-2 text-xl font-bold text-slate-900">Line Official</h3>
+                  <p className="text-[14px] font-medium text-slate-400 mb-4">ติดต่อพูดคุยผ่านไลน์</p>
+                  <a 
+                    href="https://line.me/ti/p/~tonmasadora" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-[#06c755] rounded-xl hover:bg-[#05b34c] transition-colors shadow-sm w-full"
+                  >
+                    @tonmasadora
+                  </a>
                 </div>
-                <h3 className="mb-4 text-[26px] font-black text-[#581515]">Phone</h3>
-                <p className="text-[19px] font-semibold text-[#5a4843]">
-                  02-759 8229
-                </p>
-              </div>
 
-              {/* Email */}
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="mb-6 flex h-[100px] w-[100px] items-center justify-center rounded-full border-[4px] border-[#c31a1a] bg-white text-[#c31a1a]">
-                  <svg className="h-12 w-12" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
+                {/* Facebook Card */}
+                <div className="group flex flex-col items-center text-center bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 w-full md:w-[calc(33.333%-12px)]">
+                  <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:scale-110 active:scale-95 mb-6">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-md">
+                      <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                    </div>
+                  </a>
+                  <h3 className="mb-2 text-xl font-bold text-slate-900">Facebook</h3>
+                  <p className="text-[14px] font-medium text-slate-400 mb-4">ติดตามแฟนเพจ</p>
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=100037191445975" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-[#1877f2] rounded-xl hover:bg-[#166fe5] transition-colors shadow-sm w-full"
+                  >
+                    VNS Engineering
+                  </a>
                 </div>
-                <h3 className="mb-4 text-[26px] font-black text-[#581515]">Email</h3>
-                <p className="text-[16px] font-semibold text-[#5a4843] break-all">
-                  vnsengineering777@gmail.com
-                </p>
+
               </div>
 
             </div>
@@ -76,7 +135,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <ContactSection />
+      {/* Form / Map Section */}
+      <div className="mt-8">
+        <ContactSection />
+      </div>
     </div>
   );
 }

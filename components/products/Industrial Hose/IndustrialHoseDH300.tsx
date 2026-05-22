@@ -43,7 +43,7 @@ export default function IndustrialHoseDH300() {
                     src="/products/products/Picture5.png"
                     alt="INDUSTRIAL HOSE DH300"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-contain transition-transform duration-700"
                   />
                 </div>
               </div>

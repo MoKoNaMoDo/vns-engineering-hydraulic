@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ExternalLink, MapPin } from "lucide-react";
 import { MailIcon, PhoneIcon } from "./Icons";
 
 export default function ContactSection() {
@@ -23,7 +24,7 @@ export default function ContactSection() {
               {/* Address */}
               <div className="flex items-start gap-6 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-[#af3030] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-100 transition-transform duration-300 group-hover:-translate-y-1">
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  <MapPin className="h-6 w-6" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">Office Address</h4>
@@ -35,7 +36,7 @@ export default function ContactSection() {
               </div>
 
               {/* Email (ได้พื้นที่เต็มบรรทัด หมดปัญหาล้นจอ) */}
-              <div className="flex items-start gap-6 group">
+              <div className="flex items-start gap-3 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-[#af3030] transition-transform duration-300 group-hover:-translate-y-1">
                   <MailIcon className="w-6 h-6" />
                 </div>
@@ -48,7 +49,7 @@ export default function ContactSection() {
               </div>
 
               {/* Phone (ลงมาอยู่บรรทัดล่างสุดอย่างสวยงาม) */}
-              <div className="flex items-start gap-6 group">
+              <div className="flex items-start gap-3 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-[#af3030] transition-transform duration-300 group-hover:-translate-y-1">
                   <PhoneIcon className="w-6 h-6" />
                 </div>
@@ -131,7 +132,7 @@ export default function ContactSection() {
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#1d1715] text-xs font-bold text-white uppercase tracking-[0.2em] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] hover:bg-[#af3030] transition-all hover:scale-105 active:scale-95"
               >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                <ExternalLink className="h-4 w-4" />
                 <span>แผนที่บริษัท</span>
               </a>
             </div>

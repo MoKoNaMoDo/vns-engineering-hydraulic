@@ -66,7 +66,7 @@ export default function IndustrialHoseOSD150() {
                     src="/products/products/Picture1.png"
                     alt="INDUSTRIAL HOSE"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-contain transition-transform duration-700"
                     priority
                   />
                 </div>

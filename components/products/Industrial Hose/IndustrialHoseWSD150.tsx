@@ -43,7 +43,7 @@ export default function IndustrialHoseWSD150() {
                     src="/products/products/Picture4.png"
                     alt="INDUSTRIAL HOSE WSD150"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-contain transition-transform duration-700"
                   />
                 </div>
               </div>
