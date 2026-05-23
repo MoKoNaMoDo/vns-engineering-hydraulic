@@ -1,7 +1,5 @@
 'use client';
 
-import Link from "next/link";
-
 import Image from "next/image";
 
 export default function StainlessSteelFlexibleHoseIntro() {
@@ -48,7 +46,7 @@ export default function StainlessSteelFlexibleHoseIntro() {
 
               {/* Category Badge Below Image - Blue Rectangle */}
               <div className="mt-0 flex justify-center">
-                <Link href="/products/stainless-steel-flexible-hose" className="bg-[#3b6db4] px-16 py-4 text-3xl font-black text-white shadow-lg -translate-y-6 transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">ท่ออ่อนสแตนเลส (SS Flexible Hose)</Link>
+                <div className="bg-[#3b6db4] px-16 py-4 text-3xl font-black text-white shadow-lg -translate-y-6 block text-center">ท่ออ่อนสแตนเลส (SS Flexible Hose)</div>
               </div>
             </div>
           </div>

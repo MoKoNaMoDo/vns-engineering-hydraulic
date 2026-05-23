@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -74,7 +73,7 @@ export default function Toyox() {
 
               {/* TOYOX Blue Label */}
               <div className="mt-6 flex justify-center">
-                <Link href="/products/toyox" className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายยางอุตสาหกรรม TOYOX</Link>
+                <div className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center block">สายยางอุตสาหกรรม TOYOX</div>
               </div>
             </div>
           </div>
@@ -130,6 +129,37 @@ export default function Toyox() {
             </div>
           </div>
 
+        </div>
+
+        <div className="mt-14 border-t border-zinc-100 pt-10">
+          <div className="mb-6 text-center">
+            <h2 className="text-2xl font-black text-black md:text-3xl">
+              ตารางสเปกสินค้า TOYOX
+            </h2>
+            <div className="mx-auto mt-3 h-[3px] w-24 bg-[#af0000]" />
+          </div>
+          <div className="mx-auto flex max-w-[760px] flex-col gap-8">
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl">
+              <Image
+                src="/products/product/ChatGPT%20Image%2023%20%E0%B8%9E.%E0%B8%84.%202569%2019_39_43.png"
+                alt="ตารางสเปกและราคา TOYOX TOYORON HYBRID TOYORON HYPER TOYORON SUPER TOYORON"
+                width={1049}
+                height={1500}
+                sizes="(max-width: 768px) 100vw, 760px"
+                className="h-auto w-full"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl">
+              <Image
+                src="/products/product/ChatGPT%20Image%2023%20%E0%B8%9E.%E0%B8%84.%202569%2019_43_58.png"
+                alt="ตารางสเปกและราคา TOYOX เพิ่มเติม"
+                width={1023}
+                height={1537}
+                sizes="(max-width: 768px) 100vw, 760px"
+                className="h-auto w-full"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

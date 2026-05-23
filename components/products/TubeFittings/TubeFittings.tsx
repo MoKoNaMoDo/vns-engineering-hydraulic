@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -73,7 +72,7 @@ export default function TubeFittings() {
 
               {/* Category Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <Link href="/products/tube-fittings" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transform transition- transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">ข้อต่อตาไก่สแตนเลส (Tube Fittings)</Link>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">ข้อต่อตาไก่สแตนเลส (Tube Fittings)</div>
               </div>
             </div>
           </div>

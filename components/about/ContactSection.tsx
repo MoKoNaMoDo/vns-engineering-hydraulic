@@ -55,9 +55,14 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">Phone</h4>
-                  <a href="tel:027598229" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">
-                    02-759 8229
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:027598229" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">
+                      02-759 8229
+                    </a>
+                    <a href="tel:0818285418" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">
+                      081-828-5418
+                    </a>
+                  </div>
                 </div>
               </div>
 

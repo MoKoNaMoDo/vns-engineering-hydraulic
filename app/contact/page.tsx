@@ -60,8 +60,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-slate-900">Phone</h3>
-                  <p className="text-[16px] font-semibold text-slate-600 hover:text-[#c31a1a] transition-colors">
-                    <a href="tel:027598229">02-759 8229</a>
+                  <p className="flex flex-col gap-1 text-[16px] font-semibold text-slate-600">
+                    <a href="tel:027598229" className="hover:text-[#c31a1a] transition-colors">02-759 8229</a>
+                    <a href="tel:0818285418" className="hover:text-[#c31a1a] transition-colors">081-828-5418</a>
                   </p>
                 </div>
 

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -61,7 +60,7 @@ export default function PTFETeflonHoseDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <Link href="/products/ptfe-teflon-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายเทฟล่อนเรียบ (PTFE Teflon)</Link>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">สายเทฟล่อนเรียบ (PTFE Teflon)</div>
               </div>
             </div>
           </div>
