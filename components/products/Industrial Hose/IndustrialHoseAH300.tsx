@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -65,7 +64,7 @@ export default function IndustrialHoseAH300() {
                 </div>
               </div>
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <Link href="/products/industrial-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายยางส่งน้ำอุตสาหกรรม (AH300)</Link>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางส่งน้ำอุตสาหกรรม (AH300)</div>
               </div>
             </div>
           </div>

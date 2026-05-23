@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -70,7 +69,7 @@ export default function Camlock() {
               </div>
 
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <Link href="/products/camlock-coupling" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">ข้อต่อสวมเร็ว Camlock Coupling</Link>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">ข้อต่อสวมเร็ว Camlock Coupling</div>
               </div>
             </div>
           </div>

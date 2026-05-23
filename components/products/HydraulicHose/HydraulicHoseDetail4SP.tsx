@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
 import { Tag } from "lucide-react";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -80,7 +79,7 @@ export default function HydraulicHoseDetail4SP() {
 
             {/* Category Tag */}
             <div className="mt-4 flex justify-center w-full max-w-[480px]">
-              <Link href="/products/hydraulic-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายไฮดรอลิก 4SP (Extra High)</Link>
+              <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">สายไฮดรอลิก 4SP (Extra High)</div>
             </div>
           </div>
 

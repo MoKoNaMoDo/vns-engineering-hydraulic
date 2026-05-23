@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -74,7 +73,7 @@ export default function IndustrialHoseOSD150() {
 
               {/* Industrial Blue Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <Link href="/products/industrial-hose" className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center transform transition- transition-all duration-300 hover:bg-[#af0000] hover:scale-105 cursor-pointer block text-center">สายยางดูด-ส่งน้ำมันอุตสาหกรรม (OSD150)</Link>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางดูด-ส่งน้ำมันอุตสาหกรรม (OSD150)</div>
               </div>
             </div>
           </div>
