@@ -8,7 +8,9 @@
       "Bash(mv app/services \"app/[locale]/\")",
       "Bash(mv app/industrial-hose \"app/[locale]/\")",
       "Bash(Get-ChildItem -Path \"app\" -Recurse -Include \"*.tsx\")",
-      "Bash(Select-Object -ExpandProperty FullName)"
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'fix: ViewCounter race condition, add per-page tracking to all service pages *)"
     ]
   }
 }
