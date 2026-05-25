@@ -66,7 +66,7 @@ export default function FittingAndAdapter() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border-[3px] border-[#6b0000] shadow-[0_15px_40px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] group-hover:border-[#af0000]">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.title ?? ""}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(min-width: 768px) 500px, 100vw"
