@@ -1,22 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import QuickCoupling from "@/components/products/QuickCoupling/QuickCoupling";
 import QuickCouplingTable from "@/components/products/QuickCoupling/QuickCouplingTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "Quick Coupling ข้อต่อสวมเร็ว - V.N.S Engineering Hydraulic",
-  description: "จำหน่ายข้อต่อสวมเร็ว (Quick Coupling) หลากหลายวัสดุ ทั้งสแตนเลส ทองเหลือง เหล็ก และอลูมิเนียม สำหรับงานอุตสาหกรรมทุกประเภท",
-  keywords: [
-    "คัปปลิ้ง",
-    "คัปปลิ้งน้ำมัน",
-    "QUICK COUPLING",
-    "ข้อต่อสวมเร็ว",
-    "ควิกคัปปลิ้ง",
-    "Quick Disconnect",
-    "คัปปลิ้งไฮดรอลิค",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("quickCouplingTitle"),
+    description: t("quickCouplingDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/quick-coupling`,
+      languages: { th: `${baseUrl}/th/products/quick-coupling`, en: `${baseUrl}/en/products/quick-coupling`, "x-default": `${baseUrl}/th/products/quick-coupling` },
+    },
+  };
+}
 
 export default function QuickCouplingPage() {
   return (

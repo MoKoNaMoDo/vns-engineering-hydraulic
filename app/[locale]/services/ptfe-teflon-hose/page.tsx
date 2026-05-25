@@ -1,6 +1,26 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import PTFETeflonHose from "@/components/Home/Services/PTFETeflonHose";
 import ProductMenu from "@/components/about/ProductMenu";
 import ContactSection from "@/components/about/ContactSection";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("servicePtfeTitle"),
+    description: t("servicePtfeDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/services/ptfe-teflon-hose`,
+      languages: { th: `${baseUrl}/th/services/ptfe-teflon-hose`, en: `${baseUrl}/en/services/ptfe-teflon-hose`, "x-default": `${baseUrl}/th/services/ptfe-teflon-hose` },
+    },
+  };
+}
 
 export default function Page() {
   return (

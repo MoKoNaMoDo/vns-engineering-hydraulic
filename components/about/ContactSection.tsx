@@ -1,84 +1,78 @@
 import Image from "next/image";
 import { ExternalLink, MapPin } from "lucide-react";
 import { MailIcon, PhoneIcon } from "./Icons";
+import { getTranslations } from "next-intl/server";
 
-export default function ContactSection() {
+export default async function ContactSection() {
+  const t = await getTranslations("ContactSection");
+
   return (
     <section className="bg-[#fcfcfc] border-t border-zinc-100">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
         <div className="grid gap-16 lg:gap-24 lg:grid-cols-2 items-center">
 
-          {/* Left Column: ข้อมูลติดต่อ (จัดเรียงแนวตั้ง เพื่อความ Clean และแก้อีเมลล้น) */}
           <div className="flex flex-col">
             <span className="mb-6 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#af3030]">
-              Let's Connect
+              {t("eyebrow")}
             </span>
             <h2 className="text-4xl font-extrabold text-[#1d1715] md:text-5xl lg:text-6xl leading-tight tracking-tight">
-              บริษัท วี.เอ็น.เอส <br />
-              <span className="text-[#af3030]">วิศวกรรม ไฮดรอลิค</span> จำกัด
+              {t("companyName")} <br />
+              <span className="text-[#af3030]">{t("companyNameHighlight")}</span> {t("companySuffix")}
             </h2>
 
-            {/* เปลี่ยนเป็น Flex Column แนวตั้งเว้นระยะห่างให้พอดี */}
             <div className="mt-14 flex flex-col gap-10">
-
               {/* Address */}
               <div className="flex items-start gap-6 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-[#af3030] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-zinc-100 transition-transform duration-300 group-hover:-translate-y-1">
                   <MapPin className="h-6 w-6" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">Office Address</h4>
+                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">{t("addressLabel")}</h4>
                   <p className="text-lg text-[#1d1715] leading-relaxed font-medium">
-                    6, 122-124 ถ. ศรีนครินทร์ ตำบลบางเมือง <br />
-                    อำเภอเมืองสมุทรปราการ สมุทรปราการ 10270
+                    {t("addressLine1")} <br />
+                    {t("addressLine2")}
                   </p>
                 </div>
               </div>
 
-              {/* Email (ได้พื้นที่เต็มบรรทัด หมดปัญหาล้นจอ) */}
+              {/* Email */}
               <div className="flex items-start gap-3 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-[#af3030] transition-transform duration-300 group-hover:-translate-y-1">
                   <MailIcon className="w-6 h-6" />
                 </div>
-                <div className="min-w-0"> {/* min-w-0 ช่วยป้องกัน Flexbox ขยายตัวเกินคอนเทนเนอร์ */}
-                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">Email</h4>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">{t("emailLabel")}</h4>
                   <a href="mailto:vnsengineering777@gmail.com" className="text-xl font-bold text-[#af3030] hover:text-[#1d1715] transition-colors break-words">
                     vnsengineering777@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Phone (ลงมาอยู่บรรทัดล่างสุดอย่างสวยงาม) */}
+              {/* Phone */}
               <div className="flex items-start gap-3 group">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-[#af3030] transition-transform duration-300 group-hover:-translate-y-1">
                   <PhoneIcon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">Phone</h4>
+                  <h4 className="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-1">{t("phoneLabel")}</h4>
                   <div className="flex flex-col gap-1">
-                    <a href="tel:027598229" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">
-                      02-759 8229
-                    </a>
-                    <a href="tel:0818285418" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">
-                      081-828-5418
-                    </a>
+                    <a href="tel:027598229" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">02-759 8229</a>
+                    <a href="tel:0818285418" className="text-xl font-bold text-[#1d1715] hover:text-[#af3030] transition-colors">081-828-5418</a>
                   </div>
                 </div>
               </div>
-
             </div>
 
-            {/* Social Links */}
             <div className="mt-16 pt-10 border-t border-zinc-100 flex flex-wrap items-center gap-8">
               <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <a href="https://www.facebook.com/profile.php?id=100037191445975" target="_blank" rel="noopener noreferrer" className="transition-all hover:scale-110 active:scale-95">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg">
                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                     </svg>
                   </div>
                 </a>
-                <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="group transition-all hover:scale-110 active:scale-95">
+                <a href="https://line.me/ti/p/~tonmasadora" target="_blank" rel="noopener noreferrer" className="transition-all hover:scale-110 active:scale-95">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#06c755] text-white shadow-lg">
                     <div className="flex flex-col items-center justify-center scale-75">
                       <span className="text-[10px] font-black leading-none">LINE</span>
@@ -95,54 +89,38 @@ export default function ContactSection() {
                 className="flex items-center gap-5 bg-zinc-50 p-4 pr-7 rounded-2xl border border-zinc-100 hover:bg-zinc-100 transition-colors group"
               >
                 <div className="h-16 w-16 bg-white rounded-xl p-1 shadow-sm border border-zinc-200 relative overflow-hidden group-hover:scale-105 transition-transform">
-                  <Image
-                    src="/products/QR.png"
-                    alt="LINE QR Code"
-                    fill
-                    sizes="64px"
-                    className="object-contain"
-                  />
+                  <Image src="/products/QR.png" alt="LINE QR Code" fill sizes="64px" className="object-contain" />
                 </div>
-                <p className="text-sm font-bold text-zinc-500 uppercase tracking-wider leading-tight group-hover:text-[#06c755] transition-colors">Scan to Add <br />Line</p>
+                <p className="text-sm font-bold text-zinc-500 uppercase tracking-wider leading-tight group-hover:text-[#06c755] transition-colors">
+                  {t("scanToAdd")} <br />{t("line")}
+                </p>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Google Map ดีไซน์แบบ Clean & Float */}
+          {/* Google Map */}
           <div className="relative h-[500px] lg:h-[650px] w-full group rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-zinc-200 bg-zinc-100 isolate">
-
-            {/* Glassmorphism Floating Badge แทน Header ทึบๆ เดิม */}
-            {/* <div className="absolute top-6 left-6 z-10 flex items-center gap-3 bg-white/90 backdrop-blur-md px-5 py-3 rounded-full shadow-sm border border-white">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#af3030] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#af3030]"></span>
-              </span>
-              <span className="text-xs font-bold text-[#1d1715] tracking-[0.15em] uppercase">V.N.S. Location</span>
-            </div> */}
-
-            {/* Iframe แผนที่ */}
             <iframe
               className="absolute inset-0 w-full h-full"
-              style={{ border: 0, filter: 'grayscale(0.1) contrast(1.05)' }}
+              style={{ border: 0, filter: "grayscale(0.1) contrast(1.05)" }}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               src="https://maps.google.com/maps?hl=th&q=บริษัท%20วี%20เอ็น%20เอส%20วิศวกรรมไฮดรอลิค%20จำกัด%206,%20122-124%20ถ.%20ศรีนครินทร์%20ตำบล%20บางเมือง%20อำเภอเมืองสมุทรปราการ%20สมุทรปราการ%2010270&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-            ></iframe>
-
-            {/* Floating Action Button (ทรงแคปซูล ดูมินิมอล) */}
+            />
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 w-max">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=บริษัท%20วี%20เอ็น%20เอส%20วิศวกรรมไฮดรอลิค%20จำกัด%20สมุทรปราการ"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#1d1715] text-xs font-bold text-white uppercase tracking-[0.2em] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] hover:bg-[#af3030] transition-all hover:scale-105 active:scale-95"
               >
                 <ExternalLink className="h-4 w-4" />
-                <span>แผนที่บริษัท</span>
+                <span>{t("mapButton")}</span>
               </a>
             </div>
-
           </div>
+
         </div>
       </div>
     </section>

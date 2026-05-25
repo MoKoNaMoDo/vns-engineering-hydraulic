@@ -1,24 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import Camlock from "@/components/products/Camlock/Camlock";
 import CamlockTable from "@/components/products/Camlock/CamlockTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "Camlock Coupling ข้อต่อแคมล็อค - V.N.S Engineering Hydraulic",
-  description: "จำหน่ายข้อต่อแคมล็อค (Camlock Coupling) หลากหลายวัสดุ ทั้งสแตนเลส อลูมิเนียม ทองเหลือง และพีพี สำหรับงานลำเลียงของไหลอุตสาหกรรม",
-  keywords: [
-    "CAMLOCK",
-    "KAMLOK",
-    "ข้อต่อแคมล็อค",
-    "STAINLESS CAMLOCK",
-    "ALUMINIUM CAMLOCK",
-    "ข้อต่อสวมเร็ว",
-    "แคมล็อคทองเหลือง",
-    "แคมล็อค PP",
-    "Camlock Coupling",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("camlockTitle"),
+    description: t("camlockDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/camlock-coupling`,
+      languages: { th: `${baseUrl}/th/products/camlock-coupling`, en: `${baseUrl}/en/products/camlock-coupling`, "x-default": `${baseUrl}/th/products/camlock-coupling` },
+    },
+  };
+}
 
 export default function CamlockPage() {
   return (

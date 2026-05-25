@@ -1,25 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import R7Hose from "@/components/products/สายR7 Thermoplastic Hose/R7Hose";
 import R7SpecsTable from "@/components/products/สายR7 Thermoplastic Hose/R7SpecsTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "R7 Thermoplastic Hose - V.N.S Engineering Hydraulic",
-  description: "สายไฮดรอลิคเทอร์โมพลาสติก R7 (SAE 100 R7) เป็นสายแรงดันปานกลาง (70-210 bar) โครงสร้างประกอบด้วยท่อชั้นในเทอร์โมพลาสติก",
-  keywords: [
-    "PVC HOSE",
-    "สาย R7",
-    "สายคู่ R7",
-    "สายเทอร์โม",
-    "THERMOPLASTIC HOSE",
-    "สายไฮดรอลิค",
-    "ท่อไฮดรอลิค",
-    "ท่อยาง",
-    "TWIN HOSE",
-    "SAE 100 R7",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("r7HoseTitle"),
+    description: t("r7HoseDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/r7-thermoplastic-hose`,
+      languages: { th: `${baseUrl}/th/products/r7-thermoplastic-hose`, en: `${baseUrl}/en/products/r7-thermoplastic-hose`, "x-default": `${baseUrl}/th/products/r7-thermoplastic-hose` },
+    },
+  };
+}
 
 export default function R7HosePage() {
   return (

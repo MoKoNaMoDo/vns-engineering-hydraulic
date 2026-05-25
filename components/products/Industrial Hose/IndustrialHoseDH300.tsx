@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,30 +13,13 @@ const tags = [
 
 
 export default function IndustrialHoseDH300() {
+  const t = useTranslations('ProductDetail.DH300');
   return (
     <section className="bg-white py-12 font-sans border-t border-zinc-100">
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
-              {/* <button 
-                onClick={() => {
-                  window.scrollBy({ top: 500, behavior: "smooth" });
-                }}
-                className="absolute -top-6 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
-              >
-                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
-                  รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </button> */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
@@ -47,7 +31,7 @@ export default function IndustrialHoseDH300() {
                 </div>
               </div>
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางส่งลมอุตสาหกรรม (DH300)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -60,25 +44,20 @@ export default function IndustrialHoseDH300() {
 
             <div className="mt-8 space-y-6">
               <h2 className="text-2xl font-black text-[#af0000]">SUNFLEX DH300</h2>
-              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">
-                ท่อดูด-ส่งน้ำมันสำหรับงานหนัก (BUNKERING)
-              </h3>
-              <p className="text-xl font-medium text-zinc-600 leading-relaxed">
-                ออกแบบมาเพื่อการใช้งานหนักในท่าเรือและบนเรือ สามารถทนแรงดันได้สูงถึง 300 PSI
-                และทนความร้อนได้ถึง +100°C โครงสร้างทนต่อการเสียดสี, น้ำมัน, โอโซน และสภาพอากาศได้ดีเยี่ยม
-              </p>
+              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">{t('h3')}</h3>
+              <p className="text-xl font-medium text-zinc-600 leading-relaxed">{t('description')}</p>
               <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">อุณหภูมิใช้งาน: -40°C ถึง +100°C</span>
+                  <span className="font-bold text-zinc-800">{t('bullet1')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">ขนาด: 4" ถึง 12"</span>
+                  <span className="font-bold text-zinc-800">{t('bullet2')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">เหมาะสำหรับงาน: เรือและท่าเรือ (Dock & Offshore)</span>
+                  <span className="font-bold text-zinc-800">{t('bullet3')}</span>
                 </div>
               </div>
             </div>

@@ -1,27 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductDetail from "@/components/products/หัวสายสแตนเลส 304/ProductDetail";
 import ProductSpecs from "@/components/products/หัวสายสแตนเลส 304/ProductSpecs";
 import ContactSection from "@/components/about/ContactSection";
 import ProductMenu from "@/components/about/ProductMenu";
 
-export const metadata = {
-  title: "หัวสายสแตนเลส 304/316 (Stainless Steel Fitting) - V.N.S Engineering Hydraulic",
-  description: "จำหน่ายหัวสายสแตนเลส 304 และ 316 ครบทุกแบบ JIC, NPT, BSPT, FITTING ใช้กับงานไฮดรอลิคและงานอุตสาหกรรม คุณภาพสูง พร้อมส่ง",
-  keywords: [
-    "หัวสายสแตนเลส304",
-    "หัวสายสแตนเลส316",
-    "SUS304",
-    "SUS316",
-    "JIC MALE",
-    "NPT MALE",
-    "BSPT MALE",
-    "FITTING",
-    "หัวพ่นสี",
-    "หัวสายงานพิเศษ",
-    "หัวสายไฮดรอลิค",
-    "ข้อต่อสแตนเลส",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("stainless304Title"),
+    description: t("stainless304Description"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/stainless-304`,
+      languages: { th: `${baseUrl}/th/products/stainless-304`, en: `${baseUrl}/en/products/stainless-304`, "x-default": `${baseUrl}/th/products/stainless-304` },
+    },
+  };
+}
 
 export default function Stainless304Page() {
   return (

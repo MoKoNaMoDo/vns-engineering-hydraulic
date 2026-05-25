@@ -1,52 +1,77 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import ViewCounter from "@/components/ViewCounter";
 
-const items = [
+const itemDefs = [
   {
-    title: "หัวสายสแตนเลส 304",
+    titleKey: "stainless304Label",
     image: "/products/products/43395.jpg",
-    label: <p>หัวสายสแตนเลส <span className="text-[#af0000]">304</span></p>,
+    labelParts: { prefix: "", highlight: "304", suffix: "" },
     href: "/products/stainless-304"
   },
   {
     title: "TUBE FITTINGS",
     image: "/products/product/tube-fittings.png",
-    label: <p><span className="text-[#af0000]">TUBE</span> FITTINGS</p>,
+    labelParts: { prefix: "TUBE", highlight: "FITTINGS", suffix: "" },
     href: "/products/tube-fittings"
   },
   {
     title: "CAMLOCK COUPLING",
     image: "/products/product/camlock-coupling.png",
-    label: <p><span className="text-[#af0000]">CAMLOCK</span> COUPLING</p>,
+    labelParts: { prefix: "CAMLOCK", highlight: "COUPLING", suffix: "" },
     href: "/products/camlock-coupling"
   },
   {
     title: "QUICK COUPLING",
     image: "/products/product/quick-couplings.png",
-    label: <p><span className="text-[#af0000]">QUICK</span> COUPLING</p>,
+    labelParts: { prefix: "QUICK", highlight: "COUPLING", suffix: "" },
     href: "/products/quick-coupling"
   },
   {
     title: "HYDRAULIC BALL VALVE",
     image: "/products/product/hydraulic-ball-valve.png",
-    label: <p>HYDRAULIC <span className="text-[#af0000]">BALL VALVE</span></p>,
+    labelParts: { prefix: "HYDRAULIC", highlight: "BALL VALVE", suffix: "" },
     href: "/products/hydraulic-ball-valve"
   },
   {
-    title: "บริการดัดแป๊ปอุตสาหกรรม",
+    titleKey: "pipeServiceLabel",
     image: "/products/product/pipe-bending-service.png",
-    label: <p>บริการ<span className="text-[#af0000]">ดัดแป๊ป</span>อุตสาหกรรม</p>,
+    labelParts: { prefix: "", highlight: "ดัดแป๊ป", suffix: "" },
     href: "/products/industrial-pipe-service"
   }
 ];
 
 export default function FittingAndAdapter() {
+  const t = useTranslations('FittingAndAdapter');
   const pathname = usePathname();
   const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
+
+  const items = itemDefs.map((def) => {
+    if (def.titleKey === "stainless304Label") {
+      const label = t('stainless304Label');
+      return {
+        ...def,
+        title: label,
+        label: <p>{label.replace("304", "")} <span className="text-[#af0000]">304</span></p>
+      };
+    }
+    if (def.titleKey === "pipeServiceLabel") {
+      const label = t('pipeServiceLabel');
+      return {
+        ...def,
+        title: label,
+        label: <p>{label.split("ดัดแป๊ป")[0]}<span className="text-[#af0000]">ดัดแป๊ป</span>{label.split("ดัดแป๊ป")[1]}</p>
+      };
+    }
+    const { prefix, highlight } = def.labelParts;
+    return {
+      ...def,
+      label: <p><span className="text-[#af0000]">{prefix}</span> {highlight}</p>
+    };
+  });
 
   return (
     <section className="py-12 px-4 bg-transparent">
@@ -57,9 +82,9 @@ export default function FittingAndAdapter() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 justify-items-center">
           {items.map((item, index) => (
-            <Link 
-              key={index} 
-              href={item.href}
+            <Link
+              key={index}
+              href={item.href as any}
               className="group relative w-full max-w-[480px] block transition-transform duration-300 active:scale-[0.98]"
             >
               {/* Image Container */}

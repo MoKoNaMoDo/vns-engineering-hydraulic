@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -15,6 +16,7 @@ const tags = [
 ];
 
 export default function PTFEConvolutedDetail() {
+  const t = useTranslations('ProductDetail.PTFEConvoluted');
   return (
     <section className="bg-white py-12 font-sans">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -58,7 +60,7 @@ export default function PTFEConvolutedDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight block">สายเทฟล่อนลอน (PTFE Convoluted)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg text-center leading-tight block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -74,44 +76,44 @@ export default function PTFEConvolutedDetail() {
               <h2 className="text-2xl font-black mb-4">PTFE CONVOLUTED TEFLON HOSE</h2>
 
               <p className="mb-4">
-                <span className="text-[#af0000]">PTFE CONVOLUTED (สายเทปลอนลอน)</span> เป็นสายที่ใช้กันเยอะในงานอุตสาหกรรมระดับสูง เพราะ <span className="font-black text-black">"ยืดหยุ่น + ทนเคมี + ทนความร้อนสูง"</span> เดี๋ยวผมสรุปให้แบบใช้งานจริง
+                {t('intro')}
               </p>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-black border-b border-zinc-200 pb-2">คุณสมบัติหลัก (PTFE CONVOLUTED HOSE)</h3>
+                <h3 className="text-lg font-black border-b border-zinc-200 pb-2">{t('featuresTitle')}</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                    โครงสร้างเป็น ลอน (CORRUGATED) &rarr; โค้งงอได้ดีกว่าสาย PTFE แบบเรียบ
+                    {t('feature1')}
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                    ผิวในเป็น PTFE (TEFLON) &rarr; ไม่เกาะติด (NON-STICK)
+                    {t('feature2')}
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                    ทนสารเคมีเกือบทุกชนิด (กรด, ด่าง, SOLVENT)
+                    {t('feature3')}
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                    ไม่ทำปฏิกิริยากับของไหล &rarr; เหมาะกับ FOOD / PHARMA
+                    {t('feature4')}
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                    ทน UV / โอโซน / ไม่เสื่อมง่าย
+                    {t('feature5')}
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-zinc-900" />
-                    มีแบบ ANTISTATIC ป้องกันไฟฟ้าสถิต
+                    {t('feature6')}
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-black border-b border-zinc-200 pb-2 mt-6">อุณหภูมิ (TEMPERATURE)</h3>
-                <p>โดยทั่วไป:</p>
+                <h3 className="text-lg font-black border-b border-zinc-200 pb-2 mt-6">{t('tempTitle')}</h3>
+                <p>{t('tempGeneral')}</p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-3 text-orange-600">
                     <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
-                    ประมาณ -54°C ถึง +260°C
+                    {t('tempRange')}
                   </li>
                 </ul>
               </div>

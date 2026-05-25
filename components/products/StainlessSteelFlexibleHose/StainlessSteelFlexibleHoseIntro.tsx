@@ -1,8 +1,10 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 
 export default function StainlessSteelFlexibleHoseIntro() {
+  const t = useTranslations('ProductDetail.StainlessFlexibleIntro');
   return (
     <section className="bg-white py-12 font-sans border-b border-zinc-100">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -46,7 +48,7 @@ export default function StainlessSteelFlexibleHoseIntro() {
 
               {/* Category Badge Below Image - Blue Rectangle */}
               <div className="mt-0 flex justify-center">
-                <div className="bg-[#3b6db4] px-16 py-4 text-3xl font-black text-white shadow-lg -translate-y-6 block text-center">ท่ออ่อนสแตนเลส (SS Flexible Hose)</div>
+                <div className="bg-[#3b6db4] px-16 py-4 text-3xl font-black text-white shadow-lg -translate-y-6 block text-center">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -69,8 +71,7 @@ export default function StainlessSteelFlexibleHoseIntro() {
               </div>
 
               <p className="text-xl font-bold leading-relaxed text-black mt-4 text-center lg:text-left">
-                ท่ออ่อน (Flexible Hose) หรือท่อเฟล็กซ์ มีความยืดหยุ่นสูง งอได้ถึง 360°
-                ผลิตจากวัสดุ เช่น สแตนเลส (SUS304, 316) หรือ PVC เสริมโครงลวดสปริง
+                {t('description')}
               </p>
             </div>
           </div>

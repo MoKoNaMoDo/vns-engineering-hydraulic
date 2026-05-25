@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import IndustrialHoseOSD150 from "@/components/products/Industrial Hose/IndustrialHoseOSD150";
 import IndustrialHoseOSD150Specs from "@/components/products/Industrial Hose/IndustrialHoseOSD150Specs";
@@ -11,35 +13,23 @@ import IndustrialHoseDH300 from "@/components/products/Industrial Hose/Industria
 import IndustrialHoseDH300Specs from "@/components/products/Industrial Hose/IndustrialHoseDH300Specs";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "Industrial Hose (สายยางอุตสาหกรรม) - V.N.S Engineering Hydraulic",
-  description: "SUNFLEX Industrial Hose Collection: OSD150, AH300, CSD150, WSD150, DH300. High-quality industrial hoses for oil, air, water, cement, and bunkering applications.",
-  keywords: [
-    "INDUSTRIAL HOSE",
-    "สายยางอุตสาหกรรม",
-    "SUNFLEX OSD150",
-    "ท่อดูดส่งน้ำมัน",
-    "OIL SUCTION HOSE",
-    "ท่อทนน้ำมัน",
-    "SUNFLEX AH300",
-    "AIR HOSE",
-    "WATER HOSE",
-    "ท่อลม",
-    "ท่อน้ำ",
-    "SUNFLEX CSD150",
-    "CEMENT HOSE",
-    "ท่อดูดส่งซีเมนต์",
-    "ท่อส่งทราย",
-    "SUNFLEX WSD150",
-    "ท่อดูดน้ำ",
-    "ท่อส่งน้ำเสีย",
-    "SUNFLEX DH300",
-    "BUNKERING HOSE",
-    "ท่อเรือ",
-    "HEAVY DUTY HOSE",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("industrialHoseTitle"),
+    description: t("industrialHoseDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/industrial-hose`,
+      languages: { th: `${baseUrl}/th/products/industrial-hose`, en: `${baseUrl}/en/products/industrial-hose`, "x-default": `${baseUrl}/th/products/industrial-hose` },
+    },
+  };
+}
 
 export default function IndustrialHosePage() {
   return (

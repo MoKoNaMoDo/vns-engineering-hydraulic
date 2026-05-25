@@ -6,7 +6,9 @@
       "Bash(mv app/contact \"app/[locale]/\")",
       "Bash(mv app/products \"app/[locale]/\")",
       "Bash(mv app/services \"app/[locale]/\")",
-      "Bash(mv app/industrial-hose \"app/[locale]/\")"
+      "Bash(mv app/industrial-hose \"app/[locale]/\")",
+      "Bash(Get-ChildItem -Path \"app\" -Recurse -Include \"*.tsx\")",
+      "Bash(Select-Object -ExpandProperty FullName)"
     ]
   }
 }

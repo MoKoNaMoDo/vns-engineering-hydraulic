@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import PTFETeflonHoseDetail from "@/components/products/PTFETeflonHose/PTFETeflonHoseDetail";
 import PTFEConvolutedDetail from "@/components/products/PTFETeflonHose/PTFEConvolutedDetail";
@@ -5,22 +7,23 @@ import PTFETeflonHoseSpecTable from "@/components/products/PTFETeflonHose/PTFETe
 import PTFEConvolutedSpecTable from "@/components/products/PTFETeflonHose/PTFEConvolutedSpecTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "สายเทฟลอนถักสแตนเลส PTFE Teflon Hose R14 | V.N.S Engineering",
-  description: "จำหน่ายสายเทฟลอน (PTFE Teflon Hose) ชนิดผิวเรียบและลอน (Convoluted) ถักสแตนเลส ทนสารเคมี ทนความร้อนสูง มาตรฐานคุณภาพโรงงานอุตสาหกรรม",
-  keywords: [
-    "สายเทฟลอน",
-    "สาย PTFE",
-    "PTFE Teflon Hose",
-    "สายเทฟลอนถักสแตนเลส",
-    "สายทนสารเคมี",
-    "สายทนความร้อนสูง",
-    "PTFE Convoluted Hose",
-    "Teflon Hose R14",
-    "สายไฮดรอลิคเทฟลอน",
-    "V.N.S Engineering"
-  ]
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("ptfeHoseTitle"),
+    description: t("ptfeHoseDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/ptfe-teflon-hose`,
+      languages: { th: `${baseUrl}/th/products/ptfe-teflon-hose`, en: `${baseUrl}/en/products/ptfe-teflon-hose`, "x-default": `${baseUrl}/th/products/ptfe-teflon-hose` },
+    },
+  };
+}
 
 export default function PTFETeflonHosePage() {
   const jsonLd = {

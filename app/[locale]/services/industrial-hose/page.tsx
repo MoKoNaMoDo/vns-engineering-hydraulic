@@ -1,6 +1,26 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import IndustrialHose from "@/components/Home/Services/IndustrialHose";
 import ProductMenu from "@/components/about/ProductMenu";
 import ContactSection from "@/components/about/ContactSection";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("serviceIndustrialTitle"),
+    description: t("serviceIndustrialDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/services/industrial-hose`,
+      languages: { th: `${baseUrl}/th/services/industrial-hose`, en: `${baseUrl}/en/services/industrial-hose`, "x-default": `${baseUrl}/th/services/industrial-hose` },
+    },
+  };
+}
 
 export default function Page() {
   return (

@@ -1,25 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import TubeFittings from "@/components/products/TubeFittings/TubeFittings";
 import TubeFittingsTable from "@/components/products/TubeFittings/TubeFittingsTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "Tube Fittings / Instrument Fittings - V.N.S Engineering Hydraulic",
-  description: "จำหน่ายข้อต่อท่อ (Tube Fittings) และข้อต่อเครื่องมือวัด (Instrument Fittings) คุณภาพสูง สำหรับระบบน้ำมัน ก๊าซ และปิโตรเคมี",
-  keywords: [
-    "ข้อต่อสแตนเลส",
-    "ฟิตติ้งสแตนเลส",
-    "FITTING",
-    "ข้อต่อตาไก่",
-    "BITE TYPE FITTINGS",
-    "JISB2351",
-    "Tube Fittings",
-    "Instrument Fittings",
-    "ข้อต่อท่อสแตนเลส",
-    "ข้อต่อปิโตรเคมี",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("tubeFittingsTitle"),
+    description: t("tubeFittingsDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/tube-fittings`,
+      languages: { th: `${baseUrl}/th/products/tube-fittings`, en: `${baseUrl}/en/products/tube-fittings`, "x-default": `${baseUrl}/th/products/tube-fittings` },
+    },
+  };
+}
 
 export default function TubeFittingsPage() {
   return (

@@ -1,24 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const strengths = [
-  "สแตนเลส SUS 304,316",
-  "ทองเหลือง BRASS",
-  "เหล็กเพลาขาว SS400",
-  "หัวสายไฮดรอลิคหลากหลายรูปแบบ",
-];
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export default function HeroBanner() {
+  const t = useTranslations("HeroBanner");
   const pathname = usePathname();
 
+  const strengths = [
+    t("strength1"),
+    t("strength2"),
+    t("strength3"),
+    t("strength4"),
+  ];
+
   const renderAnimatedLetters = (text: string, baseDelay: number) => {
-    // ใช้ Intl.Segmenter ป้องกันสระภาษาไทยและวรรณยุกต์แยกออกจากพยัญชนะ
-    const characters = typeof Intl !== "undefined" && Intl.Segmenter
-      ? Array.from(new Intl.Segmenter("th", { granularity: "grapheme" }).segment(text)).map(s => s.segment)
-      : text.split("");
+    const characters =
+      typeof Intl !== "undefined" && Intl.Segmenter
+        ? Array.from(
+            new Intl.Segmenter("th", { granularity: "grapheme" }).segment(text)
+          ).map((s) => s.segment)
+        : text.split("");
 
     return characters.map((char, index) => (
       <span
@@ -26,13 +29,16 @@ export default function HeroBanner() {
         className="vns-letter"
         style={{ animationDelay: `${baseDelay + index * 20}ms` }}
       >
-        {char === " " ? "\u00A0" : char}
+        {char === " " ? " " : char}
       </span>
     ));
   };
 
   return (
-    <section key={pathname} className="relative isolate min-h-[245px] overflow-hidden bg-[#9d0614] md:min-h-[720px]">
+    <section
+      key={pathname}
+      className="relative isolate min-h-[245px] overflow-hidden bg-[#9d0614] md:min-h-[720px]"
+    >
       <style jsx global>{`
         @keyframes customSlideLeft {
           from { transform: translateX(-150px); opacity: 0; }
@@ -46,28 +52,14 @@ export default function HeroBanner() {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        .vns-slide-left {
-          animation: customSlideLeft 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .vns-slide-up {
-          animation: customSlideUp 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .vns-fade-in {
-          animation: customFadeIn 1.5s ease-out forwards;
-        }
+        .vns-slide-left { animation: customSlideLeft 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .vns-slide-up { animation: customSlideUp 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .vns-fade-in { animation: customFadeIn 1.5s ease-out forwards; }
         @keyframes customFlickerIn {
-          0% { opacity: 0; }
-          10% { opacity: 0.8; }
-          20% { opacity: 0.2; }
-          30% { opacity: 0.9; }
-          40% { opacity: 0.3; }
-          50% { opacity: 1; }
-          100% { opacity: 1; }
+          0% { opacity: 0; } 10% { opacity: 0.8; } 20% { opacity: 0.2; }
+          30% { opacity: 0.9; } 40% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 1; }
         }
-        .vns-flicker {
-          opacity: 0;
-          animation: customFlickerIn 0.5s ease-out forwards;
-        }
+        .vns-flicker { opacity: 0; animation: customFlickerIn 0.5s ease-out forwards; }
         @keyframes customLetterIn {
           from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
           to { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -81,13 +73,10 @@ export default function HeroBanner() {
           from { transform: translateX(-100%); opacity: 0; }
           to { transform: translateX(0); opacity: 1; }
         }
-        .vns-slide-right {
-          animation: customSlideRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
+        .vns-slide-right { animation: customSlideRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
       `}</style>
 
       <div className="absolute inset-0">
-        {/* Main Background Image (Factory) - Emphasized with Slow Slide Up */}
         <div className="vns-slide-up absolute inset-0">
           <Image
             src="/products/products/S__6217772.jpg"
@@ -97,17 +86,14 @@ export default function HeroBanner() {
             className="object-cover object-center brightness-100"
             sizes="100vw"
           />
-          {/* Neutral overlay for text contrast instead of yellow tint */}
           <div className="absolute inset-0 bg-black/10" />
         </div>
-
-        {/* Overlapping Secondary Image (Hoses) - Reduced Width for Emphasis on Primary */}
         <div
           className="vns-slide-up absolute top-0 right-0 hidden h-full w-[35vw] md:block"
           style={{
-            maskImage: 'linear-gradient(to right, transparent, black 60%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 60%)',
-            animationDelay: '200ms'
+            maskImage: "linear-gradient(to right, transparent, black 60%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 60%)",
+            animationDelay: "200ms",
           }}
         >
           <Image
@@ -124,21 +110,22 @@ export default function HeroBanner() {
 
       <div className="relative z-10 mx-auto flex min-h-[245px] max-w-7xl items-center px-5 pb-7 pt-11 sm:px-8 md:min-h-[720px] md:pb-20 md:pt-24 lg:px-10">
         <div className="max-w-[850px] md:ml-16">
-          {/* Main Title - Character by Character (Starts Last) */}
           <h1 className="text-[25px] font-black leading-[1.2] tracking-tight text-[#9d0614] drop-shadow-[1px_1px_0_rgba(255,245,236,.45)] sm:text-[60px] md:text-[68px] lg:text-[70px]">
             {renderAnimatedLetters("V.N.S ENGINEERING", 1200)}
             <br />
             {renderAnimatedLetters("HYDRAULIC CO.,LTD", 1600)}
           </h1>
 
-          {/* Strengths List - Even Faster */}
-          <div className="vns-slide-up opacity-0 mt-4 space-y-0.5 text-[16px] font-black leading-[1.28] text-white drop-shadow-[2px_2px_2px_rgba(0,0,0,.55)] sm:mt-8 sm:space-y-2 sm:text-[35px] md:text-[36px]" style={{ animationDelay: '600ms' }}>
-            <p>ผู้ผลิตหัวสายไฮดรอลิค</p>
+          <div
+            className="vns-slide-up opacity-0 mt-4 space-y-0.5 text-[16px] font-black leading-[1.28] text-white drop-shadow-[2px_2px_2px_rgba(0,0,0,.55)] sm:mt-8 sm:space-y-2 sm:text-[35px] md:text-[36px]"
+            style={{ animationDelay: "600ms" }}
+          >
+            <p>{t("tagline")}</p>
             {strengths.map((item, index) => (
               <p
-                key={item}
+                key={index}
                 className="vns-slide-up opacity-0"
-                style={{ animationDelay: `${800 + (index * 80)}ms` }}
+                style={{ animationDelay: `${800 + index * 80}ms` }}
               >
                 -{item}
               </p>
@@ -151,13 +138,12 @@ export default function HeroBanner() {
         href="/about"
         className="absolute bottom-[0px] right-0 z-20 hidden h-[110px] items-center justify-end overflow-hidden pl-40 pr-12 text-[42px] font-black text-white transition hover:brightness-110 md:flex"
       >
-        {/* Red Background sliding in from left - Speed up slightly */}
         <div
           className="vns-slide-right absolute inset-0 bg-gradient-to-l from-[#ff120d] via-[#ff120d] to-transparent opacity-0"
-          style={{ animationDelay: '2000ms' }}
+          style={{ animationDelay: "2000ms" }}
         />
         <span className="relative z-10 drop-shadow-[3px_3px_2px_rgba(0,0,0,0.6)] underline decoration-white decoration-[3px] underline-offset-[12px]">
-          {renderAnimatedLetters("รายละเอียดบริษัท", 1000)}
+          {renderAnimatedLetters(t("companyDetail"), 1000)}
         </span>
       </Link>
       <div className="absolute bottom-0 left-0 right-0 z-10 h-8 bg-[#5b0b08] md:h-0" />

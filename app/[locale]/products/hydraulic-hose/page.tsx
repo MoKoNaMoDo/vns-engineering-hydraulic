@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import HydraulicHoseDetail from "@/components/products/HydraulicHose/HydraulicHoseDetail";
 import HydraulicHoseDetail2SN from "@/components/products/HydraulicHose/HydraulicHoseDetail2SN";
@@ -20,25 +22,23 @@ const hydraulicHoseTags = [
   "3,000PSI",
 ];
 
-export const metadata = {
-  title: "สายไฮดรอลิคแรงดันสูง (Hydraulic Hose) มาตรฐาน DIN | V.N.S Engineering",
-  description: "จำหน่ายสายไฮดรอลิคคุณภาพสูง 1SN, 2SN, 4SP, 4SH มาตรฐาน DIN EN 853/856 ทนแรงดันสูง บริการประกอบหัวสายตามสั่ง ส่งตรงทั่วประเทศไทย",
-  keywords: [
-    "HYDRAULIC HOSE",
-    "สายไฮดรอลิคแรงดันสูง",
-    "สายไฮดรอลิค 1/4",
-    "สายไฮดรอลิค 1/2",
-    "สายไฮดรอลิค 3/8",
-    "สายไฮดรอลิค 1 นิ้ว",
-    "สายไฮดรอลิคใกล้ฉัน",
-    "ประกอบสายไฮดรอลิค",
-    "4SP DIN EN 856",
-    "4SH DIN EN 856",
-    "3,000PSI",
-    "4,000PSI",
-    "V.N.S Engineering Hydraulic"
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("hydraulicHoseTitle"),
+    description: t("hydraulicHoseDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/hydraulic-hose`,
+      languages: { th: `${baseUrl}/th/products/hydraulic-hose`, en: `${baseUrl}/en/products/hydraulic-hose`, "x-default": `${baseUrl}/th/products/hydraulic-hose` },
+    },
+  };
+}
 
 export default function HydraulicHosePage() {
   const jsonLd = {

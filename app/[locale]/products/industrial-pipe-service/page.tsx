@@ -1,21 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import PipeService from "@/components/products/PipeService/PipeService";
 import PipeServiceTable from "@/components/products/PipeService/PipeServiceTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "บริการตัดแป๊บอุตสาหกรรม - V.N.S Engineering Hydraulic",
-  description: "บริการตัดแป๊บ ดัดท่อไฮดรอลิค และออกแบบงานตัดแปลงท่ออุตสาหกรรมทุกชนิด โดยทีมงานช่างผู้เชี่ยวชาญ รับทั้งงานด่วนและงานจำนวนมาก",
-  keywords: [
-    "บริการตัดแป๊บอุตสาหกรรม",
-    "บริการตัดแป๊บ",
-    "ดัดท่อไฮดรอลิค",
-    "ตัดท่ออุตสาหกรรม",
-    "ดัดแป๊บ",
-    "งานท่ออุตสาหกรรม",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("pipeServiceTitle"),
+    description: t("pipeServiceDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/industrial-pipe-service`,
+      languages: { th: `${baseUrl}/th/products/industrial-pipe-service`, en: `${baseUrl}/en/products/industrial-pipe-service`, "x-default": `${baseUrl}/th/products/industrial-pipe-service` },
+    },
+  };
+}
 
 export default function IndustrialPipeServicePage() {
   return (

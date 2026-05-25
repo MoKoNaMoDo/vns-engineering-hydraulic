@@ -1,6 +1,26 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import SteamHose from "@/components/Home/Services/SteamHose";
 import ProductMenu from "@/components/about/ProductMenu";
 import ContactSection from "@/components/about/ContactSection";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("serviceSteamTitle"),
+    description: t("serviceSteamDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/services/steam-hose`,
+      languages: { th: `${baseUrl}/th/services/steam-hose`, en: `${baseUrl}/en/services/steam-hose`, "x-default": `${baseUrl}/th/services/steam-hose` },
+    },
+  };
+}
 
 export default function Page() {
   return (

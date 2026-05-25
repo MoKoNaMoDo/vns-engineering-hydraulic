@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -17,6 +18,7 @@ const tags = [
 ];
 
 export default function PTFETeflonHoseDetail() {
+  const t = useTranslations('ProductDetail.PTFESmooth');
   return (
     <section className="bg-white py-12 font-sans">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -60,7 +62,7 @@ export default function PTFETeflonHoseDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">สายเทฟล่อนเรียบ (PTFE Teflon)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -78,34 +80,34 @@ export default function PTFETeflonHoseDetail() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                  ทนสารเคมีสูงมาก &rarr; กรด ด่าง SOLVENT แทบทั้งหมดใช้ได้
+                  {t('bullet1')}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                  ไม่ดูดซึม / ไม่ปนเปื้อน (NON-CONTAMINATION) &rarr; ใช้กับอาหาร/ยาได้
+                  {t('bullet2')}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                  ผิวในลื่นมาก (LOW FRICTION) &rarr; ลดการอุดตัน
+                  {t('bullet3')}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                  ทน UV / โอโซน / ไม่เสื่อมง่าย
+                  {t('bullet4')}
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                  เป็นฉนวนไฟฟ้า (ELECTRICAL INSULATION)
+                  {t('bullet5')}
                 </li>
                 <li className="flex items-start gap-3 text-blue-700">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-600" />
-                  ต่ำสุด: -70°C ถึง -196°C (บางรุ่นพิเศษ)
+                  {t('tempLow')}
                 </li>
                 <li className="flex items-start gap-3 text-orange-600">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
-                  ใช้งานปกติ: -65°C ถึง +260°C
+                  {t('tempNormal')}
                 </li>
                 <li className="pt-2 font-black text-[#af0000]">
-                  จุดเด่นคือ "ทนทั้งร้อนจัด + เย็นจัด" ในเส้นเดียว
+                  {t('highlight')}
                 </li>
               </ul>
             </div>

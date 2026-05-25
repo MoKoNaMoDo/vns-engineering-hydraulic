@@ -1,23 +1,27 @@
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import ProductMenu from "@/components/about/ProductMenu";
 import BallValve from "@/components/products/BallValve/BallValve";
 import BallValveTable from "@/components/products/BallValve/BallValveTable";
 import ContactSection from "@/components/about/ContactSection";
 
-export const metadata = {
-  title: "Hydraulic Ball Valve วาล์วบอลไฮดรอลิก - V.N.S Engineering Hydraulic",
-  description: "จำหน่ายวาล์วบอลไฮดรอลิก (Hydraulic Ball Valve) แรงดันสูง หลากหลายวัสดุ ทั้ง Carbon Steel, Stainless Steel และ Brass สำหรับงานอุตสาหกรรม",
-  keywords: [
-    "BALL VALVE",
-    "BALL VALVE STAINLESS STEEL",
-    "บอลวาล์ว",
-    "บอลวาล์วไฮดรอลิค",
-    "วาล์วบอลสแตนเลส",
-    "วาล์วบอล Carbon Steel",
-    "วาล์วบอล Brass",
-    "วาล์วอุตสาหกรรม",
-    "V.N.S Engineering",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = "https://vns-engineering.com";
+  return {
+    title: t("ballValveTitle"),
+    description: t("ballValveDescription"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/products/hydraulic-ball-valve`,
+      languages: { th: `${baseUrl}/th/products/hydraulic-ball-valve`, en: `${baseUrl}/en/products/hydraulic-ball-valve`, "x-default": `${baseUrl}/th/products/hydraulic-ball-valve` },
+    },
+  };
+}
 
 export default function BallValvePage() {
   return (
