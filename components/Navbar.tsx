@@ -194,11 +194,11 @@ export default function Navbar() {
         </nav>
 
         {/* Search & Actions */}
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
           {/* Language Switcher */}
           <button
             onClick={switchLocale}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-xs font-black transition-all duration-300 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/50 hover:text-[#dfc1ad] active:scale-95"
+            className="shrink-0 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-xs font-black transition-all duration-300 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/50 hover:text-[#dfc1ad] active:scale-95"
             title={t("switchLanguageTitle")}
           >
             {t("switchLanguage")}
