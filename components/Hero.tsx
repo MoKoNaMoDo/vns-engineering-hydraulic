@@ -1,7 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations } from 'next-intl/server';
+import { Link } from "@/i18n/navigation";
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations('Hero');
   return (
     <section className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
       {/* Background with overlay */}
@@ -27,21 +29,20 @@ export default function Hero() {
             V.N.S. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">ENGINEERING</span> HYDRAULIC
           </h1>
           <p className="text-xl text-zinc-400 mb-10 leading-relaxed animate-in fade-in slide-in-from-left duration-1000 delay-200">
-            ผู้นำเข้าและจัดจำหน่ายอุปกรณ์ไฮดรอลิค ข้อต่ออุตสาหกรรม และหัวสายสแตนเลส 304 
-            มาตรฐานสากล สำหรับงานอุตสาหกรรมทุกรูปแบบ
+            {t('description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all hover:scale-105 active:scale-95 text-center shadow-[0_0_20px_rgba(37,99,235,0.4)]"
             >
-              ดูสินค้าทั้งหมด
+              {t('viewProducts')}
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg backdrop-blur-sm transition-all hover:scale-105 active:scale-95 text-center border border-white/10"
             >
-              ติดต่อสอบถาม
+              {t('contactUs')}
             </Link>
           </div>
         </div>

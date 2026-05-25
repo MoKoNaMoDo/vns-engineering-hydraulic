@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 
 // Module-level lock: ป้องกัน race condition เมื่อหลาย ViewCounter mount พร้อมกันบนหน้าเดียวกัน
@@ -20,6 +21,7 @@ export default function ViewCounter({
   className = "",
   iconSize = 14
 }: ViewCounterProps) {
+  const t = useTranslations('ViewCounter');
   const [views, setViews] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -124,7 +126,7 @@ export default function ViewCounter({
   return (
     <span className={`inline-flex items-center gap-1.5 text-[12px] font-extrabold text-zinc-500 bg-zinc-100/80 px-2 py-0.5 rounded-full border border-zinc-200/50 shadow-sm ${className}`}>
       <Eye size={iconSize} className="text-[#af0000]" />
-      <span>{views !== null ? views.toLocaleString() : 0} วิว</span>
+      <span>{views !== null ? views.toLocaleString() : 0} {t('views')}</span>
     </span>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -10,6 +11,7 @@ const tags = [
 
 
 export default function Camlock() {
+  const t = useTranslations('ProductDetail.Camlock');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -36,25 +38,6 @@ export default function Camlock() {
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              {/* <button 
-                onClick={() => {
-                  window.scrollBy({ top: 500, behavior: "smooth" });
-                }}
-                className="absolute -top-6 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95 animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}
-              >
-                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
-                  รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </button> */}
-
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
                   <Image
@@ -69,7 +52,7 @@ export default function Camlock() {
               </div>
 
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">ข้อต่อสวมเร็ว Camlock Coupling</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -83,20 +66,17 @@ export default function Camlock() {
 
             <div className="mt-8 space-y-6 text-zinc-800">
               <div className="space-y-4">
-                <h3 className="text-2xl font-black text-[#af0000] text-center lg:text-left">ข้อต่อแคมล็อค (Camlock Coupling)</h3>
-                <p className="text-lg font-medium leading-relaxed text-center lg:text-left">
-                  หรือที่เรียกว่า "ข้อต่อเร็วแบบคันโยก" เป็นระบบข้อต่อที่ออกแบบมาเพื่อการเชื่อมต่อที่รวดเร็วและปลอดภัย
-                  ไม่ต้องใช้เครื่องมือพิเศษ นิยมใช้ในอุตสาหกรรมการลำเลียงของไหลทุกประเภท
-                </p>
+                <h3 className="text-2xl font-black text-[#af0000] text-center lg:text-left">{t('h3')}</h3>
+                <p className="text-lg font-medium leading-relaxed text-center lg:text-left">{t('description')}</p>
               </div>
 
               <div className="space-y-4">
-                <h4 className="text-xl font-black border-l-4 border-[#af0000] pl-4">คุณสมบัติเด่น</h4>
+                <h4 className="text-xl font-black border-l-4 border-[#af0000] pl-4">{t('featuresTitle')}</h4>
                 <ul className="space-y-3 pl-4 font-bold text-zinc-700">
-                  <li>• ติดตั้งและถอดประกอบได้รวดเร็วเพียงปลายนิ้ว</li>
-                  <li>• ระบบล็อกหนาแน่น ป้องกันการรั่วซึมได้ดีเยี่ยม</li>
-                  <li>• มีให้เลือกหลายประเภท (Type A, B, C, D, E, F, DC, DP)</li>
-                  <li>• ทนทานต่อการใช้งานหนักและสารเคมีหลากหลายชนิด</li>
+                  <li>• {t('feature1')}</li>
+                  <li>• {t('feature2')}</li>
+                  <li>• {t('feature3')}</li>
+                  <li>• {t('feature4')}</li>
                 </ul>
               </div>
             </div>

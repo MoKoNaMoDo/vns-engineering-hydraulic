@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -10,6 +11,7 @@ const tags = [
 
 
 export default function QuickCoupling() {
+  const t = useTranslations('ProductDetail.QuickCoupling');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -32,30 +34,10 @@ export default function QuickCoupling() {
 
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          
+
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              {/* Detail Badge */}
-              {/* <button 
-                onClick={() => {
-                  window.scrollBy({ top: 500, behavior: "smooth" });
-                }}
-                className="absolute -top-6 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95 animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}
-              >
-                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
-                  รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </button> */}
-
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
@@ -72,7 +54,7 @@ export default function QuickCoupling() {
 
               {/* Category Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">ข้อต่อสวมเร็วไฮดรอลิก (Quick Coupling)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -86,19 +68,17 @@ export default function QuickCoupling() {
 
             <div className="mt-8 space-y-6 text-center lg:text-left">
               <div className="space-y-4 text-xl font-bold text-zinc-800 leading-relaxed">
-                <p className="text-2xl font-black text-[#af0000] lg:text-left">คุณสมบัติของ QUICK COUPLING (ข้อต่อสวมเร็ว)</p>
+                <p className="text-2xl font-black text-[#af0000] lg:text-left">{t('featuresTitle')}</p>
                 <ul className="space-y-2 text-left text-lg font-medium text-zinc-700">
-                  <li>1. เชื่อมต่อ-ถอดได้รวดเร็ว ไม่ต้องใช้เครื่องมือ</li>
-                  <li>2. ลดเวลาการทำงาน เพิ่มประสิทธิภาพในระบบ</li>
-                  <li>3. มีระบบล็อคอัตโนมัติ ป้องกันการหลุดระหว่างใช้งาน</li>
-                  <li>4. ซีลแน่น ลดการรั่วซึม (LEAKAGE ต่ำ)</li>
-                  <li>5. รองรับแรงดันได้ทั้งต่ำและสูง (ขึ้นอยู่กับรุ่น)</li>
-                  <li>6. วัสดุหลากหลาย เช่น สแตนเลส เหล็ก ทองเหลือง</li>
-                  <li>7. ใช้งานได้กับของไหลหลายประเภท เช่น น้ำ ลม น้ำมัน สารเคมี</li>
+                  <li>1. {t('feature1')}</li>
+                  <li>2. {t('feature2')}</li>
+                  <li>3. {t('feature3')}</li>
+                  <li>4. {t('feature4')}</li>
+                  <li>5. {t('feature5')}</li>
+                  <li>6. {t('feature6')}</li>
+                  <li>7. {t('feature7')}</li>
                 </ul>
-                <p className="text-xl font-black text-zinc-800 mt-4 lg:text-left">
-                  บำรุงรักษาง่าย อายุการใช้งานยาวนาน
-                </p>
+                <p className="text-xl font-black text-zinc-800 mt-4 lg:text-left">{t('closing')}</p>
               </div>
             </div>
 

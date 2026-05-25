@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 
 
 export default function IndustrialHoseCSD150() {
+  const t = useTranslations('ProductDetail.CSD150');
   return (
     <section className="bg-white py-12 font-sans border-t border-zinc-100">
       <style jsx>{`
@@ -35,7 +37,7 @@ export default function IndustrialHoseCSD150() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              {/* <button 
+              {/* <button
                 onClick={() => {
                   window.scrollBy({ top: 500, behavior: "smooth" });
                 }}
@@ -43,10 +45,10 @@ export default function IndustrialHoseCSD150() {
               >
                 <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
                   รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-5 h-5 text-[#af0000] animate-bounce"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
@@ -64,7 +66,7 @@ export default function IndustrialHoseCSD150() {
                 </div>
               </div>
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางส่งสารเคมี (CSD150)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -77,25 +79,20 @@ export default function IndustrialHoseCSD150() {
 
             <div className="mt-8 space-y-6">
               <h2 className="text-2xl font-black text-[#af0000]">SUNFLEX CSD150</h2>
-              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">
-                ท่อดูด-ส่งซีเมนต์ แรงดันใช้งาน 150 PSI
-              </h3>
-              <p className="text-xl font-medium text-zinc-600 leading-relaxed">
-                ออกแบบมาเพื่อการใช้งานหนักกับวัสดุที่มีความคมและการขัดถูสูง เช่น ซีเมนต์, ทราย, กรวด และวัสดุแห้งอื่นๆ 
-                โครงสร้างชั้นในเป็นยางดำพิเศษทนการสึกหรอ เสริมแรงด้วยใยสังเคราะห์และลวดเกลียว เพื่อทนแรงดูดสุญญากาศได้ดี
-              </p>
+              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">{t('h3')}</h3>
+              <p className="text-xl font-medium text-zinc-600 leading-relaxed">{t('description')}</p>
               <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">อุณหภูมิใช้งาน: -40°C ถึง +85°C</span>
+                  <span className="font-bold text-zinc-800">{t('bullet1')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">ขนาด: 3" ถึง 6" (76-152 มม.)</span>
+                  <span className="font-bold text-zinc-800">{t('bullet2')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">ความดันแตก (Bursting): 450 PSI</span>
+                  <span className="font-bold text-zinc-800">{t('bullet3')}</span>
                 </div>
               </div>
             </div>

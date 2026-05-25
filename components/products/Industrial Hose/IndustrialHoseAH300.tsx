@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 
 
 export default function IndustrialHoseAH300() {
+  const t = useTranslations('ProductDetail.AH300');
   return (
     <section className="bg-white py-12 font-sans border-t border-zinc-100">
       <style jsx>{`
@@ -64,7 +66,7 @@ export default function IndustrialHoseAH300() {
                 </div>
               </div>
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางส่งน้ำอุตสาหกรรม (AH300)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -77,25 +79,20 @@ export default function IndustrialHoseAH300() {
 
             <div className="mt-8 space-y-6">
               <h2 className="text-2xl font-black text-[#af0000]">SUNFLEX AH300</h2>
-              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">
-                ท่อลม/น้ำสำหรับงานอุตสาหกรรม รับแรงดัน 300 PSI
-              </h3>
-              <p className="text-xl font-medium text-zinc-600 leading-relaxed">
-                ใช้งานได้ทั้งอากาศและน้ำ โครงสร้างแข็งแรง ทนการเสียดสี ทนต่อน้ำมันเล็กน้อย (Oil Mist) 
-                และสภาพอากาศได้ดี เหมาะสำหรับงานอุตสาหกรรมหนัก ไซต์งานก่อสร้าง และเหมืองแร่
-              </p>
+              <h3 className="text-xl font-bold leading-relaxed text-zinc-800">{t('h3')}</h3>
+              <p className="text-xl font-medium text-zinc-600 leading-relaxed">{t('description')}</p>
               <div className="rounded-2xl bg-zinc-50 p-6 space-y-3">
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">อุณหภูมิใช้งาน: -40°C ถึง +85°C</span>
+                  <span className="font-bold text-zinc-800">{t('bullet1')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">ขนาด: 1-1/4" ถึง 4"</span>
+                  <span className="font-bold text-zinc-800">{t('bullet2')}</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="text-[#af0000] font-black">•</span>
-                  <span className="font-bold text-zinc-800">แรงดันใช้งาน (WP): 300 PSI (20 Bar)</span>
+                  <span className="font-bold text-zinc-800">{t('bullet3')}</span>
                 </div>
               </div>
             </div>

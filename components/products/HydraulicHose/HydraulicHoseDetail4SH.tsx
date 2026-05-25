@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import { Tag } from "lucide-react";
 import ProductTags from "@/components/products/ProductTags";
@@ -13,6 +14,7 @@ const specData = [
 ];
 
 export default function HydraulicHoseDetail4SH() {
+  const t = useTranslations('ProductDetail.HydraulicHose');
   return (
     <section className="bg-white py-12 text-black font-sans border-t border-zinc-100 mt-16">
       <div className="mx-auto max-w-[1200px]">
@@ -75,7 +77,7 @@ export default function HydraulicHoseDetail4SH() {
 
             {/* Category Tag */}
             <div className="mt-4 flex justify-center w-full max-w-[480px]">
-              <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">สายไฮดรอลิก 4SH (Super High)</div>
+              <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">{t('badge4SH')}</div>
             </div>
           </div>
 
@@ -89,23 +91,23 @@ export default function HydraulicHoseDetail4SH() {
             <ul className="space-y-4 text-lg font-bold text-zinc-700">
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                ยางในและยางนอกผลิตจากยางสังเคราะห์คุณภาพสูง
+                {t('bullet1')}
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                เสริมแรงด้วยลวดเหล็กกล้าถัก 4 ชั้นแบบพันเกลียว (4 Heavy Spiral layers) เพื่อทนแรงดันสูงพิเศษ
+                {t('bullet2_4SH')}
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                มีคุณสมบัติทนทานต่อการเสียดสีและสภาพอากาศเป็นพิเศษ
+                {t('bullet3')}
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                ทนต่ออุณหภูมิได้ตั้งแต่ -40°C ถึง +100°C และสูงสุดถึง +125°C ในช่วงเวลาสั้นๆ
+                {t('bullet4')}
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#af0000]" />
-                ใช้สำหรับขนส่งน้ำมันไฮดรอลิคชนิดน้ำมันแร่ อิมัลชัน น้ำมัน และน้ำ และสารละลายไกลคอลในน้ำ
+                {t('bullet5')}
               </li>
             </ul>
             {/* Social icons */}

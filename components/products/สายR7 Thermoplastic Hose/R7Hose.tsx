@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 ];
 
 export default function R7Hose() {
+  const t = useTranslations('ProductDetail.R7Hose');
   return (
     <section className="bg-white py-12 font-sans overflow-hidden">
       <style>{`
@@ -74,7 +76,7 @@ export default function R7Hose() {
 
               {/* R7 Blue Badge Below Image */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[160px] text-center block">สายไฮดรอลิก R7 Thermoplastic</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[160px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -90,13 +92,10 @@ export default function R7Hose() {
             {/* Description Section */}
             <div className="mt-8 space-y-4">
               <p className="text-xl font-bold leading-relaxed text-[#1d1715]">
-                สายไฮดรอลิคเทอร์โมพลาสติก R7 (SAE 100 R7)
+                {t('titleLine1')}
               </p>
               <div className="text-xl font-medium leading-relaxed text-zinc-800">
-                เป็นสายแรงดันปานกลาง (70-210 bar) โครงสร้างประกอบด้วยท่อชั้นในเทอร์โมพลาสติก
-                เสริมความแข็งแรงด้วยใยสังเคราะห์ถัก และผิวภายนอกทนการเสียดสี (MSHA approved)
-                เหมาะสำหรับน้ำมันไฮดรอลิค น้ำ และงานทั่วไป มีความยืดหยุ่นสูง น้ำหนักเบา ทนอุณหภูมิ
-                (-40°C ถึง +100°C)
+                {t('description')}
               </div>
             </div>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -24,6 +25,7 @@ const tags = [
 ];
 
 export default function StainlessSteelFlexibleHoseDetail() {
+  const t = useTranslations('ProductDetail.StainlessFlexibleDetail');
   return (
     <section className="bg-white py-12 font-sans border-t border-zinc-100">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -67,7 +69,7 @@ export default function StainlessSteelFlexibleHoseDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">ท่ออ่อนสแตนเลส (SS Flexible Hose)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -80,20 +82,20 @@ export default function StainlessSteelFlexibleHoseDetail() {
             </div>
 
             <div className="space-y-6 text-base text-black">
-              <h2 className="text-2xl font-black text-center mb-4">เลือกหัว-ท้าย ความยาว</h2>
+              <h2 className="text-2xl font-black text-center mb-4">{t('configTitle')}</h2>
 
               {/* Flange Section */}
               <div className="space-y-1">
-                <p className="font-black text-lg">หัว-ท้าย หน้าแปลน</p>
-                <p><span className="font-black">มาตรฐาน :</span> JIS 5K, JIS 10K, JIS 20K, PN10, PN16, PN25, PN40, ANSI 150P, ANSI 150P, ANSI 300P</p>
-                <p><span className="font-black">วัสดุ :</span> เหล็ก SS400, สแตนเลส 304, สแตนเลส 316, ชุบกัลวาไนซ์ HDG</p>
+                <p className="font-black text-lg">{t('flangeTitle')}</p>
+                <p><span className="font-black">{t('flangeStandardLabel')} :</span> {t('flangeStandards')}</p>
+                <p><span className="font-black">{t('flangeMaterialLabel')} :</span> {t('flangeMaterials')}</p>
               </div>
 
               {/* Fittings Section */}
               <div className="space-y-1">
-                <p className="font-black text-lg">หัว-ท้าย ข้อต่อ</p>
-                <p><span className="font-black">ชนิด :</span> หัวแฟร์, หัวไฮดรอลิกค์, นิปเปิ้ล เกลียวนอก, ยูเนียน เกลียวใน, ต่อตรง เกลียวใน, ข้อต่อสวมเร็ว Camlock Quick Coupling Part A, B, C, D, DC, DP, E, F และอื่นๆ</p>
-                <p><span className="font-black">วัสดุ :</span> เหล็ก SS400, สแตนเลส 304, สแตนเลส 316, สแตนเลส 316L, ชุบกัลวาไนซ์ HDG</p>
+                <p className="font-black text-lg">{t('fittingTitle')}</p>
+                <p><span className="font-black">{t('fittingTypeLabel')} :</span> {t('fittingTypes')}</p>
+                <p><span className="font-black">{t('fittingMaterialLabel')} :</span> {t('fittingMaterials')}</p>
               </div>
             </div>
 

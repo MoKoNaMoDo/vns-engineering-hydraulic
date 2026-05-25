@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -10,6 +11,7 @@ const tags = [
 
 
 export default function TubeFittings() {
+  const t = useTranslations('ProductDetail.TubeFittings');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -32,30 +34,10 @@ export default function TubeFittings() {
 
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          
+
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start animate-slide-left">
             <div className="relative w-full max-w-[480px]">
-              {/* Detail Badge */}
-              {/* <button 
-                onClick={() => {
-                  window.scrollBy({ top: 500, behavior: "smooth" });
-                }}
-                className="absolute -top-6 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95 animate-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}
-              >
-                <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
-                  รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </button> */}
-
               {/* Product Image Wrapper */}
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl border-2 border-[#af0000] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
@@ -72,7 +54,7 @@ export default function TubeFittings() {
 
               {/* Category Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">ข้อต่อตาไก่สแตนเลส (Tube Fittings)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -87,23 +69,23 @@ export default function TubeFittings() {
             <div className="mt-8 space-y-6 text-center lg:text-left">
               <div className="space-y-4 text-xl font-bold text-zinc-800 leading-relaxed">
                 <p className="text-xl font-black text-zinc-600">(TUBE FITTINGS / INSTRUMENT FITTINGS)</p>
-                <p className="text-xl font-medium text-zinc-800">ซึ่งนิยมใช้ในระบบ น้ำมัน, ก๊าซ, ไฮดรอลิก, และปิโตรเคมี</p>
-                
+                <p className="text-xl font-medium text-zinc-800">{t('description')}</p>
+
                 <ul className="space-y-3 text-left text-[17px] font-medium text-zinc-700 mt-6 border-l-4 border-[#af0000] pl-6">
                   <li>
-                    <span className="font-black text-zinc-900">•OIL & GAS (น้ำมันและก๊าซ):</span> ใช้ในท่อส่งก๊าซ, น้ำมัน, น้ำยาเคมี
+                    <span className="font-black text-zinc-900">•{t('app1Label')}:</span> {t('app1')}
                   </li>
                   <li>
-                    <span className="font-black text-zinc-900">•PETROCHEMICAL (ปิโตรเคมี):</span> ระบบท่อในโรงงานเคมี, ผลิตภัณฑ์เคมี
+                    <span className="font-black text-zinc-900">•{t('app2Label')}:</span> {t('app2')}
                   </li>
                   <li>
-                    <span className="font-black text-zinc-900">•HYDRAULIC SYSTEM (ไฮดรอลิก):</span> ต่อท่อแรงดันสูงในเครื่องจักร, ปั๊ม, วาล์ว
+                    <span className="font-black text-zinc-900">•{t('app3Label')}:</span> {t('app3')}
                   </li>
                   <li>
-                    <span className="font-black text-zinc-900">•INSTRUMENTATION (เครื่องมือวัด):</span> ต่อกับ PRESSURE GAUGE, FLOW METER, ANALYZER
+                    <span className="font-black text-zinc-900">•{t('app4Label')}:</span> {t('app4')}
                   </li>
                   <li>
-                    <span className="font-black text-zinc-900">•FOOD & PHARMA (อาหารและยา):</span> เมื่อใช้สแตนเลส 316L (SANITARY GRADE)
+                    <span className="font-black text-zinc-900">•{t('app5Label')}:</span> {t('app5')}
                   </li>
                 </ul>
               </div>

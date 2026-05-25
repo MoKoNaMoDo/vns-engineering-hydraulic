@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 
 
 export default function IndustrialHoseOSD150() {
+  const t = useTranslations('ProductDetail.OSD150');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -73,7 +75,7 @@ export default function IndustrialHoseOSD150() {
 
               {/* Industrial Blue Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">สายยางดูด-ส่งน้ำมันอุตสาหกรรม (OSD150)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[200px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -88,31 +90,28 @@ export default function IndustrialHoseOSD150() {
             <div className="mt-8 space-y-6 text-center lg:text-left">
               <h2 className="text-2xl font-black text-[#af0000]">SUNFLEX OSD150</h2>
               <h3 className="text-xl font-bold leading-relaxed text-[#1d1715]">
-                ท่อดูด-ส่งน้ำมัน (OIL SUCTION/DISCHARGE HOSE) 150 PSI
+                {t('h3')}
               </h3>
-              
+
               <div className="space-y-4 text-xl font-medium text-zinc-800 leading-relaxed">
-                <p>
-                  ใช้กับรถบรรทุกน้ำมันและรถแทงก์ในการดูดและส่งน้ำมัน สามารถทนแรงดูดสุญญากาศได้เต็มที่ 
-                  ใช้กับผลิตภัณฑ์ปิโตรเลียมหลากหลายชนิดที่มีสารอะโรเมติกได้สูงสุดถึง 50%
-                </p>
+                <p>{t('description')}</p>
                 <div className="rounded-2xl bg-zinc-50 p-6">
                    <ul className="space-y-3">
                      <li className="flex gap-2">
                        <span className="text-[#af0000] font-black">•</span>
-                       <span>ช่วงอุณหภูมิการใช้งาน: -40°C (-40°F) ถึง +100°C (+212°F)</span>
+                       <span>{t('bullet1')}</span>
                      </li>
                      <li className="flex gap-2">
                        <span className="text-[#af0000] font-black">•</span>
-                       <span>ขนาดที่รองรับ: ตั้งแต่ 1" ถึง 12"</span>
+                       <span>{t('bullet2')}</span>
                      </li>
                      <li className="flex gap-2">
                        <span className="text-[#af0000] font-black">•</span>
-                       <span>ทนแรงดันทำงาน (WP): 150 PSI (10 ATM)</span>
+                       <span>{t('bullet3')}</span>
                      </li>
                      <li className="flex gap-2">
                        <span className="text-[#af0000] font-black">•</span>
-                       <span>ทนแรงดันระเบิด (Bursting): 450 PSI (30 ATM)</span>
+                       <span>{t('bullet4')}</span>
                      </li>
                    </ul>
                 </div>

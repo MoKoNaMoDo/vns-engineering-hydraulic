@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 
 
 export default function Toyox() {
+  const t = useTranslations('ProductDetail.Toyox');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -73,7 +75,7 @@ export default function Toyox() {
 
               {/* TOYOX Blue Label */}
               <div className="mt-6 flex justify-center">
-                <div className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center block">สายยางอุตสาหกรรม TOYOX</div>
+                <div className="bg-[#3b6db4] px-12 py-4 text-2xl font-black text-white shadow-xl min-w-[240px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -87,21 +89,7 @@ export default function Toyox() {
 
             <div className="mt-10 space-y-8">
               <div className="space-y-4 text-xl font-medium text-zinc-700 leading-relaxed text-center lg:text-left">
-                <p>
-                  ท่ออ่อนเสริมโครงสร้าง วัสดุหลัก PVC เสริมแรง
-                  ลวดสปิง ทนอุณภูมิ -c5 ถึง 60c สายลม สายน้ำมัน สทน
-                  สารเคมี สายลำเลียงเม็ดพลาสติก สายแก๊ส สายพ่นสี
-
-                  สายยางงานอาหาร สายยางอุตสาหกรรม สาย
-                  อเนกประสงค์ทนแรงดันที่ใช้ในงานอุตสาหกรรม
-
-                  สายยาง ท่อยาง ทั้งสายดูดและสายส่ง ท่ออเนกประสงค์
-                  สายยางทนก๊าซทนเคมี สายยางทนน้ำมัน
-
-                  วัสดุ / พีวีซี (วัสดุเสริมความแข็งแรง / ด้ายโพลีเอสเตอร์
-                  ถัก) ยังมีสายที่เหมาะสมกับใช้งาน อื่นๆอีกมาก
-                </p>
-
+                <p>{t('description')}</p>
               </div>
 
               {/* Social Link Icons */}
@@ -134,7 +122,7 @@ export default function Toyox() {
         <div className="mt-14 border-t border-zinc-100 pt-10">
           <div className="mb-6 text-center">
             <h2 className="text-2xl font-black text-black md:text-3xl">
-              ตารางสเปกสินค้า TOYOX
+              {t('specTableTitle')}
             </h2>
             <div className="mx-auto mt-3 h-[3px] w-24 bg-[#af0000]" />
           </div>

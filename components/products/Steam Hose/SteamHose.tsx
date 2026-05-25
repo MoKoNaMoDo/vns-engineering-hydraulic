@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 
 
 export default function SteamHose() {
+  const t = useTranslations('ProductDetail.SteamHose');
   return (
     <section className="bg-white py-12 font-sans">
       <style jsx>{`
@@ -74,7 +76,7 @@ export default function SteamHose() {
 
               {/* Steam Blue Badge */}
               <div className="mt-4 flex justify-center animate-fade-scale" style={{ animationDelay: '0.6s', opacity: 0 }}>
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[160px] text-center block">สายไอน้ำร้อน (Steam Hose)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg min-w-[160px] text-center block">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -88,41 +90,41 @@ export default function SteamHose() {
 
             <div className="mt-8 space-y-6">
               <p className="text-xl font-bold leading-relaxed text-[#1d1715]">
-                STEAM HOSE (สายไอน้ำ) เป็นสายอุตสาหกรรมที่ออกแบบมาสำหรับงานไอน้ำโดยเฉพาะ ซึ่งต้องทนทั้ง ความร้อนสูง + แรงดันสูง + ความชื้น ได้ดี โดยมีคุณสมบัติหลัก ดังนี้
+                {t('intro')}
               </p>
-              
+
               <ul className="space-y-3 text-lg font-medium text-zinc-800">
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ทนความร้อนสูง: ใช้งานต่อเนื่อง ~170-210°C (พีคได้มากกว่านิดหน่อย)</span>
+                  <span>{t('bullet1')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ทนแรงดัน: ปกติ 10-20 BAR (BURST ~3-4 เท่า)</span>
+                  <span>{t('bullet2')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>โครงสร้าง 3 ชั้น: ยาง EPDM + เสริมแรงลวด/ผ้าใบ + ยางหุ้มทนสภาพ</span>
+                  <span>{t('bullet3')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ทนไอน้ำ น้ำร้อน ความชื้น และการเสื่อมจากความร้อน</span>
+                  <span>{t('bullet4')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ทนสภาพแวดล้อม: โอโซน UV และการเสียดสี</span>
+                  <span>{t('bullet5')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ยืดหยุ่นดี แต่ต้องไม่งอเกินค่าที่กำหนด</span>
+                  <span>{t('bullet6')}</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#af0000]">•</span>
-                  <span>ใช้งานกับระบบ BOILER, อาหาร, เคมี, ล้างไอน้ำ</span>
+                  <span>{t('bullet7')}</span>
                 </li>
                 <li className="flex gap-2 font-black text-zinc-900">
                   <span className="text-[#af0000]">•</span>
-                  <span>เน้นความปลอดภัยสูง ต้องใช้ข้อต่อและสเปคให้ถูกต้อง</span>
+                  <span>{t('bullet8')}</span>
                 </li>
               </ul>
             </div>

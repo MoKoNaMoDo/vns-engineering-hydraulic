@@ -1,29 +1,48 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Search, X, ChevronRight, Menu } from "lucide-react";
-import { searchItems } from "@/constants/search-items";
-import { usePathname } from "next/navigation";
+import { searchItemDefs } from "@/constants/search-items";
+import { usePathname, useRouter, Link } from "@/i18n/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import ViewCounter from "./ViewCounter";
 
-const navLinks = [
-  { name: "หน้าหลัก", href: "/" },
-  { name: "สินค้า", href: "/products" },
-  { name: "หัวสายสแตนเลส 304", href: "/products/stainless-304" },
-  { name: "เกี่ยวกับเรา", href: "/about" },
-  { name: "ติดต่อเรา", href: "/contact" },
-];
-
 export default function Navbar() {
+  const t = useTranslations("Navbar");
+  const tSearch = useTranslations("Search.items");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<typeof searchItems>([]);
   const [isScrolled, setIsScrolled] = useState(false);
-  const searchRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+
+  const navLinks = useMemo(
+    () => [
+      { name: t("home"), href: "/" },
+      { name: t("products"), href: "/products" },
+      { name: t("stainless304"), href: "/products/stainless-304" },
+      { name: t("about"), href: "/about" },
+      { name: t("contact"), href: "/contact" },
+    ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
+
+  const searchItems = useMemo(
+    () =>
+      searchItemDefs.map((item) => ({
+        name: tSearch(`${item.nameKey}.name`),
+        category: tSearch(`${item.nameKey}.category`),
+        href: item.href,
+        keywords: item.keywords,
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
 
   // Handle scroll effect
   useEffect(() => {
@@ -33,22 +52,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Handle search logic
-  useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setSearchResults([]);
-      return;
-    }
-
-    const query = searchQuery.toLowerCase().trim();
-    const filtered = searchItems.filter((item) => {
-      const nameMatch = item.name.toLowerCase().includes(query);
-      const keywordMatch = item.keywords?.some((kw) => kw.toLowerCase().includes(query)) || false;
-      return nameMatch || keywordMatch;
-    });
-    setSearchResults(filtered);
-  }, [searchQuery]);
 
   // Listen for escape key press to close search modal
   useEffect(() => {
@@ -62,28 +65,63 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const searchResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+    return searchItems.filter(
+      (item) =>
+        item.name.toLowerCase().includes(q) ||
+        item.keywords.some((kw) => kw.toLowerCase().includes(q))
+    );
+  }, [searchItems, searchQuery]);
+
+  // Language switcher
+  const switchLocale = () => {
+    const nextLocale = locale === "th" ? "en" : "th";
+    router.replace(pathname, { locale: nextLocale });
+  };
+
   return (
     <header
-      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${isScrolled
+      className={`sticky top-0 z-[100] w-full transition-all duration-500 ${
+        isScrolled
           ? "bg-[#141111]/95 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md"
           : "bg-transparent py-4"
-        }`}
+      }`}
     >
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[#8d0d18] to-transparent opacity-50" />
 
       <style jsx global>{`
         @keyframes logoUp {
-          from { transform: translateY(100px); opacity: 0; }
-          to { transform: translateY(24px); opacity: 1; }
+          from {
+            transform: translateY(100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(24px);
+            opacity: 1;
+          }
         }
         @keyframes navStagger {
-          from { transform: translateY(-20px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
+          from {
+            transform: translateY(-20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
         @keyframes slideInUp {
-          from { transform: translateY(10px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
+          from {
+            transform: translateY(10px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
         .vns-logo-up {
           animation: logoUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -93,7 +131,7 @@ export default function Navbar() {
           transition: all 0.3s ease;
         }
         .vns-nav-link::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -4px;
           left: 0;
@@ -103,7 +141,8 @@ export default function Navbar() {
           transition: width 0.3s ease;
           box-shadow: 0 0 8px #ff4d4d;
         }
-        .vns-nav-link:hover::after, .vns-nav-link.active::after {
+        .vns-nav-link:hover::after,
+        .vns-nav-link.active::after {
           width: 100%;
         }
         .vns-nav-link:hover {
@@ -138,10 +177,14 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`vns-nav-link px-2 uppercase tracking-tight ${isActive ? 'active text-[#dfc1ad]' : ''}`}
+                className={`vns-nav-link px-2 uppercase tracking-tight ${
+                  isActive ? "active text-[#dfc1ad]" : ""
+                }`}
                 style={{
-                  animation: `navStagger 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
-                  opacity: 0
+                  animation: `navStagger 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${
+                    index * 0.1
+                  }s forwards`,
+                  opacity: 0,
                 }}
               >
                 {link.name}
@@ -152,12 +195,21 @@ export default function Navbar() {
 
         {/* Search & Actions */}
         <div className="flex items-center gap-2 sm:gap-4">
+          {/* Language Switcher */}
+          <button
+            onClick={switchLocale}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-xs font-black transition-all duration-300 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/50 hover:text-[#dfc1ad] active:scale-95"
+            title={t("switchLanguageTitle")}
+          >
+            {t("switchLanguage")}
+          </button>
+
           {/* Search Button (Desktop) */}
           <div className="hidden md:flex">
             <button
               onClick={() => setIsSearchOpen(true)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:bg-[#8d0d18]/20 hover:border-[#8d0d18]/50 hover:text-[#dfc1ad] active:scale-95 shadow-sm cursor-pointer"
-              title="ค้นหาสินค้า"
+              title={t("searchTitle")}
             >
               <Search className="h-4.5 w-4.5" />
             </button>
@@ -189,8 +241,11 @@ export default function Navbar() {
                 setIsOpen(!isOpen);
                 if (isSearchOpen) setIsSearchOpen(false);
               }}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all border ${isOpen ? 'bg-[#8d0d18] text-white border-[#8d0d18]' : 'bg-white/5 text-white border-white/10'
-                }`}
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all border ${
+                isOpen
+                  ? "bg-[#8d0d18] text-white border-[#8d0d18]"
+                  : "bg-white/5 text-white border-white/10"
+              }`}
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -210,14 +265,16 @@ export default function Navbar() {
           <div
             className="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#141111]/98 p-5 md:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-3xl"
             onClick={(e) => e.stopPropagation()}
-            style={{ animation: 'slideInUp 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}
+            style={{
+              animation: "slideInUp 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+            }}
           >
             {/* Search Input Area */}
             <div className="relative flex items-center rounded-2xl border border-[#8d0d18]/30 bg-white/5 p-2 focus-within:border-[#8d0d18] focus-within:bg-[#1a1717] focus-within:shadow-[0_0_15px_rgba(141,13,24,0.2)] transition-all">
               <Search className="ml-2.5 h-4.5 w-4.5 text-[#8d0d18] shrink-0" />
               <input
                 type="text"
-                placeholder="พิมพ์สิ่งที่ต้องการค้นหา (เช่น สายไฮดรอลิค, สแตนเลส)..."
+                placeholder={t("searchPlaceholder")}
                 className="ml-3 h-10 w-full bg-transparent pr-3 text-base text-white placeholder-white/30 outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -240,7 +297,9 @@ export default function Navbar() {
                 <div>
                   {searchResults.length > 0 ? (
                     <div className="grid gap-2">
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-[#8d0d18] px-1">ผลการค้นหา ({searchResults.length})</p>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-[#8d0d18] px-1">
+                        {t("searchResults")} ({searchResults.length})
+                      </p>
                       {searchResults.map((item, idx) => (
                         <Link
                           key={idx}
@@ -268,16 +327,27 @@ export default function Navbar() {
                   ) : (
                     <div className="py-12 text-center">
                       <Search className="mx-auto h-10 w-10 text-white/10 mb-2.5" />
-                      <p className="text-sm text-white/40">ไม่พบข้อมูลที่เกี่ยวข้องกับ "{searchQuery}"</p>
+                      <p className="text-sm text-white/40">
+                        {t("noResults", { query: searchQuery })}
+                      </p>
                     </div>
                   )}
                 </div>
               ) : (
                 <div className="grid gap-4 py-2">
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-widest text-white/40 px-1 mb-2.5">คำค้นหายอดนิยม</p>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-white/40 px-1 mb-2.5">
+                      {t("popularSearches")}
+                    </p>
                     <div className="flex flex-wrap gap-2">
-                      {["สายไฮดรอลิค", "สายเทฟลอน", "สแตนเลส 304", "Toyox", "Steam Hose", "R14"].map((tag) => (
+                      {[
+                        "สายไฮดรอลิค",
+                        "สายเทฟลอน",
+                        "สแตนเลส 304",
+                        "Toyox",
+                        "Steam Hose",
+                        "R14",
+                      ].map((tag) => (
                         <button
                           key={tag}
                           onClick={() => setSearchQuery(tag)}
@@ -297,33 +367,43 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <nav className="fixed inset-x-0 top-[72px] bottom-0 z-[90] flex flex-col bg-[#141111]/98 p-6 backdrop-blur-xl md:hidden"
-          style={{ animation: 'slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' }}>
+        <nav
+          className="fixed inset-x-0 top-[72px] bottom-0 z-[90] flex flex-col bg-[#141111]/98 p-6 backdrop-blur-xl md:hidden"
+          style={{
+            animation: "slideInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+          }}
+        >
           <div className="flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${pathname === link.href ? 'border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]' : ''
-                  }`}
+                className={`flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-6 py-5 text-xl font-black text-white transition-all active:scale-95 active:bg-[#8d0d18]/20 ${
+                  pathname === link.href
+                    ? "border-[#8d0d18] bg-[#8d0d18]/10 text-[#dfc1ad]"
+                    : ""
+                }`}
                 style={{
-                  animation: `navStagger 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s forwards`,
-                  opacity: 0
+                  animation: `navStagger 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${
+                    index * 0.1
+                  }s forwards`,
+                  opacity: 0,
                 }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-                <ChevronRight className={`h-5 w-5 ${pathname === link.href ? 'text-[#8d0d18]' : 'text-white/20'}`} />
+                <ChevronRight
+                  className={`h-5 w-5 ${
+                    pathname === link.href ? "text-[#8d0d18]" : "text-white/20"
+                  }`}
+                />
               </Link>
             ))}
           </div>
 
           <div className="mt-auto pb-10 text-center">
-            <div className="mb-4 flex justify-center gap-4">
-              {/* Social icons placeholder if needed */}
-            </div>
             <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20">
-              V.N.S. Engineering Hydraulic
+              {t("companyFooter")}
             </p>
           </div>
         </nav>
@@ -331,5 +411,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-

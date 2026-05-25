@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from "next/image";
 import ProductTags from "@/components/products/ProductTags";
 
@@ -12,6 +13,7 @@ const tags = [
 ];
 
 export default function ProductDetail() {
+  const t = useTranslations('ProductDetail.Stainless304');
   return (
     <section className="bg-white py-12 font-sans">
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8">
@@ -20,19 +22,19 @@ export default function ProductDetail() {
           {/* Left Column: Image and Badges */}
           <div className="flex flex-col items-center lg:items-start">
             <div className="relative w-full max-w-[480px]">
-              {/* Detail Badge */}
-              <a 
+              {/* Detail Badge — PDF link */}
+              <a
                 href="/PDF/Hydraulic_20hose_20fitting_20specification.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute -top-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap group transition-all duration-300 hover:scale-110 active:scale-95"
               >
                 <div className="flex items-center gap-2 rounded-xl bg-white px-6 py-2 text-xl font-black shadow-[0_8px_20px_rgba(0,0,0,0.3)] ring-1 ring-[#af0000]/20 group-hover:bg-zinc-50 transition-colors">
-                  รายละเอียดสินค้า
-                  <svg 
-                    className="w-5 h-5 text-[#af0000] animate-bounce" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  {t('pdfButton')}
+                  <svg
+                    className="w-5 h-5 text-[#af0000] animate-bounce"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
@@ -55,7 +57,7 @@ export default function ProductDetail() {
 
               {/* Category Badge Below Image */}
               <div className="mt-4 flex justify-center">
-                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">หัวสายสแตนเลส 304 (Stainless Steel Fittings)</div>
+                <div className="bg-[#3b6db4] px-8 py-3 text-xl font-black text-white shadow-lg block text-center">{t('badge')}</div>
               </div>
             </div>
           </div>
@@ -63,12 +65,12 @@ export default function ProductDetail() {
           {/* Right Column: Information and Tags */}
           <div className="flex flex-col">
             <h1 className="relative inline-flex flex-col items-center lg:items-center text-3xl font-black text-black self-center lg:self-start">
-              <span className="text-center">หัวสายสแตนเลส 304</span>
+              <span className="text-center">{t('title')}</span>
               <div className="mt-1 h-[2px] w-full bg-[#af0000]" />
             </h1>
 
             <p className="mt-8 text-xl font-bold leading-relaxed text-[#1d1715]">
-              ข้อต่อไฮดรอลิค เหล็ก สแตนเลส ทองเหลือง / 45' 90' องศา เราเป็นผู้ผลิตหัวสายไฮดรอลิคตาม รูปแบบต่างๆ หรือออกแบบใหม่ สเป็คพิเศษ ที่คุณลูกค้าต้องการใน อุตสาหกรรม ยินดีให้คำปรึกษาหากคุณลูกค้าต้องการ
+              {t('description')}
             </p>
 
             {/* Social Icons */}

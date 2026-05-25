@@ -1,8 +1,8 @@
 'use client';
 
-import Link from "next/link";
 import { Tag } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import ViewCounter from "@/components/ViewCounter";
 
 interface ProductTagsProps {
@@ -10,6 +10,7 @@ interface ProductTagsProps {
 }
 
 export default function ProductTags({ tags }: ProductTagsProps) {
+  const t = useTranslations('ProductTags');
   const pathname = usePathname();
   const slug = pathname ? pathname.split("/").filter(Boolean).join("-") : "";
 
@@ -19,13 +20,13 @@ export default function ProductTags({ tags }: ProductTagsProps) {
       <div className="mb-6 flex items-center gap-3 justify-center lg:justify-start">
         <div className="flex items-center gap-2">
           <Tag size={24} className="text-[#af0000]" />
-          <h3 className="text-2xl font-black text-zinc-800">แท็ก:</h3>
+          <h3 className="text-2xl font-black text-zinc-800">{t('tagsLabel')}</h3>
         </div>
-        <ViewCounter 
-          slug={slug} 
-          mode="increment" 
-          className="text-[14px] font-extrabold text-zinc-600 bg-zinc-100 px-3.5 py-1.5 rounded-full border border-zinc-200/50 flex items-center gap-1.5 select-none hover:bg-zinc-200/50 transition-colors" 
-          iconSize={16} 
+        <ViewCounter
+          slug={slug}
+          mode="increment"
+          className="text-[14px] font-extrabold text-zinc-600 bg-zinc-100 px-3.5 py-1.5 rounded-full border border-zinc-200/50 flex items-center gap-1.5 select-none hover:bg-zinc-200/50 transition-colors"
+          iconSize={16}
         />
       </div>
 
