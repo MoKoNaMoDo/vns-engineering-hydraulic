@@ -129,7 +129,7 @@ export default function Toyox() {
           <div className="mx-auto flex max-w-[760px] flex-col gap-8">
             <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl">
               <Image
-                src="/products/product/ChatGPT%20Image%2023%20%E0%B8%9E.%E0%B8%84.%202569%2019_39_43.png"
+                src="/products/product/Toyo1.png"
                 alt="ตารางสเปกและราคา TOYOX TOYORON HYBRID TOYORON HYPER TOYORON SUPER TOYORON"
                 width={1049}
                 height={1500}
@@ -139,7 +139,7 @@ export default function Toyox() {
             </div>
             <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl">
               <Image
-                src="/products/product/ChatGPT%20Image%2023%20%E0%B8%9E.%E0%B8%84.%202569%2019_43_58.png"
+                src="/products/product/Toyo2.png"
                 alt="ตารางสเปกและราคา TOYOX เพิ่มเติม"
                 width={1023}
                 height={1537}
