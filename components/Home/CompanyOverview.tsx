@@ -6,8 +6,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const diagramItems = [
-  { nameKey: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", x: 0, y: -176, href: "/services/hydraulic-hose" },
-  { nameKey: "Fitting and adapter", image: "/products/products/ChatGPT Image May 10, 2026, 02_48_05 PM.png", x: 152, y: -88, href: "/services/fitting-and-adapter" },
+  { nameKey: "Hydraulic Hose", image: "/products/product/hydraulic-hose.png", x: 152, y: -88, href: "/services/hydraulic-hose" },
+  { nameKey: "Fitting and adapter", image: "/products/products/ChatGPT Image May 10, 2026, 02_48_05 PM.png", x: 0, y: -176, href: "/services/fitting-and-adapter" },
   { nameKey: "Steam Hose", image: "/products/products/43024.png", x: 152, y: 88, href: "/services/steam-hose" },
   { nameKey: "PTFE Hose/ Teflon Hose", image: "/products/products/PTFE.-removebg-preview.png", x: 0, y: 176, href: "/services/ptfe-teflon-hose" },
   { nameKey: "Metal Hose", image: "/products/Overview/Flexible Hose.png", x: -152, y: 88, href: "/services/metal-hose" },
@@ -111,8 +111,8 @@ export default function CompanyOverview() {
                     <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
                     <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] rounded-full bg-gradient-to-br from-[#e9e9e9] via-[#dedede] to-[#d3d3d3] z-0 shadow-[inset_8px_10px_18px_rgba(255,255,255,0.34),_inset_-9px_-11px_18px_rgba(0,0,0,0.045),_0_6px_14px_rgba(0,0,0,0.045)] border border-[#e2e2e2]" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-3">
-                      <span className="text-center text-[10px] font-black leading-tight text-zinc-900 max-w-[90px] mb-1">{item.nameKey}</span>
-                      <div className="relative w-14 h-8">
+                      <span className={`text-center text-[10px] font-black leading-tight text-zinc-900 max-w-[90px] ${item.nameKey === "Fitting and adapter" ? "mt-3 mb-0" : "mb-1"}`}>{item.nameKey}</span>
+                      <div className={`relative ${item.nameKey === "Fitting and adapter" ? "w-24 h-16" : "w-14 h-8"}`}>
                         <Image src={item.image} alt={item.nameKey} fill className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]" sizes="60px" />
                       </div>
                     </div>
@@ -143,8 +143,8 @@ export default function CompanyOverview() {
                         <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/80 to-transparent z-10" />
                         <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110px] h-[110px] md:w-[135px] md:h-[135px] rounded-full bg-gradient-to-br from-[#e9e9e9] via-[#dedede] to-[#d3d3d3] z-0 transition-all duration-500 shadow-[inset_10px_12px_24px_rgba(255,255,255,0.34),_inset_-11px_-13px_24px_rgba(0,0,0,0.045),_0_7px_16px_rgba(0,0,0,0.045)] border border-[#e2e2e2]" />
                         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-                          <span className="text-center text-[10px] font-black leading-tight text-zinc-900 transition-colors duration-500 md:text-[13px] max-w-[95px] md:max-w-[125px] mb-1 md:mb-2">{item.nameKey}</span>
-                          <div className="relative w-16 h-10 md:w-24 md:h-14 transition-all duration-500 ease-out">
+                          <span className={`text-center text-[10px] font-black leading-tight text-zinc-900 transition-colors duration-500 md:text-[13px] max-w-[95px] md:max-w-[125px] ${item.nameKey === "Fitting and adapter" ? "mt-5 mb-0 md:mt-6" : "mb-1 md:mb-2"}`}>{item.nameKey}</span>
+                          <div className={`relative transition-all duration-500 ease-out ${item.nameKey === "Fitting and adapter" ? "w-28 h-20 md:w-40 md:h-28" : "w-16 h-10 md:w-24 md:h-14"}`}>
                             <Image src={item.image} alt={item.nameKey} fill className="object-contain drop-shadow-[0_3px_8px_rgba(0,0,0,0.15)]" sizes="100px" />
                           </div>
                         </div>
